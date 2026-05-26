@@ -13,11 +13,13 @@
 
 :root{
   --bg:#070b10;
+  --bg2:#111827;
   --panel:#131c28;
   --text:#e8eef7;
   --muted:#91a3b8;
   --line:#243244;
   --accent:#4da3ff;
+  --accent2:#67e8f9;
   --green:#34d399;
 }
 
@@ -46,10 +48,13 @@ body::before{
   content:"";
   position:fixed;
   inset:0;
+
   background-image:
     linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+
   background-size:60px 60px;
+
   z-index:-3;
 }
 
@@ -57,25 +62,12 @@ body::after{
   content:"";
   position:fixed;
   inset:0;
+
   background:
     radial-gradient(circle at top right, rgba(77,163,255,0.12), transparent 25%),
-    radial-gradient(circle at bottom left, rgba(52,211,153,0.05), transparent 25%);
+    radial-gradient(circle at bottom left, rgba(52,211,153,0.06), transparent 25%);
+
   z-index:-2;
-}
-
-/* CURSOR GLOW */
-
-.cursor-glow{
-  position:fixed;
-  width:550px;
-  height:550px;
-  border-radius:50%;
-  pointer-events:none;
-  background:
-    radial-gradient(circle, rgba(77,163,255,0.10), transparent 70%);
-  z-index:-1;
-  transform:translate(-50%,-50%);
-  transition:left .08s linear, top .08s linear;
 }
 
 /* INTRO */
@@ -87,11 +79,12 @@ body::after{
   display:flex;
   justify-content:center;
   align-items:center;
+  flex-direction:column;
   z-index:9999;
   overflow:hidden;
   transition:
-    opacity 1.4s ease,
-    transform 1.4s ease;
+    opacity 1.2s ease,
+    transform 1.2s ease;
 }
 
 /* FLOATING PANELS */
@@ -105,12 +98,20 @@ body::after{
 
 .panel{
   position:absolute;
-  width:180px;
-  height:110px;
-  border-radius:22px;
-  border:1px solid rgba(255,255,255,0.06);
+  width:160px;
+  height:100px;
+
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:18px;
+
   background:rgba(255,255,255,0.02);
+
   backdrop-filter:blur(10px);
+
+  box-shadow:
+    inset 0 0 20px rgba(255,255,255,0.02),
+    0 0 40px rgba(77,163,255,0.06);
+
   animation:floatPanel 10s ease-in-out infinite;
 }
 
@@ -118,44 +119,77 @@ body::after{
   content:"";
   position:absolute;
   inset:12px;
-  border-radius:14px;
-  border:1px solid rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.05);
+  border-radius:12px;
 }
 
-.panel:nth-child(1){top:10%;left:8%;}
-.panel:nth-child(2){top:18%;right:10%;}
-.panel:nth-child(3){bottom:16%;left:12%;}
-.panel:nth-child(4){bottom:10%;right:15%;}
-.panel:nth-child(5){top:52%;left:4%;}
-.panel:nth-child(6){top:55%;right:5%;}
+.panel:nth-child(1){
+  top:12%;
+  left:8%;
+}
+
+.panel:nth-child(2){
+  top:20%;
+  right:10%;
+}
+
+.panel:nth-child(3){
+  bottom:18%;
+  left:14%;
+}
+
+.panel:nth-child(4){
+  bottom:12%;
+  right:16%;
+}
+
+.panel:nth-child(5){
+  top:50%;
+  left:5%;
+}
+
+.panel:nth-child(6){
+  top:55%;
+  right:5%;
+}
 
 @keyframes floatPanel{
-  0%{transform:translateY(0px);}
-  50%{transform:translateY(-14px);}
-  100%{transform:translateY(0px);}
+
+  0%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(-12px);
+  }
+
+  100%{
+    transform:translateY(0px);
+  }
+
 }
 
-/* INTRO CONTENT */
+/* INTRO BOX */
 
 .intro-box{
+  text-align:center;
+  max-width:700px;
+  padding:40px;
   position:relative;
   z-index:2;
-  text-align:center;
-  max-width:720px;
-  padding:40px;
 }
 
 .intro-box h1{
-  font-size:56px;
-  letter-spacing:6px;
+  font-size:54px;
+  letter-spacing:5px;
   margin-bottom:12px;
 }
 
 .intro-box h2{
   color:var(--accent);
   font-size:18px;
-  font-weight:500;
   margin-bottom:18px;
+  font-weight:500;
 }
 
 .intro-box p{
@@ -163,42 +197,61 @@ body::after{
   margin-bottom:30px;
 }
 
+/* TERMINAL */
+
 .terminal{
   width:100%;
-  max-width:540px;
+  max-width:520px;
+
   margin:0 auto 30px;
+
   text-align:left;
-  background:rgba(10,15,24,0.85);
+
+  background:rgba(10,15,24,0.8);
+
   border:1px solid rgba(255,255,255,0.06);
-  border-radius:18px;
+
+  border-radius:16px;
+
   padding:24px;
-  min-height:160px;
+
+  min-height:150px;
+
   color:#7dd3fc;
+
   font-size:14px;
+
   box-shadow:
-    0 0 35px rgba(77,163,255,0.08);
+    0 0 30px rgba(77,163,255,0.08);
 }
 
 /* BUTTON */
 
 button{
-  padding:14px 28px;
-  border:none;
-  border-radius:14px;
-  cursor:pointer;
-  font-size:14px;
-  color:white;
-  background:rgba(77,163,255,0.12);
+  padding:14px 26px;
+
+  background:rgba(77,163,255,0.08);
+
   border:1px solid rgba(77,163,255,0.3);
-  transition:.35s;
+
+  color:white;
+
+  border-radius:14px;
+
+  cursor:pointer;
+
+  font-size:14px;
+
+  transition:.3s;
 }
 
 button:hover{
+
   transform:
-    translateY(-4px)
+    translateY(-3px)
     scale(1.03);
 
-  background:rgba(77,163,255,0.18);
+  background:rgba(77,163,255,0.15);
 
   box-shadow:
     0 15px 35px rgba(77,163,255,0.15);
@@ -209,18 +262,24 @@ button:hover{
 nav{
   position:sticky;
   top:0;
-  z-index:100;
+
   backdrop-filter:blur(10px);
+
   background:rgba(7,11,16,0.75);
+
   border-bottom:1px solid rgba(255,255,255,0.04);
+
+  z-index:100;
 }
 
 .nav-inner{
   width:min(1150px,90%);
   margin:auto;
+
   display:flex;
   justify-content:space-between;
   align-items:center;
+
   padding:18px 0;
 }
 
@@ -233,7 +292,9 @@ nav{
   display:flex;
   align-items:center;
   gap:8px;
+
   color:var(--muted);
+
   font-size:12px;
 }
 
@@ -242,13 +303,24 @@ nav{
   height:8px;
   border-radius:50%;
   background:var(--green);
+
   animation:pulse 2s infinite;
 }
 
 @keyframes pulse{
-  0%{opacity:.4;}
-  50%{opacity:1;}
-  100%{opacity:.4;}
+
+  0%{
+    opacity:.4;
+  }
+
+  50%{
+    opacity:1;
+  }
+
+  100%{
+    opacity:.4;
+  }
+
 }
 
 /* CONTAINER */
@@ -262,15 +334,17 @@ nav{
 
 .hero{
   min-height:100vh;
+
   display:flex;
   align-items:center;
-  justify-content:center;
-  text-align:center;
+
   padding:100px 0;
 }
 
-.hero-content{
-  max-width:850px;
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:60px;
 }
 
 .hero h1{
@@ -286,8 +360,8 @@ nav{
 .hero p{
   color:var(--muted);
   font-size:18px;
-  margin:0 auto 35px;
-  max-width:750px;
+  max-width:700px;
+  margin-bottom:35px;
 }
 
 /* AI LINE */
@@ -295,7 +369,9 @@ nav{
 .ai-line{
   width:180px;
   height:2px;
-  margin:25px auto;
+
+  margin:25px 0;
+
   background:
     linear-gradient(
       90deg,
@@ -308,24 +384,27 @@ nav{
 }
 
 @keyframes scan{
+
   0%{
     opacity:.4;
     transform:translateX(-20px);
   }
+
   50%{
     opacity:1;
   }
+
   100%{
     opacity:.4;
     transform:translateX(20px);
   }
+
 }
 
 /* BUTTONS */
 
 .buttons{
   display:flex;
-  justify-content:center;
   flex-wrap:wrap;
   gap:15px;
   margin-top:30px;
@@ -333,15 +412,22 @@ nav{
 
 .buttons a{
   padding:14px 22px;
+
   border-radius:14px;
+
   text-decoration:none;
+
   color:white;
+
   border:1px solid rgba(255,255,255,0.06);
+
   background:rgba(255,255,255,0.02);
+
   transition:.35s;
 }
 
 .buttons a:hover{
+
   transform:
     translateY(-4px)
     scale(1.03);
@@ -357,16 +443,109 @@ nav{
   border-color:var(--accent)!important;
 }
 
+/* CARDS */
+
+.cards{
+  display:grid;
+  gap:18px;
+}
+
+.card{
+
+  background:rgba(19,28,40,0.72);
+
+  border:1px solid rgba(255,255,255,0.05);
+
+  border-radius:22px;
+
+  padding:24px;
+
+  backdrop-filter:blur(10px);
+
+  transition:.4s;
+
+  transform-style:preserve-3d;
+
+  perspective:1000px;
+
+  position:relative;
+
+  overflow:hidden;
+}
+
+.card::before{
+  content:"";
+
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.04),
+      transparent
+    );
+
+  opacity:0;
+
+  transition:.4s;
+}
+
+.card:hover{
+
+  transform:
+    rotateX(5deg)
+    rotateY(-5deg)
+    translateY(-10px)
+    scale(1.02);
+
+  border-color:rgba(77,163,255,0.25);
+
+  box-shadow:
+    0 30px 60px rgba(0,0,0,0.45),
+    0 0 35px rgba(77,163,255,0.08);
+}
+
+.card:hover::before{
+  opacity:1;
+}
+
+.card small{
+  color:var(--muted);
+  display:block;
+  margin-bottom:10px;
+  letter-spacing:1px;
+}
+
 /* SECTIONS */
 
 section{
   padding:110px 0;
+
+  animation:fadeUp 1s ease;
+}
+
+@keyframes fadeUp{
+
+  from{
+    opacity:0;
+    transform:translateY(40px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
 }
 
 .section-label{
   color:var(--accent);
+
   font-size:12px;
+
   letter-spacing:2px;
+
   margin-bottom:12px;
 }
 
@@ -389,51 +568,6 @@ section{
   gap:22px;
 }
 
-/* CARDS */
-
-.card{
-  background:rgba(19,28,40,0.72);
-  border:1px solid rgba(255,255,255,0.05);
-  border-radius:22px;
-  padding:24px;
-  backdrop-filter:blur(10px);
-  transition:.4s;
-  position:relative;
-  overflow:hidden;
-}
-
-.card::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255,255,255,0.04),
-      transparent
-    );
-  opacity:0;
-  transition:.4s;
-}
-
-.card:hover{
-  transform:
-    rotateX(5deg)
-    rotateY(-5deg)
-    translateY(-10px)
-    scale(1.02);
-
-  border-color:rgba(77,163,255,0.25);
-
-  box-shadow:
-    0 30px 60px rgba(0,0,0,0.45),
-    0 0 35px rgba(77,163,255,0.08);
-}
-
-.card:hover::before{
-  opacity:1;
-}
-
 /* TAGS */
 
 .tags{
@@ -445,17 +579,26 @@ section{
 
 .tag{
   padding:8px 12px;
+
   border-radius:12px;
+
   background:#0f1722;
+
   border:1px solid rgba(255,255,255,0.06);
+
   color:var(--muted);
+
   font-size:13px;
+
   transition:.3s;
 }
 
 .tag:hover{
+
   transform:translateY(-2px);
+
   border-color:var(--accent);
+
   color:white;
 }
 
@@ -470,6 +613,10 @@ section{
   margin-bottom:45px;
 }
 
+.timeline-item h3{
+  margin-bottom:10px;
+}
+
 .timeline-item p{
   color:var(--muted);
 }
@@ -478,8 +625,11 @@ section{
 
 footer{
   border-top:1px solid rgba(255,255,255,0.05);
+
   padding:50px 0;
+
   text-align:center;
+
   color:var(--muted);
 }
 
@@ -491,6 +641,10 @@ footer a{
 /* RESPONSIVE */
 
 @media(max-width:900px){
+
+.hero-grid{
+  grid-template-columns:1fr;
+}
 
 .hero h1{
   font-size:52px;
@@ -507,19 +661,19 @@ footer a{
 
 <body>
 
-<div class="cursor-glow" id="glow"></div>
-
 <!-- INTRO -->
 
 <div id="intro">
 
 <div class="floating-panels">
+
 <div class="panel"></div>
 <div class="panel"></div>
 <div class="panel"></div>
 <div class="panel"></div>
 <div class="panel"></div>
 <div class="panel"></div>
+
 </div>
 
 <div class="intro-box">
@@ -567,7 +721,9 @@ STATUS: ACTIVE
 
 <section class="hero">
 
-<div class="hero-content">
+<div class="hero-grid single-column">
+
+<div>
 
 <div class="section-label">
 [ SECURITY INTERFACE INITIALIZED ]
@@ -607,6 +763,8 @@ GitHub
 
 </div>
 
+</div>
+
 </section>
 
 <!-- ABOUT -->
@@ -629,20 +787,345 @@ My experience includes hands-on work across IT, cybersecurity compliance, Linux 
 I enjoy learning by building, testing, troubleshooting, and experimenting with different technologies. I’m especially interested in understanding how cybersecurity applies to modern systems, emerging technologies, and real-world operational environments.
 
 Outside of academics, I continue developing my technical skills through projects, certifications, labs, and collaborative experiences. I currently hold both the CompTIA Linux+ and Certified CMMC Professional (CCP) certifications, and I’m fluent in English and Arabic.
+</p></p>
+
+</section>
+
+<!-- CERTIFICATIONS -->
+
+<section>
+
+<div class="section-label">
+STATUS: VERIFIED
+</div>
+
+<h2 class="section-title">
+Certifications
+</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>CompTIA Linux+</h3>
+</div>
+
+<div class="card">
+<h3>Certified CMMC Professional (CCP)</h3>
+</div>
+
+</div>
+
+</section>
+
+<!-- SKILLS -->
+
+<section>
+
+<div class="section-label">
+[ TECHNICAL OVERVIEW ]
+</div>
+
+<h2 class="section-title">
+Technical Skills
+</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<h3>Security & Networking</h3>
+
+<div class="tags">
+<span class="tag">Wireshark</span>
+<span class="tag">Nmap</span>
+<span class="tag">Nessus</span>
+<span class="tag">Metasploit</span>
+<span class="tag">Splunk</span>
+<span class="tag">pfSense</span>
+<span class="tag">SentinelOne</span>
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>Systems & Infrastructure</h3>
+
+<div class="tags">
+<span class="tag">Linux</span>
+<span class="tag">Kali Linux</span>
+<span class="tag">Fedora</span>
+<span class="tag">Ubuntu</span>
+<span class="tag">Windows Server</span>
+<span class="tag">Active Directory</span>
+<span class="tag">Virtual Machines</span>
+<span class="tag">SSH</span>
+<span class="tag">Cloud Infrastructure</span>
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>Programming</h3>
+
+<div class="tags">
+<span class="tag">Python</span>
+<span class="tag">Java</span>
+<span class="tag">HTML</span>
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>Concepts & Technologies</h3>
+
+<div class="tags">
+<span class="tag">Network Security</span>
+<span class="tag">Access Control</span>
+<span class="tag">Virtualization</span>
+<span class="tag">MITM Attacks</span>
+<span class="tag">DoS Attacks</span>
+<span class="tag">Encryption</span>
+<span class="tag">Compliance Frameworks</span>
+<span class="tag">MAVLink</span>
+<span class="tag">DroneKit</span>
+<span class="tag">OpenRouter</span>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+<div class="section-label">
+[ PROJECT MODULE ]
+</div>
+
+<h2 class="section-title">
+Projects
+</h2>
+
+<div class="grid">
+
+<!-- PROJECT 1 -->
+
+<div class="card">
+
+<h3>Autonomous Drone Security Lab</h3>
+
+<p>
+Built a virtualized drone environment using ArduPilot, MAVLink, Mission Planner, and Kali Linux to test network attacks and security controls in autonomous systems.
 </p>
+
+<div class="tags">
+<span class="tag">Kali Linux</span>
+<span class="tag">ArduPilot</span>
+<span class="tag">MAVLink</span>
+<span class="tag">Mission Planner</span>
+</div>
+
+</div>
+
+<!-- PROJECT 2 -->
+
+<div class="card">
+
+<h3>CMMC Compliance Support</h3>
+
+<p>
+Worked with compliance documentation, access controls, and security policies aligned with NIST 800-171 and CMMC requirements.
+</p>
+
+<div class="tags">
+<span class="tag">CMMC</span>
+<span class="tag">NIST 800-171</span>
+<span class="tag">Compliance</span>
+</div>
+
+</div>
+
+<!-- PROJECT 3 -->
+
+<div class="card">
+
+<h3>AI-Assisted Drone Command Testing</h3>
+
+<p>
+Experimented with Python scripts and LLM integrations to translate natural-language prompts into structured drone commands.
+</p>
+
+<div class="tags">
+<span class="tag">Python</span>
+<span class="tag">DroneKit</span>
+<span class="tag">OpenRouter</span>
+</div>
+
+</div>
+
+<!-- PROJECT 4 -->
+
+<div class="card">
+
+<h3>Virtualized Security Testing Lab</h3>
+
+<p>
+Built and maintained a personal cybersecurity lab using VirtualBox, Kali Linux, and Metasploit to practice penetration testing concepts, vulnerability analysis, networking, and hands-on security testing in isolated virtual environments.
+</p>
+
+<div class="tags">
+<span class="tag">VirtualBox</span>
+<span class="tag">Kali Linux</span>
+<span class="tag">Metasploit</span>
+<span class="tag">Penetration Testing</span>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- EXPERIENCE -->
+
+<section>
+
+<div class="section-label">
+STATUS: EXPERIENCE LOG
+</div>
+
+<h2 class="section-title">
+Experience
+</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<h3>Cybersecurity Intern — NDIA / Lionfish Cyber / Meerkat Cyber</h3>
+<p>
+Hands-on exposure to compliance workflows, security tooling, access controls, and collaboration across cybersecurity initiatives.
+</p>
+</div>
+
+<div class="timeline-item">
+<h3>NASA-Led Internship — George Washington University</h3>
+<p>
+Worked in a technical internship environment involving collaborative problem solving and exposure to advanced systems concepts.
+</p>
+</div>
+
+<div class="timeline-item">
+<h3>Agentic AI Intern — Kashmir World Foundation</h3>
+<p>
+Explored AI-assisted workflows, automation concepts, and experimentation with intelligent systems.
+</p>
+</div>
+
+<div class="timeline-item">
+<h3>Undergraduate Experience — George Mason University</h3>
+<p>
+Participated in cybersecurity labs, technical research, and presentations involving emerging AI tools, cybersecurity technologies, and hands-on experimentation with modern security concepts and systems.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- EDUCATION -->
+
+<section>
+
+<div class="section-label">
+[ EDUCATION ]
+</div>
+
+<h2 class="section-title">
+Education
+</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>George Mason University</h3>
+<p>B.A.S. Cybersecurity</p>
+<p>Expected Graduation: 2027</p>
+</div>
+
+<div class="card">
+<h3>Northern Virginia Community College</h3>
+<p>A.A.S. Cybersecurity</p>
+<p>4.0 GPA</p>
+<p>Presidential Scholar</p>
+<p>Dean’s List</p>
+</div>
+
+</div>
 
 </section>
 
 </div>
 
+<!-- FOOTER -->
+
+<footer>
+
+<div class="container">
+
+<p>
+Mohamed Taha — Cybersecurity Portfolio
+</p>
+
+<br>
+
+<p>
+Based in Virginia, USA
+</p>
+
+<br>
+
+<p>
+
+<a href="Mohamed_Taha_RESUME.pdf" target="_blank">
+Resume
+</a>
+
+|
+
+<a href="https://www.linkedin.com/in/mohamed-taha-099938353" target="_blank">
+LinkedIn
+</a>
+
+|
+
+<a href="https://github.com/Mohamed-MT" target="_blank">
+GitHub
+</a>
+
+</p>
+
+</div>
+
+</footer>
+
 <script>
 
+/* TERMINAL */
+
 const lines = [
+
 '> Establishing secure connection...',
 '> Verifying credentials...',
 '> Initializing security interface...',
 '> Loading portfolio modules...',
 '> Access granted.'
+
 ];
 
 let i = 0;
@@ -656,8 +1139,12 @@ function typeLines(){
     i++;
 
     setTimeout(typeLines,700);
+
   }
+
 }
+
+/* INTRO */
 
 function startPortfolio(){
 
@@ -665,39 +1152,43 @@ function startPortfolio(){
 
   setTimeout(()=>{
 
-    const terminal = document.getElementById('terminal');
-
-    terminal.innerHTML += `
-      <br>
-      <span style="color:#67e8f9;">
-      > Security verification complete.
-      </span>
-      <br>
-      <span style="color:#34d399;">
-      > Unlocking secure interface...
-      </span>
-    `;
-
-  },4200);
-
-  setTimeout(()=>{
-
-    document.getElementById('intro').style.transform='scale(1.08)';
+    document.getElementById('intro').style.transform='scale(1.05)';
     document.getElementById('intro').style.opacity='0';
 
     setTimeout(()=>{
 
       document.getElementById('intro').style.display='none';
 
-    },1400);
+    },1200);
 
-  },6200);
+  },4200);
 
 }
 
 /* CURSOR GLOW */
 
-const glow = document.getElementById('glow');
+const glow = document.createElement('div');
+
+glow.style.position = 'fixed';
+
+glow.style.width = '550px';
+
+glow.style.height = '550px';
+
+glow.style.borderRadius = '50%';
+
+glow.style.pointerEvents = 'none';
+
+glow.style.background =
+'radial-gradient(circle, rgba(77,163,255,0.10), transparent 70%)';
+
+glow.style.zIndex = '-1';
+
+glow.style.transform = 'translate(-50%, -50%)';
+
+glow.style.transition = 'left 0.08s linear, top 0.08s linear';
+
+document.body.appendChild(glow);
 
 document.addEventListener('mousemove', (e)=>{
 
