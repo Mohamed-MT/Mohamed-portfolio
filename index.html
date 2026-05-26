@@ -332,10 +332,26 @@ nav{
 /* ═══════════════ LAYOUT ═══════════════ */
 .container{ width:min(1150px,90%); margin:auto; }
 
-section{ padding:110px 0; animation:fadeUp 1s ease; }
-@keyframes fadeUp{
-  from{ opacity:0; transform:translateY(40px); }
-  to{ opacity:1; transform:translateY(0); }
+section{
+  padding:110px 0;
+  opacity:0;
+  transform:translateY(90px) scale(0.97);
+  filter:blur(6px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22,1,0.36,1),
+    transform 0.9s cubic-bezier(0.22,1,0.36,1),
+    filter 0.9s cubic-bezier(0.22,1,0.36,1);
+  will-change:opacity,transform,filter;
+}
+section.in-view{
+  opacity:1;
+  transform:translateY(0) scale(1);
+  filter:blur(0px);
+}
+section.out-view{
+  opacity:0;
+  transform:translateY(-70px) scale(0.97);
+  filter:blur(6px);
 }
 
 .section-label{
@@ -691,7 +707,7 @@ footer a:hover{ color:var(--accent2); }
         <h3>AI-Assisted Drone Command Testing</h3>
         <p>Experimented with Python scripts and LLM integrations to translate natural-language prompts into structured drone commands.</p>
         <div class="tags">
-          <span class="tag">Python</span><span class="tag">DroneKit</span><span class="tag">OpenRouter</span><span class="tag">Agno Agents</span>
+          <span class="tag">Python</span><span class="tag">DroneKit</span><span class="tag">OpenRouter</span>
         </div>
       </div>
       <div class="card">
@@ -860,6 +876,7 @@ function runLockSequence(){
     setTimeout(()=>{
       lockScreen.style.display = 'none';
       document.getElementById('portfolio-content').classList.add('revealed');
+      initScrollReveal();
     }, 1000);
   }, 3900);
 }
@@ -888,6 +905,46 @@ function startPortfolio(){
       runLockSequence();
     }, 800);
   }, 4600);
+}
+
+/* ─── SCROLL REVEAL ─── */
+function initScrollReveal(){
+  const sections = document.querySelectorAll('section');
+
+  // Two observers: one for entering, one for leaving upward
+  const enterObserver = new IntersectionObserver((entries)=>{
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('in-view');
+        entry.target.classList.remove('out-view');
+      }
+    });
+  }, { threshold: 0.18 });
+
+  const exitObserver = new IntersectionObserver((entries)=>{
+    entries.forEach(entry => {
+      if(!entry.isIntersecting){
+        // Only apply out-view if the section has already been seen
+        if(entry.target.classList.contains('in-view')){
+          const rect = entry.target.getBoundingClientRect();
+          // If scrolled past (section above viewport), fade up-out
+          if(rect.bottom < 0){
+            entry.target.classList.add('out-view');
+            entry.target.classList.remove('in-view');
+          } else {
+            // Section below viewport — reset to default slide-up-in state
+            entry.target.classList.remove('in-view');
+            entry.target.classList.remove('out-view');
+          }
+        }
+      }
+    });
+  }, { threshold: 0 });
+
+  sections.forEach(s => {
+    enterObserver.observe(s);
+    exitObserver.observe(s);
+  });
 }
 
 /* ─── CURSOR GLOW ─── */
