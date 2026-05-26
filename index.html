@@ -3,14 +3,11 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
 <title>Mohamed Taha | Cybersecurity Portfolio</title>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-
 :root{
   --bg:#070b10;
   --bg2:#111827;
@@ -22,56 +19,37 @@
   --accent2:#67e8f9;
   --green:#34d399;
 }
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
 body{
-  font-family:'Inter',sans-serif;
+  font-family:'Rajdhani',sans-serif;
   background:var(--bg);
   color:var(--text);
   overflow-x:hidden;
   line-height:1.7;
-  position:relative;
 }
-
-/* BACKGROUND */
 
 body::before{
   content:"";
   position:fixed;
   inset:0;
-
   background-image:
-    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
   background-size:60px 60px;
-
   z-index:-3;
 }
-
 body::after{
   content:"";
   position:fixed;
   inset:0;
-
   background:
     radial-gradient(circle at top right, rgba(77,163,255,0.12), transparent 25%),
     radial-gradient(circle at bottom left, rgba(52,211,153,0.06), transparent 25%);
-
   z-index:-2;
 }
 
-/* INTRO */
-
+/* ═══════════════ INTRO SCREEN ═══════════════ */
 #intro{
   position:fixed;
   inset:0;
@@ -82,1122 +60,850 @@ body::after{
   flex-direction:column;
   z-index:9999;
   overflow:hidden;
-  transition:
-    opacity 1.2s ease,
-    transform 1.2s ease;
+  transition: opacity 1.2s ease, transform 1.2s ease;
 }
 
-/* FLOATING PANELS */
-
-.floating-panels{
-  position:absolute;
-  inset:0;
-  overflow:hidden;
-  pointer-events:none;
-}
-
+.floating-panels{ position:absolute; inset:0; overflow:hidden; pointer-events:none; }
 .panel{
   position:absolute;
-  width:160px;
-  height:100px;
-
-  border:1px solid rgba(255,255,255,0.08);
+  width:160px; height:100px;
+  border:1px solid rgba(255,255,255,0.07);
   border-radius:18px;
-
-  background:rgba(255,255,255,0.02);
-
+  background:rgba(255,255,255,0.015);
   backdrop-filter:blur(10px);
-
-  box-shadow:
-    inset 0 0 20px rgba(255,255,255,0.02),
-    0 0 40px rgba(77,163,255,0.06);
-
+  box-shadow: inset 0 0 20px rgba(255,255,255,0.02), 0 0 40px rgba(77,163,255,0.05);
   animation:floatPanel 10s ease-in-out infinite;
 }
-
 .panel::before{
-  content:"";
-  position:absolute;
-  inset:12px;
-  border:1px solid rgba(255,255,255,0.05);
-  border-radius:12px;
+  content:""; position:absolute; inset:12px;
+  border:1px solid rgba(255,255,255,0.04); border-radius:12px;
 }
-
-.panel:nth-child(1){
-  top:12%;
-  left:8%;
-}
-
-.panel:nth-child(2){
-  top:20%;
-  right:10%;
-}
-
-.panel:nth-child(3){
-  bottom:18%;
-  left:14%;
-}
-
-.panel:nth-child(4){
-  bottom:12%;
-  right:16%;
-}
-
-.panel:nth-child(5){
-  top:50%;
-  left:5%;
-}
-
-.panel:nth-child(6){
-  top:55%;
-  right:5%;
-}
+.panel:nth-child(1){ top:12%; left:8%; animation-delay:0s; }
+.panel:nth-child(2){ top:20%; right:10%; animation-delay:1.5s; }
+.panel:nth-child(3){ bottom:18%; left:14%; animation-delay:3s; }
+.panel:nth-child(4){ bottom:12%; right:16%; animation-delay:4.5s; }
+.panel:nth-child(5){ top:50%; left:5%; animation-delay:2s; }
+.panel:nth-child(6){ top:55%; right:5%; animation-delay:3.5s; }
 
 @keyframes floatPanel{
-
-  0%{
-    transform:translateY(0px);
-  }
-
-  50%{
-    transform:translateY(-12px);
-  }
-
-  100%{
-    transform:translateY(0px);
-  }
-
+  0%{ transform:translateY(0px); }
+  50%{ transform:translateY(-12px); }
+  100%{ transform:translateY(0px); }
 }
 
 /* INTRO BOX */
-
 .intro-box{
   text-align:center;
-  max-width:700px;
+  max-width:620px;
   padding:40px;
   position:relative;
   z-index:2;
 }
-
 .intro-box h1{
-  font-size:54px;
-  letter-spacing:5px;
-  margin-bottom:12px;
+  font-family:'Rajdhani',sans-serif;
+  font-size:48px;
+  font-weight:700;
+  letter-spacing:6px;
+  margin-bottom:8px;
 }
-
 .intro-box h2{
   color:var(--accent);
-  font-size:18px;
-  margin-bottom:18px;
-  font-weight:500;
-}
-
-.intro-box p{
-  color:var(--muted);
-  margin-bottom:30px;
+  font-size:14px;
+  letter-spacing:4px;
+  margin-bottom:22px;
+  font-weight:400;
+  font-family:'Share Tech Mono',monospace;
 }
 
 /* TERMINAL */
-
 .terminal{
-  width:100%;
-  max-width:520px;
-
-  margin:0 auto 30px;
-
+  width:100%; max-width:520px; margin:0 auto 28px;
   text-align:left;
-
-  background:rgba(10,15,24,0.8);
-
-  border:1px solid rgba(255,255,255,0.06);
-
-  border-radius:16px;
-
-  padding:24px;
-
-  min-height:150px;
-
-  color:#7dd3fc;
-
-  font-size:14px;
-
-  box-shadow:
-    0 0 30px rgba(77,163,255,0.08);
-}
-
-/* BUTTON */
-
-button{
-  padding:14px 26px;
-
-  background:rgba(77,163,255,0.08);
-
-  border:1px solid rgba(77,163,255,0.3);
-
-  color:white;
-
+  background:rgba(10,15,24,0.85);
+  border:1px solid rgba(77,163,255,0.15);
   border-radius:14px;
+  padding:22px 26px;
+  min-height:148px;
+  color:#7dd3fc;
+  font-size:13px;
+  font-family:'Share Tech Mono',monospace;
+  box-shadow: 0 0 30px rgba(77,163,255,0.08), inset 0 0 40px rgba(0,0,0,0.4);
+  line-height:2;
+}
+.terminal .cursor{
+  display:inline-block;
+  width:8px; height:14px;
+  background:var(--accent);
+  animation:blink .7s step-end infinite;
+  vertical-align:middle;
+}
+@keyframes blink{ 0%,100%{opacity:1;} 50%{opacity:0;} }
 
+/* LAUNCH BUTTON */
+.launch-btn{
+  padding:14px 30px;
+  background:rgba(77,163,255,0.08);
+  border:1px solid rgba(77,163,255,0.35);
+  color:white;
+  border-radius:12px;
   cursor:pointer;
-
-  font-size:14px;
-
+  font-size:13px;
+  font-family:'Share Tech Mono',monospace;
+  letter-spacing:2px;
   transition:.3s;
 }
-
-button:hover{
-
-  transform:
-    translateY(-3px)
-    scale(1.03);
-
-  background:rgba(77,163,255,0.15);
-
-  box-shadow:
-    0 15px 35px rgba(77,163,255,0.15);
+.launch-btn:hover{
+  transform:translateY(-3px) scale(1.03);
+  background:rgba(77,163,255,0.16);
+  box-shadow:0 15px 35px rgba(77,163,255,0.15);
 }
 
-/* NAV */
+/* ═══════════════ LOCK SCREEN ═══════════════ */
+#lock-screen{
+  position:fixed;
+  inset:0;
+  background:#05080d;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  z-index:9998;
+  gap:30px;
+  transition: opacity 1.2s ease;
+}
 
-nav{
-  position:sticky;
+/* SVG LOCK */
+.lock-wrap{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:24px;
+}
+
+#lock-svg{
+  width:100px;
+  height:110px;
+  filter: drop-shadow(0 0 20px rgba(77,163,255,0.4));
+}
+
+/* Shackle animation: rotates the top arc open */
+#shackle{
+  transform-origin: 50px 38px;
+  transition: transform 0.7s cubic-bezier(0.34,1.56,0.64,1);
+}
+#shackle.open{
+  transform: rotate(-55deg) translateY(-10px);
+}
+
+/* Body glows green when unlocked */
+#lock-body{
+  transition: fill 0.5s ease, stroke 0.5s ease;
+}
+#lock-body.unlocked{
+  fill: rgba(52,211,153,0.15);
+  stroke: #34d399;
+}
+#lock-icon-line{
+  transition: opacity 0.4s ease 0.3s;
+}
+#lock-icon-line.hidden{ opacity:0; }
+
+/* Scanning line across body */
+.scan-line{
+  position:absolute;
+  width:100%;
+  height:1px;
+  background: linear-gradient(90deg, transparent, rgba(77,163,255,0.7), transparent);
+  animation: scanDown 1.2s linear infinite;
   top:0;
-
-  backdrop-filter:blur(10px);
-
-  background:rgba(7,11,16,0.75);
-
-  border-bottom:1px solid rgba(255,255,255,0.04);
-
-  z-index:100;
+  left:0;
+}
+@keyframes scanDown{
+  0%{ top:0; opacity:0; }
+  10%{ opacity:1; }
+  90%{ opacity:1; }
+  100%{ top:100%; opacity:0; }
 }
 
-.nav-inner{
-  width:min(1150px,90%);
-  margin:auto;
-
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-
-  padding:18px 0;
-}
-
-.logo{
-  font-weight:700;
-  letter-spacing:2px;
-}
-
-.status{
-  display:flex;
-  align-items:center;
-  gap:8px;
-
-  color:var(--muted);
-
+/* Status text under lock */
+.lock-status{
+  font-family:'Share Tech Mono',monospace;
   font-size:12px;
-}
-
-.dot{
-  width:8px;
-  height:8px;
-  border-radius:50%;
-  background:var(--green);
-
-  animation:pulse 2s infinite;
-}
-
-@keyframes pulse{
-
-  0%{
-    opacity:.4;
-  }
-
-  50%{
-    opacity:1;
-  }
-
-  100%{
-    opacity:.4;
-  }
-
-}
-
-/* CONTAINER */
-
-.container{
-  width:min(1150px,90%);
-  margin:auto;
-}
-
-/* HERO */
-
-.hero{
-  min-height:100vh;
-
-  display:flex;
-  align-items:center;
-
-  padding:100px 0;
-}
-
-.hero-grid{
-  display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:60px;
-}
-
-.hero h1{
-  font-size:72px;
-  line-height:1.05;
-  margin-bottom:18px;
-}
-
-.hero h1 span{
+  letter-spacing:3px;
   color:var(--accent);
+  text-align:center;
 }
+.lock-status.green{ color:var(--green); }
 
-.hero p{
-  color:var(--muted);
-  font-size:18px;
-  max-width:700px;
-  margin-bottom:35px;
-}
-
-/* AI LINE */
-
-.ai-line{
-  width:180px;
-  height:2px;
-
-  margin:25px 0;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      var(--accent),
-      transparent
-    );
-
-  animation:scan 3s linear infinite;
-}
-
-@keyframes scan{
-
-  0%{
-    opacity:.4;
-    transform:translateX(-20px);
-  }
-
-  50%{
-    opacity:1;
-  }
-
-  100%{
-    opacity:.4;
-    transform:translateX(20px);
-  }
-
-}
-
-/* BUTTONS */
-
-.buttons{
-  display:flex;
-  flex-wrap:wrap;
-  gap:15px;
-  margin-top:30px;
-}
-
-.buttons a{
-  padding:14px 22px;
-
-  border-radius:14px;
-
-  text-decoration:none;
-
+/* WELCOME message */
+.welcome-msg{
+  font-family:'Rajdhani',sans-serif;
+  font-size:52px;
+  font-weight:700;
+  letter-spacing:12px;
   color:white;
-
-  border:1px solid rgba(255,255,255,0.06);
-
-  background:rgba(255,255,255,0.02);
-
-  transition:.35s;
+  opacity:0;
+  transform:scale(0.9);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  text-align:center;
 }
-
-.buttons a:hover{
-
-  transform:
-    translateY(-4px)
-    scale(1.03);
-
-  border-color:var(--accent);
-
-  box-shadow:
-    0 15px 35px rgba(77,163,255,0.12);
+.welcome-msg.visible{
+  opacity:1;
+  transform:scale(1);
 }
+.welcome-msg span{ color:var(--green); }
 
-.primary{
-  background:rgba(77,163,255,0.12)!important;
-  border-color:var(--accent)!important;
-}
-
-/* CARDS */
-
-.cards{
-  display:grid;
-  gap:18px;
-}
-
-.card{
-
-  background:rgba(19,28,40,0.72);
-
-  border:1px solid rgba(255,255,255,0.05);
-
-  border-radius:22px;
-
-  padding:24px;
-
-  backdrop-filter:blur(10px);
-
-  transition:.4s;
-
-  transform-style:preserve-3d;
-
-  perspective:1000px;
-
-  position:relative;
-
-  overflow:hidden;
-}
-
-.card::before{
+/* Hex grid overlay for the lock screen */
+#lock-screen::before{
   content:"";
-
   position:absolute;
   inset:0;
+  background-image:
+    linear-gradient(rgba(77,163,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(77,163,255,0.03) 1px, transparent 1px);
+  background-size:40px 40px;
+}
 
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255,255,255,0.04),
-      transparent
-    );
+/* Progress bar */
+.progress-wrap{
+  width:280px;
+  height:2px;
+  background:rgba(255,255,255,0.06);
+  border-radius:2px;
+  overflow:hidden;
+}
+.progress-bar{
+  height:100%;
+  width:0%;
+  background: linear-gradient(90deg, var(--accent), var(--green));
+  border-radius:2px;
+  transition: width 1.2s ease;
+}
+.progress-bar.full{ width:100%; }
 
+/* ═══════════════ PORTFOLIO HIDDEN UNTIL UNLOCKED ═══════════════ */
+#portfolio-content{
   opacity:0;
-
-  transition:.4s;
+  visibility:hidden;
+  transition: opacity 1s ease;
 }
-
-.card:hover{
-
-  transform:
-    rotateX(5deg)
-    rotateY(-5deg)
-    translateY(-10px)
-    scale(1.02);
-
-  border-color:rgba(77,163,255,0.25);
-
-  box-shadow:
-    0 30px 60px rgba(0,0,0,0.45),
-    0 0 35px rgba(77,163,255,0.08);
-}
-
-.card:hover::before{
+#portfolio-content.revealed{
   opacity:1;
+  visibility:visible;
 }
 
-.card small{
-  color:var(--muted);
-  display:block;
-  margin-bottom:10px;
+/* ═══════════════ NAV ═══════════════ */
+nav{
+  position:sticky; top:0;
+  backdrop-filter:blur(12px);
+  background:rgba(7,11,16,0.8);
+  border-bottom:1px solid rgba(255,255,255,0.04);
+  z-index:100;
+}
+.nav-inner{
+  width:min(1150px,90%); margin:auto;
+  display:flex; justify-content:space-between; align-items:center;
+  padding:18px 0;
+}
+.logo{
+  font-weight:700;
+  letter-spacing:3px;
+  font-family:'Rajdhani',sans-serif;
+  font-size:18px;
+}
+.status{
+  display:flex; align-items:center; gap:8px;
+  color:var(--muted); font-size:11px;
+  font-family:'Share Tech Mono',monospace;
   letter-spacing:1px;
 }
-
-/* SECTIONS */
-
-section{
-  padding:110px 0;
-
-  animation:fadeUp 1s ease;
+.dot{
+  width:8px; height:8px;
+  border-radius:50%;
+  background:var(--green);
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{
+  0%{ opacity:.4; box-shadow:0 0 0 0 rgba(52,211,153,0.4); }
+  50%{ opacity:1; box-shadow:0 0 0 6px rgba(52,211,153,0); }
+  100%{ opacity:.4; box-shadow:0 0 0 0 rgba(52,211,153,0); }
 }
 
+/* ═══════════════ LAYOUT ═══════════════ */
+.container{ width:min(1150px,90%); margin:auto; }
+
+section{ padding:110px 0; animation:fadeUp 1s ease; }
 @keyframes fadeUp{
-
-  from{
-    opacity:0;
-    transform:translateY(40px);
-  }
-
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-
+  from{ opacity:0; transform:translateY(40px); }
+  to{ opacity:1; transform:translateY(0); }
 }
 
 .section-label{
-  color:var(--accent);
-
-  font-size:12px;
-
-  letter-spacing:2px;
-
-  margin-bottom:12px;
+  color:var(--accent); font-size:11px;
+  letter-spacing:3px; margin-bottom:12px;
+  font-family:'Share Tech Mono',monospace;
 }
-
 .section-title{
-  font-size:42px;
-  margin-bottom:25px;
+  font-size:44px; margin-bottom:25px;
+  font-weight:700; letter-spacing:1px;
 }
 
-.about{
-  max-width:850px;
-  color:var(--muted);
-  font-size:18px;
+/* ═══════════════ HERO — CENTERED ═══════════════ */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:100px 0;
+  text-align:center;
 }
+.hero-inner{
+  max-width:800px;
+  margin:0 auto;
+}
+.hero h1{
+  font-size:76px;
+  line-height:1.05;
+  margin-bottom:20px;
+  font-weight:700;
+  letter-spacing:2px;
+}
+.hero h1 span{ color:var(--accent); }
+.hero p{
+  color:var(--muted); font-size:18px;
+  max-width:620px; margin:0 auto 35px;
+  line-height:1.8;
+}
+
+.ai-line{
+  width:180px; height:2px;
+  margin:25px auto;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  animation:scan 3s linear infinite;
+}
+@keyframes scan{
+  0%{ opacity:.4; transform:translateX(-20px); }
+  50%{ opacity:1; }
+  100%{ opacity:.4; transform:translateX(20px); }
+}
+
+/* BUTTONS */
+.buttons{
+  display:flex; flex-wrap:wrap;
+  gap:14px; margin-top:30px;
+  justify-content:center;
+}
+.buttons a{
+  padding:13px 22px;
+  border-radius:12px;
+  text-decoration:none; color:white;
+  border:1px solid rgba(255,255,255,0.07);
+  background:rgba(255,255,255,0.02);
+  transition:.35s;
+  font-family:'Rajdhani',sans-serif;
+  font-weight:600;
+  letter-spacing:1px;
+  font-size:14px;
+}
+.buttons a:hover{
+  transform:translateY(-4px) scale(1.03);
+  border-color:var(--accent);
+  box-shadow:0 15px 35px rgba(77,163,255,0.12);
+}
+.primary{
+  background:rgba(77,163,255,0.12)!important;
+  border-color:rgba(77,163,255,0.5)!important;
+}
+
+/* ═══════════════ CARDS ═══════════════ */
+.cards{ display:grid; gap:18px; }
+.card{
+  background:rgba(19,28,40,0.72);
+  border:1px solid rgba(255,255,255,0.05);
+  border-radius:20px;
+  padding:26px;
+  backdrop-filter:blur(10px);
+  transition:.4s;
+  position:relative; overflow:hidden;
+}
+.card::before{
+  content:""; position:absolute; inset:0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.03), transparent);
+  opacity:0; transition:.4s;
+}
+.card:hover{
+  transform:translateY(-8px) scale(1.01);
+  border-color:rgba(77,163,255,0.25);
+  box-shadow:0 25px 55px rgba(0,0,0,0.4), 0 0 30px rgba(77,163,255,0.07);
+}
+.card:hover::before{ opacity:1; }
+.card h3{ font-size:18px; font-weight:600; margin-bottom:10px; letter-spacing:.5px; }
+.card p{ color:var(--muted); font-size:15px; }
+
+/* ABOUT */
+.about{ max-width:850px; color:var(--muted); font-size:17px; line-height:1.9; }
 
 /* GRID */
-
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:22px;
-}
+.grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:20px; }
 
 /* TAGS */
-
-.tags{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:18px;
-}
-
+.tags{ display:flex; flex-wrap:wrap; gap:9px; margin-top:16px; }
 .tag{
-  padding:8px 12px;
-
-  border-radius:12px;
-
+  padding:6px 12px; border-radius:10px;
   background:#0f1722;
-
   border:1px solid rgba(255,255,255,0.06);
-
-  color:var(--muted);
-
-  font-size:13px;
-
+  color:var(--muted); font-size:12px;
+  font-family:'Share Tech Mono',monospace;
   transition:.3s;
 }
-
 .tag:hover{
-
   transform:translateY(-2px);
-
-  border-color:var(--accent);
-
-  color:white;
+  border-color:rgba(77,163,255,0.4);
+  color:var(--accent2);
 }
 
 /* TIMELINE */
-
-.timeline{
-  border-left:2px solid rgba(255,255,255,0.08);
-  padding-left:28px;
+.timeline{ border-left:2px solid rgba(77,163,255,0.2); padding-left:28px; }
+.timeline-item{ margin-bottom:45px; position:relative; }
+.timeline-item::before{
+  content:"";
+  position:absolute;
+  left:-35px; top:6px;
+  width:10px; height:10px;
+  border-radius:50%;
+  background:var(--accent);
+  box-shadow:0 0 10px rgba(77,163,255,0.5);
 }
-
-.timeline-item{
-  margin-bottom:45px;
-}
-
-.timeline-item h3{
-  margin-bottom:10px;
-}
-
-.timeline-item p{
-  color:var(--muted);
-}
+.timeline-item h3{ margin-bottom:8px; font-size:17px; font-weight:600; }
+.timeline-item p{ color:var(--muted); font-size:15px; }
 
 /* FOOTER */
-
 footer{
   border-top:1px solid rgba(255,255,255,0.05);
-
-  padding:50px 0;
-
-  text-align:center;
-
-  color:var(--muted);
+  padding:50px 0; text-align:center; color:var(--muted);
+  font-size:14px;
 }
-
-footer a{
-  color:var(--accent);
-  text-decoration:none;
-}
+footer a{ color:var(--accent); text-decoration:none; }
+footer a:hover{ color:var(--accent2); }
 
 /* RESPONSIVE */
-
 @media(max-width:900px){
-
-.hero-grid{
-  grid-template-columns:1fr;
+  .hero h1{ font-size:52px; }
+  .intro-box h1{ font-size:36px; }
+  .section-title{ font-size:34px; }
 }
-
-.hero h1{
-  font-size:52px;
-}
-
-.intro-box h1{
-  font-size:40px;
-}
-
-}
-
 </style>
 </head>
 
 <body>
 
-<!-- INTRO -->
-
+<!-- ═══════════ INTRO TERMINAL ═══════════ -->
 <div id="intro">
-
-<div class="floating-panels">
-
-<div class="panel"></div>
-<div class="panel"></div>
-<div class="panel"></div>
-<div class="panel"></div>
-<div class="panel"></div>
-<div class="panel"></div>
-
+  <div class="floating-panels">
+    <div class="panel"></div>
+    <div class="panel"></div>
+    <div class="panel"></div>
+    <div class="panel"></div>
+    <div class="panel"></div>
+    <div class="panel"></div>
+  </div>
+  <div class="intro-box">
+    <h1>MOHAMED TAHA</h1>
+    <h2>CYBERSECURITY PORTFOLIO</h2>
+    <p style="color:var(--muted);margin-bottom:22px;font-family:'Share Tech Mono',monospace;font-size:12px;letter-spacing:2px;">SECURE ACCESS REQUIRED</p>
+    <div class="terminal" id="terminal"><span class="cursor"></span></div>
+    <button class="launch-btn" onclick="startPortfolio()">⬡ INITIALIZE SESSION</button>
+  </div>
 </div>
 
-<div class="intro-box">
+<!-- ═══════════ LOCK SCREEN ═══════════ -->
+<div id="lock-screen">
+  <div class="lock-wrap">
+    <!-- SVG Lock -->
+    <svg id="lock-svg" viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg">
+      <!-- Shackle (the arc) -->
+      <g id="shackle">
+        <path
+          d="M30 50 L30 30 Q30 10 50 10 Q70 10 70 30 L70 50"
+          fill="none"
+          stroke="rgba(77,163,255,0.9)"
+          stroke-width="6"
+          stroke-linecap="round"
+        />
+      </g>
+      <!-- Body -->
+      <rect id="lock-body"
+        x="15" y="48" width="70" height="55" rx="10"
+        fill="rgba(77,163,255,0.08)"
+        stroke="rgba(77,163,255,0.6)"
+        stroke-width="1.5"
+      />
+      <!-- Keyhole circle -->
+      <circle id="lock-icon-line" cx="50" cy="72" r="8"
+        fill="none" stroke="rgba(77,163,255,0.6)" stroke-width="2"/>
+      <!-- Keyhole stem -->
+      <rect id="lock-icon-line2" x="47" y="78" width="6" height="12" rx="3"
+        fill="none" stroke="rgba(77,163,255,0.6)" stroke-width="2"
+        style="transition:opacity 0.4s ease 0.3s;"/>
+      <!-- Checkmark (hidden until unlocked) -->
+      <path id="check-mark"
+        d="M36 76 L46 86 L66 63"
+        fill="none"
+        stroke="var(--green)"
+        stroke-width="4"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        opacity="0"
+        style="transition:opacity 0.5s ease 0.5s; stroke-dasharray:50; stroke-dashoffset:50;"
+      />
+    </svg>
 
-<h1>MOHAMED TAHA</h1>
+    <div class="lock-status" id="lock-status-text">VERIFYING CREDENTIALS...</div>
 
-<h2>CYBERSECURITY PORTFOLIO</h2>
+    <div class="progress-wrap">
+      <div class="progress-bar" id="prog-bar"></div>
+    </div>
+  </div>
 
-<p>Secure Access Required</p>
-
-<div class="terminal" id="terminal"></div>
-
-<button onclick="startPortfolio()">
-Initialize Session
-</button>
-
+  <div class="welcome-msg" id="welcome-msg">
+    <span>ACCESS</span> GRANTED
+  </div>
 </div>
 
-</div>
+<!-- ═══════════ PORTFOLIO (hidden until unlocked) ═══════════ -->
+<div id="portfolio-content">
 
-<!-- NAV -->
-
+<!-- ═══════════ NAV ═══════════ -->
 <nav>
-
-<div class="nav-inner">
-
-<div class="logo">
-MOHAMED TAHA
-</div>
-
-<div class="status">
-<div class="dot"></div>
-STATUS: ACTIVE
-</div>
-
-</div>
-
+  <div class="nav-inner">
+    <div class="logo">MOHAMED TAHA</div>
+    <div class="status">
+      <div class="dot"></div>
+      STATUS: ACTIVE
+    </div>
+  </div>
 </nav>
 
-<!-- MAIN -->
-
+<!-- ═══════════ MAIN ═══════════ -->
 <div class="container">
 
-<!-- HERO -->
-
-<section class="hero">
-
-<div class="hero-grid single-column">
-
-<div>
-
-<div class="section-label">
-[ SECURITY INTERFACE INITIALIZED ]
-</div>
-
-<h1>
-Mohamed Taha
-<br>
-<span>Cybersecurity</span>
-</h1>
-
-<div class="ai-line"></div>
-
-<p>
-Passionate about protecting systems, understanding evolving security challenges, and continuously building technical skills through hands-on learning, real-world experience, and practical problem solving across cybersecurity and IT.
-</p>
-
-<div class="buttons">
-
-<a class="primary" href="#projects">
-View Projects
-</a>
-
-<a href="Mohamed_Taha_RESUME.pdf" target="_blank">
-Resume
-</a>
-
-<a href="https://www.linkedin.com/in/mohamed-taha-099938353" target="_blank">
-LinkedIn
-</a>
-
-<a href="https://github.com/Mohamed-MT" target="_blank">
-GitHub
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ABOUT -->
-
-<section>
-
-<div class="section-label">
-[ MODULE LOADED ]
-</div>
-
-<h2 class="section-title">
-About
-</h2>
-
-<p class="about">
-I’m a cybersecurity student at George Mason University with a strong interest in technology, security, and continuous learning. Before transferring to Mason, I studied cybersecurity at Northern Virginia Community College, where I earned my Associate degree in Cybersecurity with a 4.0 GPA.
-
-My experience includes hands-on work across IT, cybersecurity compliance, Linux systems, networking, virtualization, AI-assisted workflows, and autonomous technologies. Through internships, labs, and technical projects, I’ve worked with environments involving NIST 800-171, CMMC readiness, vulnerability testing, system security, and secure infrastructure concepts.
-
-I enjoy learning by building, testing, troubleshooting, and experimenting with different technologies. I’m especially interested in understanding how cybersecurity applies to modern systems, emerging technologies, and real-world operational environments.
-
-Outside of academics, I continue developing my technical skills through projects, certifications, labs, and collaborative experiences. I currently hold both the CompTIA Linux+ and Certified CMMC Professional (CCP) certifications, and I’m fluent in English and Arabic.
-</p></p>
-
-</section>
-
-<!-- CERTIFICATIONS -->
-
-<section>
-
-<div class="section-label">
-STATUS: VERIFIED
-</div>
-
-<h2 class="section-title">
-Certifications
-</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>CompTIA Linux+</h3>
-</div>
-
-<div class="card">
-<h3>Certified CMMC Professional (CCP)</h3>
-</div>
-
-</div>
-
-</section>
-
-<!-- SKILLS -->
-
-<section>
-
-<div class="section-label">
-[ TECHNICAL OVERVIEW ]
-</div>
-
-<h2 class="section-title">
-Technical Skills
-</h2>
-
-<div class="grid">
-
-<div class="card">
-
-<h3>Security & Networking</h3>
-
-<div class="tags">
-<span class="tag">Wireshark</span>
-<span class="tag">Nmap</span>
-<span class="tag">Nessus</span>
-<span class="tag">Metasploit</span>
-<span class="tag">Splunk</span>
-<span class="tag">pfSense</span>
-<span class="tag">SentinelOne</span>
-</div>
-
-</div>
-
-<div class="card">
-
-<h3>Systems & Infrastructure</h3>
-
-<div class="tags">
-<span class="tag">Linux</span>
-<span class="tag">Kali Linux</span>
-<span class="tag">Fedora</span>
-<span class="tag">Ubuntu</span>
-<span class="tag">Windows Server</span>
-<span class="tag">Active Directory</span>
-<span class="tag">Virtual Machines</span>
-<span class="tag">SSH</span>
-<span class="tag">Cloud Infrastructure</span>
-</div>
-
-</div>
-
-<div class="card">
-
-<h3>Programming</h3>
-
-<div class="tags">
-<span class="tag">Python</span>
-<span class="tag">Java</span>
-<span class="tag">HTML</span>
-</div>
-
-</div>
-
-<div class="card">
-
-<h3>Concepts & Technologies</h3>
-
-<div class="tags">
-<span class="tag">Network Security</span>
-<span class="tag">Access Control</span>
-<span class="tag">Virtualization</span>
-<span class="tag">MITM Attacks</span>
-<span class="tag">DoS Attacks</span>
-<span class="tag">Encryption</span>
-<span class="tag">Compliance Frameworks</span>
-<span class="tag">MAVLink</span>
-<span class="tag">DroneKit</span>
-<span class="tag">OpenRouter</span>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- PROJECTS -->
-
-<section id="projects">
-
-<div class="section-label">
-[ PROJECT MODULE ]
-</div>
-
-<h2 class="section-title">
-Projects
-</h2>
-
-<div class="grid">
-
-<!-- PROJECT 1 -->
-
-<div class="card">
-
-<h3>Autonomous Drone Security Lab</h3>
-
-<p>
-Built a virtualized drone environment using ArduPilot, MAVLink, Mission Planner, and Kali Linux to test network attacks and security controls in autonomous systems.
-</p>
-
-<div class="tags">
-<span class="tag">Kali Linux</span>
-<span class="tag">ArduPilot</span>
-<span class="tag">MAVLink</span>
-<span class="tag">Mission Planner</span>
-</div>
-
-</div>
-
-<!-- PROJECT 2 -->
-
-<div class="card">
-
-<h3>CMMC Compliance Support</h3>
-
-<p>
-Worked with compliance documentation, access controls, and security policies aligned with NIST 800-171 and CMMC requirements.
-</p>
-
-<div class="tags">
-<span class="tag">CMMC</span>
-<span class="tag">NIST 800-171</span>
-<span class="tag">Compliance</span>
-</div>
-
-</div>
-
-<!-- PROJECT 3 -->
-
-<div class="card">
-
-<h3>AI-Assisted Drone Command Testing</h3>
-
-<p>
-Experimented with Python scripts and LLM integrations to translate natural-language prompts into structured drone commands.
-</p>
-
-<div class="tags">
-<span class="tag">Python</span>
-<span class="tag">DroneKit</span>
-<span class="tag">OpenRouter</span>
-</div>
-
-</div>
-
-<!-- PROJECT 4 -->
-
-<div class="card">
-
-<h3>Virtualized Security Testing Lab</h3>
-
-<p>
-Built and maintained a personal cybersecurity lab using VirtualBox, Kali Linux, and Metasploit to practice penetration testing concepts, vulnerability analysis, networking, and hands-on security testing in isolated virtual environments.
-</p>
-
-<div class="tags">
-<span class="tag">VirtualBox</span>
-<span class="tag">Kali Linux</span>
-<span class="tag">Metasploit</span>
-<span class="tag">Penetration Testing</span>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- EXPERIENCE -->
-
-<section>
-
-<div class="section-label">
-STATUS: EXPERIENCE LOG
-</div>
-
-<h2 class="section-title">
-Experience
-</h2>
-
-<div class="timeline">
-
-<div class="timeline-item">
-<h3>Cybersecurity Intern — NDIA / Lionfish Cyber / Meerkat Cyber</h3>
-<p>
-Hands-on exposure to compliance workflows, security tooling, access controls, and collaboration across cybersecurity initiatives.
-</p>
-</div>
-
-<div class="timeline-item">
-<h3>NASA-Led Internship — George Washington University</h3>
-<p>
-Worked in a technical internship environment involving collaborative problem solving and exposure to advanced systems concepts.
-</p>
-</div>
-
-<div class="timeline-item">
-<h3>Agentic AI Intern — Kashmir World Foundation</h3>
-<p>
-Explored AI-assisted workflows, automation concepts, and experimentation with intelligent systems.
-</p>
-</div>
-
-<div class="timeline-item">
-<h3>Undergraduate Experience — George Mason University</h3>
-<p>
-Participated in cybersecurity labs, technical research, and presentations involving emerging AI tools, cybersecurity technologies, and hands-on experimentation with modern security concepts and systems.
-</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- EDUCATION -->
-
-<section>
-
-<div class="section-label">
-[ EDUCATION ]
-</div>
-
-<h2 class="section-title">
-Education
-</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>George Mason University</h3>
-<p>B.A.S. Cybersecurity</p>
-<p>Expected Graduation: 2027</p>
-</div>
-
-<div class="card">
-<h3>Northern Virginia Community College</h3>
-<p>A.A.S. Cybersecurity</p>
-<p>4.0 GPA</p>
-<p>Presidential Scholar</p>
-<p>Dean’s List</p>
-</div>
-
-</div>
-
-</section>
+  <!-- HERO — CENTERED -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="section-label">[ SECURITY INTERFACE INITIALIZED ]</div>
+      <h1>Mohamed Taha<br><span>Cybersecurity</span></h1>
+      <div class="ai-line"></div>
+      <p>Passionate about protecting systems, understanding evolving security challenges, and continuously building technical skills through hands-on learning, real-world experience, and practical problem solving across cybersecurity and IT.</p>
+      <div class="buttons">
+        <a class="primary" href="#projects">View Projects</a>
+        <a href="Mohamed_Taha_RESUME.pdf" target="_blank">Resume</a>
+        <a href="https://www.linkedin.com/in/mohamed-taha-099938353" target="_blank">LinkedIn</a>
+        <a href="https://github.com/Mohamed-MT" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section>
+    <div class="section-label">[ MODULE LOADED ]</div>
+    <h2 class="section-title">About</h2>
+    <p class="about">
+      I'm a cybersecurity student at George Mason University with a strong interest in technology, security, and continuous learning. Before transferring to Mason, I studied cybersecurity at Northern Virginia Community College, where I earned my Associate degree in Cybersecurity with a 4.0 GPA.<br><br>
+      My experience includes hands-on work across IT, cybersecurity compliance, Linux systems, networking, virtualization, AI-assisted workflows, and autonomous technologies. Through internships, labs, and technical projects, I've worked with environments involving NIST 800-171, CMMC readiness, vulnerability testing, system security, and secure infrastructure concepts.<br><br>
+      I enjoy learning by building, testing, troubleshooting, and experimenting with different technologies. I currently hold both the CompTIA Linux+ and Certified CMMC Professional (CCP) certifications, and I'm fluent in English and Arabic.
+    </p>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section>
+    <div class="section-label">STATUS: VERIFIED</div>
+    <h2 class="section-title">Certifications</h2>
+    <div class="grid">
+      <div class="card"><h3>CompTIA Linux+</h3></div>
+      <div class="card"><h3>Certified CMMC Professional (CCP)</h3></div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section>
+    <div class="section-label">[ TECHNICAL OVERVIEW ]</div>
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Security &amp; Networking</h3>
+        <div class="tags">
+          <span class="tag">Wireshark</span><span class="tag">Nmap</span>
+          <span class="tag">Nessus</span><span class="tag">Metasploit</span>
+          <span class="tag">Splunk</span><span class="tag">pfSense</span>
+          <span class="tag">SentinelOne</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Systems &amp; Infrastructure</h3>
+        <div class="tags">
+          <span class="tag">Linux</span><span class="tag">Kali Linux</span>
+          <span class="tag">Fedora</span><span class="tag">Ubuntu</span>
+          <span class="tag">Windows Server</span><span class="tag">Active Directory</span>
+          <span class="tag">Virtual Machines</span><span class="tag">SSH</span>
+          <span class="tag">Cloud Infrastructure</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Programming</h3>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">Java</span><span class="tag">HTML</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Concepts &amp; Technologies</h3>
+        <div class="tags">
+          <span class="tag">Network Security</span><span class="tag">Access Control</span>
+          <span class="tag">Virtualization</span><span class="tag">MITM Attacks</span>
+          <span class="tag">DoS Attacks</span><span class="tag">Encryption</span>
+          <span class="tag">Compliance Frameworks</span><span class="tag">MAVLink</span>
+          <span class="tag">DroneKit</span><span class="tag">OpenRouter</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-label">[ PROJECT MODULE ]</div>
+    <h2 class="section-title">Projects</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Autonomous Drone Security Lab</h3>
+        <p>Built a virtualized drone environment using ArduPilot, MAVLink, Mission Planner, and Kali Linux to test network attacks and security controls in autonomous systems.</p>
+        <div class="tags">
+          <span class="tag">Kali Linux</span><span class="tag">ArduPilot</span>
+          <span class="tag">MAVLink</span><span class="tag">Mission Planner</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>CMMC Compliance Support</h3>
+        <p>Worked with compliance documentation, access controls, and security policies aligned with NIST 800-171 and CMMC requirements.</p>
+        <div class="tags">
+          <span class="tag">CMMC</span><span class="tag">NIST 800-171</span><span class="tag">Compliance</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>AI-Assisted Drone Command Testing</h3>
+        <p>Experimented with Python scripts and LLM integrations to translate natural-language prompts into structured drone commands.</p>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">DroneKit</span><span class="tag">OpenRouter</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Virtualized Security Testing Lab</h3>
+        <p>Built and maintained a personal cybersecurity lab using VirtualBox, Kali Linux, and Metasploit to practice penetration testing concepts, vulnerability analysis, and hands-on security testing in isolated environments.</p>
+        <div class="tags">
+          <span class="tag">VirtualBox</span><span class="tag">Kali Linux</span>
+          <span class="tag">Metasploit</span><span class="tag">Penetration Testing</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section>
+    <div class="section-label">STATUS: EXPERIENCE LOG</div>
+    <h2 class="section-title">Experience</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>Cybersecurity Intern — NDIA / Lionfish Cyber / Meerkat Cyber</h3>
+        <p>Hands-on exposure to compliance workflows, security tooling, access controls, and collaboration across cybersecurity initiatives.</p>
+      </div>
+      <div class="timeline-item">
+        <h3>NASA-Led Internship — George Washington University</h3>
+        <p>Worked in a technical internship environment involving collaborative problem solving and exposure to advanced systems concepts.</p>
+      </div>
+      <div class="timeline-item">
+        <h3>Agentic AI Intern — Kashmir World Foundation</h3>
+        <p>Explored AI-assisted workflows, automation concepts, and experimentation with intelligent systems.</p>
+      </div>
+      <div class="timeline-item">
+        <h3>Undergraduate Experience — George Mason University</h3>
+        <p>Participated in cybersecurity labs, technical research, and presentations involving emerging AI tools, cybersecurity technologies, and hands-on experimentation with modern security concepts.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section>
+    <div class="section-label">[ EDUCATION ]</div>
+    <h2 class="section-title">Education</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>George Mason University</h3>
+        <p>B.A.S. Cybersecurity</p>
+        <p style="color:var(--muted)">Expected Graduation: 2027</p>
+      </div>
+      <div class="card">
+        <h3>Northern Virginia Community College</h3>
+        <p>A.A.S. Cybersecurity</p>
+        <p style="color:var(--muted)">4.0 GPA · Presidential Scholar · Dean's List</p>
+      </div>
+    </div>
+  </section>
 
 </div>
 
 <!-- FOOTER -->
-
 <footer>
-
-<div class="container">
-
-<p>
-Mohamed Taha — Cybersecurity Portfolio
-</p>
-
-<br>
-
-<p>
-Based in Virginia, USA
-</p>
-
-<br>
-
-<p>
-
-<a href="Mohamed_Taha_RESUME.pdf" target="_blank">
-Resume
-</a>
-
-|
-
-<a href="https://www.linkedin.com/in/mohamed-taha-099938353" target="_blank">
-LinkedIn
-</a>
-
-|
-
-<a href="https://github.com/Mohamed-MT" target="_blank">
-GitHub
-</a>
-
-</p>
-
-</div>
-
+  <div class="container">
+    <p>Mohamed Taha — Cybersecurity Portfolio</p>
+    <br>
+    <p>Based in Virginia, USA</p>
+    <br>
+    <p>
+      <a href="Mohamed_Taha_RESUME.pdf" target="_blank">Resume</a> |
+      <a href="https://www.linkedin.com/in/mohamed-taha-099938353" target="_blank">LinkedIn</a> |
+      <a href="https://github.com/Mohamed-MT" target="_blank">GitHub</a>
+    </p>
+  </div>
 </footer>
 
+</div><!-- end #portfolio-content -->
+
 <script>
-
-/* TERMINAL */
-
+/* ─── TERMINAL TYPEWRITER ─── */
 const lines = [
-
-'> Establishing secure connection...',
-'> Verifying credentials...',
-'> Initializing security interface...',
-'> Loading portfolio modules...',
-'> Access granted.'
-
+  '> Establishing secure connection...',
+  '> Verifying credentials...',
+  '> Initializing security interface...',
+  '> Loading portfolio modules...',
+  '> Access granted.'
 ];
 
-let i = 0;
+let lineIdx = 0;
+let charIdx = 0;
+let terminal = null;
+let cursor = null;
 
-function typeLines(){
-
-  if(i < lines.length){
-
-    document.getElementById('terminal').innerHTML += lines[i] + '<br>';
-
-    i++;
-
-    setTimeout(typeLines,700);
-
+function typeLine(line, done){
+  if(charIdx < line.length){
+    terminal.insertBefore(
+      document.createTextNode(line[charIdx]),
+      cursor
+    );
+    charIdx++;
+    setTimeout(()=> typeLine(line, done), 28);
+  } else {
+    terminal.insertBefore(document.createElement('br'), cursor);
+    charIdx = 0;
+    setTimeout(done, 350);
   }
-
 }
 
-/* INTRO */
+function typeNextLine(){
+  if(lineIdx < lines.length){
+    typeLine(lines[lineIdx], ()=>{
+      lineIdx++;
+      typeNextLine();
+    });
+  }
+}
 
+/* ─── LOCK ANIMATION SEQUENCE ─── */
+function runLockSequence(){
+  const lockScreen = document.getElementById('lock-screen');
+  const progBar    = document.getElementById('prog-bar');
+  const statusTxt  = document.getElementById('lock-status-text');
+  const shackle    = document.getElementById('shackle');
+  const lockBody   = document.getElementById('lock-body');
+  const check      = document.getElementById('check-mark');
+  const welcomeMsg = document.getElementById('welcome-msg');
+  const keyhole1   = document.getElementById('lock-icon-line');
+  const keyhole2   = document.getElementById('lock-icon-line2');
+
+  lockScreen.style.display = 'flex';
+  lockScreen.style.opacity = '1';
+
+  // Stage 1: progress bar fills
+  setTimeout(()=>{
+    progBar.classList.add('full');
+  }, 100);
+
+  // Stage 2: status change
+  setTimeout(()=>{
+    statusTxt.textContent = 'DECRYPTING ACCESS KEY...';
+  }, 600);
+
+  // Stage 3: unlock the shackle
+  setTimeout(()=>{
+    statusTxt.textContent = 'UNLOCKING...';
+    shackle.classList.add('open');
+  }, 1400);
+
+  // Stage 4: body turns green, keyhole fades to checkmark
+  setTimeout(()=>{
+    lockBody.classList.add('unlocked');
+    keyhole1.style.opacity = '0';
+    keyhole2.style.opacity = '0';
+    check.style.opacity = '1';
+    check.style.strokeDashoffset = '0';
+    check.style.transition = 'opacity 0.4s ease 0.2s, stroke-dashoffset 0.6s ease 0.2s';
+    statusTxt.classList.add('green');
+    statusTxt.textContent = 'ACCESS GRANTED';
+  }, 2100);
+
+  // Stage 5: welcome message
+  setTimeout(()=>{
+    welcomeMsg.classList.add('visible');
+  }, 2700);
+
+  // Stage 6: dismiss and reveal portfolio
+  setTimeout(()=>{
+    lockScreen.style.transition = 'opacity 1s ease';
+    lockScreen.style.opacity = '0';
+    setTimeout(()=>{
+      lockScreen.style.display = 'none';
+      document.getElementById('portfolio-content').classList.add('revealed');
+    }, 1000);
+  }, 3900);
+}
+
+/* ─── INTRO BUTTON ─── */
 function startPortfolio(){
+  terminal = document.getElementById('terminal');
+  cursor = terminal.querySelector('.cursor');
 
-  typeLines();
+  // Disable button during typing
+  document.querySelector('.launch-btn').disabled = true;
+  document.querySelector('.launch-btn').style.opacity = '0.5';
+
+  typeNextLine();
+
+  // After terminal completes, fade out intro and show lock screen
+  const totalTime = lines.reduce((acc, l) => acc + l.length * 28 + 350 + 300, 0);
 
   setTimeout(()=>{
-
-    document.getElementById('intro').style.transform='scale(1.05)';
-    document.getElementById('intro').style.opacity='0';
-
+    const intro = document.getElementById('intro');
+    intro.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    intro.style.transform = 'scale(1.04)';
+    intro.style.opacity = '0';
     setTimeout(()=>{
-
-      document.getElementById('intro').style.display='none';
-
-    },1200);
-
-  },4200);
-
+      intro.style.display = 'none';
+      runLockSequence();
+    }, 800);
+  }, 4600);
 }
 
-/* CURSOR GLOW */
-
+/* ─── CURSOR GLOW ─── */
 const glow = document.createElement('div');
-
-glow.style.position = 'fixed';
-
-glow.style.width = '550px';
-
-glow.style.height = '550px';
-
-glow.style.borderRadius = '50%';
-
-glow.style.pointerEvents = 'none';
-
-glow.style.background =
-'radial-gradient(circle, rgba(77,163,255,0.10), transparent 70%)';
-
-glow.style.zIndex = '-1';
-
-glow.style.transform = 'translate(-50%, -50%)';
-
-glow.style.transition = 'left 0.08s linear, top 0.08s linear';
-
+glow.style.cssText = `
+  position:fixed; width:550px; height:550px;
+  border-radius:50%; pointer-events:none;
+  background:radial-gradient(circle, rgba(77,163,255,0.09), transparent 70%);
+  z-index:-1; transform:translate(-50%,-50%);
+  transition:left 0.1s linear,top 0.1s linear;
+`;
 document.body.appendChild(glow);
-
-document.addEventListener('mousemove', (e)=>{
-
+document.addEventListener('mousemove', e=>{
   glow.style.left = e.clientX + 'px';
-  glow.style.top = e.clientY + 'px';
-
+  glow.style.top  = e.clientY + 'px';
 });
-
 </script>
-
 </body>
 </html>
