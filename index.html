@@ -21,15 +21,9 @@
   --green:#34d399;
 }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+*{ margin:0; padding:0; box-sizing:border-box; }
 
-html{
-  scroll-behavior:smooth;
-}
+html{ scroll-behavior:smooth; }
 
 body{
   font-family:'Rajdhani',sans-serif;
@@ -106,54 +100,17 @@ body::after{
   border-radius:12px;
 }
 
-.panel:nth-child(1){
-  top:12%;
-  left:8%;
-  animation-delay:0s;
-}
-
-.panel:nth-child(2){
-  top:20%;
-  right:10%;
-  animation-delay:1.5s;
-}
-
-.panel:nth-child(3){
-  bottom:18%;
-  left:14%;
-  animation-delay:3s;
-}
-
-.panel:nth-child(4){
-  bottom:12%;
-  right:16%;
-  animation-delay:4.5s;
-}
-
-.panel:nth-child(5){
-  top:50%;
-  left:5%;
-  animation-delay:2s;
-}
-
-.panel:nth-child(6){
-  top:55%;
-  right:5%;
-  animation-delay:3.5s;
-}
+.panel:nth-child(1){ top:12%; left:8%; animation-delay:0s; }
+.panel:nth-child(2){ top:20%; right:10%; animation-delay:1.5s; }
+.panel:nth-child(3){ bottom:18%; left:14%; animation-delay:3s; }
+.panel:nth-child(4){ bottom:12%; right:16%; animation-delay:4.5s; }
+.panel:nth-child(5){ top:50%; left:5%; animation-delay:2s; }
+.panel:nth-child(6){ top:55%; right:5%; animation-delay:3.5s; }
 
 @keyframes floatPanel{
-  0%{
-    transform:translateY(0);
-  }
-
-  50%{
-    transform:translateY(-12px);
-  }
-
-  100%{
-    transform:translateY(0);
-  }
+  0%{ transform:translateY(0); }
+  50%{ transform:translateY(-12px); }
+  100%{ transform:translateY(0); }
 }
 
 .intro-box{
@@ -209,13 +166,8 @@ body::after{
 }
 
 @keyframes blink{
-  0%,100%{
-    opacity:1;
-  }
-
-  50%{
-    opacity:0;
-  }
+  0%,100%{opacity:1;}
+  50%{opacity:0;}
 }
 
 .launch-btn{
@@ -413,12 +365,10 @@ nav{
     opacity:.4;
     box-shadow:0 0 0 0 rgba(52,211,153,.4);
   }
-
   50%{
     opacity:1;
     box-shadow:0 0 0 6px rgba(52,211,153,0);
   }
-
   100%{
     opacity:.4;
     box-shadow:0 0 0 0 rgba(52,211,153,0);
@@ -515,12 +465,7 @@ section.out-view{
   width:180px;
   height:2px;
   margin:25px auto;
-  background:linear-gradient(
-    90deg,
-    transparent,
-    var(--accent),
-    transparent
-  );
+  background:linear-gradient(90deg,transparent,var(--accent),transparent);
   animation:scan 3s linear infinite;
 }
 
@@ -529,11 +474,7 @@ section.out-view{
     opacity:.4;
     transform:translateX(-20px);
   }
-
-  50%{
-    opacity:1;
-  }
-
+  50%{opacity:1;}
   100%{
     opacity:.4;
     transform:translateX(20px);
@@ -600,11 +541,7 @@ section.out-view{
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(
-    135deg,
-    rgba(255,255,255,.03),
-    transparent
-  );
+  background:linear-gradient(135deg,rgba(255,255,255,.03),transparent);
   opacity:0;
   transition:.4s;
 }
@@ -683,31 +620,30 @@ section.out-view{
 }
 
 /* ═══════════════════════════════════════════════
-   PROJECTS
+   PROJECT CARDS
 ═══════════════════════════════════════════════ */
 
 .projects-stack{
   display:flex;
   flex-direction:column;
-  gap:26px;
+  gap:24px;
 }
 
 .project-card{
   position:relative;
+  padding:0;
   overflow:hidden;
   background:
     radial-gradient(
       circle at 90% 10%,
-      rgba(77,163,255,.10),
+      rgba(77,163,255,.08),
       transparent 30%
     ),
     rgba(13,22,34,.86);
-  border:1px solid rgba(77,163,255,.18);
-  border-radius:20px;
-  padding:38px;
+  border:1px solid rgba(255,255,255,.06);
   box-shadow:
     0 20px 55px rgba(0,0,0,.25),
-    0 0 30px rgba(77,163,255,.04);
+    0 0 35px rgba(77,163,255,.04);
 }
 
 .project-card::after{
@@ -715,7 +651,7 @@ section.out-view{
   position:absolute;
   left:0;
   right:0;
-  top:-1px;
+  top:-2px;
   height:2px;
   background:linear-gradient(
     90deg,
@@ -725,6 +661,7 @@ section.out-view{
     transparent
   );
   animation:projectScan 5s linear infinite;
+  opacity:.65;
 }
 
 @keyframes projectScan{
@@ -732,41 +669,40 @@ section.out-view{
     transform:translateX(-100%);
     opacity:0;
   }
-
-  20%{
-    opacity:1;
-  }
-
-  80%{
-    opacity:1;
-  }
-
+  20%{opacity:1;}
+  80%{opacity:1;}
   100%{
     transform:translateX(100%);
     opacity:0;
   }
 }
 
+.project-inner{
+  padding:38px 40px;
+  position:relative;
+  z-index:2;
+}
+
 .project-header{
   display:flex;
   justify-content:space-between;
   align-items:flex-start;
-  gap:20px;
+  gap:25px;
   margin-bottom:18px;
 }
 
 .project-number{
   color:var(--accent);
   font-family:'Share Tech Mono',monospace;
-  font-size:12px;
+  font-size:11px;
   letter-spacing:2px;
   margin-bottom:8px;
 }
 
 .project-card h3{
   font-size:32px;
-  margin-bottom:5px;
-  color:var(--text);
+  margin-bottom:7px;
+  letter-spacing:1px;
 }
 
 .project-card h3 span{
@@ -776,15 +712,15 @@ section.out-view{
 .project-subtitle{
   color:var(--accent2)!important;
   font-family:'Share Tech Mono',monospace;
-  font-size:13px!important;
+  font-size:12px!important;
   letter-spacing:1px;
   margin-bottom:20px;
 }
 
 .project-description{
-  max-width:950px;
+  max-width:920px;
   color:var(--muted);
-  font-size:18px!important;
+  font-size:17px!important;
   line-height:1.85;
 }
 
@@ -792,52 +728,66 @@ section.out-view{
   color:var(--text);
 }
 
-.project-section-title{
-  color:var(--text);
-  font-size:19px;
-  margin-top:25px;
-  margin-bottom:8px;
+.project-section-label{
+  color:var(--accent);
+  font-family:'Share Tech Mono',monospace;
+  font-size:11px;
+  letter-spacing:2px;
+  margin-top:28px;
+  margin-bottom:10px;
 }
 
-.project-list{
-  margin:10px 0 0 20px;
-  color:var(--muted);
+.project-features{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  margin-top:15px;
+}
+
+.feature-item{
+  padding:15px 17px;
+  border:1px solid rgba(255,255,255,.055);
+  border-radius:13px;
+  background:rgba(255,255,255,.018);
+}
+
+.feature-item h4{
   font-size:16px;
+  margin-bottom:5px;
 }
 
-.project-list li{
-  margin-bottom:5px;
+.feature-item p{
+  color:var(--muted);
+  font-size:14px!important;
+  line-height:1.6;
 }
 
 .project-flow{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
-  margin:28px 0;
+  grid-template-columns:repeat(6,1fr);
+  gap:8px;
+  margin-top:18px;
 }
 
 .flow-item{
-  padding:18px;
-  border:1px solid rgba(255,255,255,.06);
-  border-radius:14px;
+  padding:13px 10px;
+  text-align:center;
+  border:1px solid rgba(255,255,255,.055);
+  border-radius:12px;
   background:rgba(255,255,255,.018);
 }
 
-.flow-number{
-  color:var(--accent);
-  font-family:'Share Tech Mono',monospace;
-  font-size:11px;
-  margin-bottom:7px;
-}
-
 .flow-item h4{
-  font-size:16px;
-  margin-bottom:5px;
+  font-size:13px;
+  letter-spacing:.5px;
 }
 
-.flow-item p{
-  font-size:13px!important;
-  line-height:1.5;
+.flow-arrow{
+  color:var(--accent);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:'Share Tech Mono',monospace;
 }
 
 .project-actions{
@@ -880,28 +830,24 @@ section.out-view{
 }
 
 /* ═══════════════════════════════════════════════
-   EXPERIENCE
+   TIMELINE
 ═══════════════════════════════════════════════ */
 
 .timeline{
   border-left:2px solid rgba(77,163,255,.2);
-  padding-left:30px;
+  padding-left:28px;
 }
 
 .timeline-item{
-  margin-bottom:42px;
+  margin-bottom:45px;
   position:relative;
-}
-
-.timeline-item:last-child{
-  margin-bottom:0;
 }
 
 .timeline-item::before{
   content:"";
   position:absolute;
-  left:-37px;
-  top:8px;
+  left:-35px;
+  top:6px;
   width:10px;
   height:10px;
   border-radius:50%;
@@ -909,25 +855,15 @@ section.out-view{
   box-shadow:0 0 10px rgba(77,163,255,.5);
 }
 
-.timeline-date{
-  color:var(--accent2);
-  font-family:'Share Tech Mono',monospace;
-  font-size:12px;
-  letter-spacing:1px;
-  margin-bottom:5px;
-}
-
 .timeline-item h3{
-  margin-bottom:9px;
-  font-size:21px;
+  margin-bottom:8px;
+  font-size:20px;
   font-weight:600;
 }
 
 .timeline-item p{
   color:var(--muted);
   font-size:17px;
-  max-width:900px;
-  line-height:1.8;
 }
 
 /* ═══════════════════════════════════════════════
@@ -969,12 +905,17 @@ footer a:hover{
     font-size:34px;
   }
 
+  .project-features{
+    grid-template-columns:1fr;
+  }
+
   .project-flow{
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:repeat(3,1fr);
   }
 
   .project-header{
     flex-direction:column;
+    gap:5px;
   }
 }
 
@@ -992,8 +933,8 @@ footer a:hover{
     font-size:17px;
   }
 
-  .project-card{
-    padding:26px 22px;
+  .project-inner{
+    padding:28px 22px;
   }
 
   .project-card h3{
@@ -1001,7 +942,7 @@ footer a:hover{
   }
 
   .project-flow{
-    grid-template-columns:1fr;
+    grid-template-columns:repeat(2,1fr);
   }
 
   .project-actions{
@@ -1022,14 +963,6 @@ footer a:hover{
 
   section{
     padding:80px 0;
-  }
-
-  .timeline{
-    padding-left:24px;
-  }
-
-  .timeline-item::before{
-    left:-31px;
   }
 }
 </style>
@@ -1196,6 +1129,8 @@ footer a:hover{
   </nav>
 
 
+  <!-- MAIN -->
+
   <div class="container">
 
     <!-- ═══════════════════════════════════════════
@@ -1220,8 +1155,8 @@ footer a:hover{
         <p>
           Passionate about protecting systems, understanding evolving
           security challenges, and continuously building technical skills
-          through hands-on learning, research, and practical problem
-          solving across cybersecurity, AI, and autonomous systems.
+          through hands-on learning, real-world experience, and practical
+          problem solving across cybersecurity and IT.
         </p>
 
         <div class="buttons">
@@ -1240,7 +1175,6 @@ footer a:hover{
           <a
             href="https://www.linkedin.com/in/mohamed-taha-099938353"
             target="_blank"
-            rel="noopener"
           >
             LinkedIn
           </a>
@@ -1248,7 +1182,6 @@ footer a:hover{
           <a
             href="https://github.com/Mohamed-MT"
             target="_blank"
-            rel="noopener"
           >
             GitHub
           </a>
@@ -1277,35 +1210,26 @@ footer a:hover{
       <p class="about">
 
         I'm a cybersecurity student at George Mason University with a
-        strong interest in cybersecurity, artificial intelligence,
-        autonomous systems, and continuous learning.
-
-        <br><br>
-
+        strong interest in technology, security, and continuous learning.
         Before transferring to Mason, I studied cybersecurity at Northern
         Virginia Community College, where I earned my Associate degree
         in Cybersecurity with a 4.0 GPA.
 
         <br><br>
 
-        My experience includes cybersecurity compliance, NIST 800-171
-        and CMMC readiness, Linux systems, networking, vulnerability
-        testing, virtualization, AI-assisted workflows, agentic AI,
-        and autonomous technologies.
+        My experience includes hands-on work across IT, cybersecurity
+        compliance, Linux systems, networking, virtualization, AI-assisted
+        workflows, and autonomous technologies. Through internships,
+        labs, and technical projects, I've worked with environments
+        involving NIST 800-171, CMMC readiness, vulnerability testing,
+        system security, and secure infrastructure concepts.
 
         <br><br>
 
         I enjoy learning by building, testing, troubleshooting, and
-        experimenting with new technologies. My current work combines
-        cybersecurity with emerging AI and autonomous systems, including
-        research into agentic AI and natural-language control of simulated
-        aircraft.
-
-        <br><br>
-
-        I currently hold both the CompTIA Linux+ and Certified CMMC
-        Professional (CCP) certifications, and I'm fluent in English
-        and Arabic.
+        experimenting with different technologies. I currently hold both
+        the CompTIA Linux+ and Certified CMMC Professional (CCP)
+        certifications, and I'm fluent in English and Arabic.
 
       </p>
 
@@ -1404,7 +1328,7 @@ footer a:hover{
         <div class="card">
 
           <h3>
-            Programming &amp; AI
+            Programming
           </h3>
 
           <div class="tags">
@@ -1412,10 +1336,6 @@ footer a:hover{
             <span class="tag">Python</span>
             <span class="tag">Java</span>
             <span class="tag">HTML</span>
-            <span class="tag">LLMs</span>
-            <span class="tag">Agentic AI</span>
-            <span class="tag">Agno</span>
-            <span class="tag">OpenRouter</span>
 
           </div>
 
@@ -1425,39 +1345,23 @@ footer a:hover{
         <div class="card">
 
           <h3>
-            Autonomous Systems
-          </h3>
-
-          <div class="tags">
-
-            <span class="tag">MAVLink</span>
-            <span class="tag">DroneKit</span>
-            <span class="tag">ArduPilot</span>
-            <span class="tag">ArduPlane</span>
-            <span class="tag">SITL</span>
-            <span class="tag">Mission Planner</span>
-            <span class="tag">Autonomous Flight</span>
-
-          </div>
-
-        </div>
-
-
-        <div class="card">
-
-          <h3>
-            Security Concepts
+            Concepts &amp; Technologies
           </h3>
 
           <div class="tags">
 
             <span class="tag">Network Security</span>
             <span class="tag">Access Control</span>
+            <span class="tag">Virtualization</span>
             <span class="tag">MITM Attacks</span>
             <span class="tag">DoS Attacks</span>
             <span class="tag">Encryption</span>
-            <span class="tag">Vulnerability Analysis</span>
             <span class="tag">Compliance Frameworks</span>
+            <span class="tag">MAVLink</span>
+            <span class="tag">DroneKit</span>
+            <span class="tag">ArduPilot</span>
+            <span class="tag">OpenRouter</span>
+            <span class="tag">Agno</span>
 
           </div>
 
@@ -1486,577 +1390,726 @@ footer a:hover{
       <div class="projects-stack">
 
 
-        <!-- ═══════════════════════════════════════
+        <!-- ═════════════════════════════════════════
              CYBERLUCID
-        ═══════════════════════════════════════ -->
+        ═════════════════════════════════════════ -->
 
-        <div class="project-card">
+        <div class="card project-card">
 
-          <div class="project-number">
-            PROJECT 01 / CYBERSECURITY EDUCATION
-          </div>
+          <div class="project-inner">
 
-          <h3>
-            <span>CYBERLUCID</span>
-          </h3>
+            <div class="project-header">
 
-          <p class="project-subtitle">
-            CYBERSECURITY MADE CLEAR FOR EVERYONE
-          </p>
+              <div>
 
-          <p class="project-description">
+                <div class="project-number">
+                  PROJECT 01 / CYBERSECURITY EDUCATION
+                </div>
 
-            <strong>CYBERLUCID</strong> is a free, beginner-friendly
-            cybersecurity education platform built for everyday people —
-            not just cybersecurity professionals.
+                <h3>
+                  <span>CYBERLUCID</span>
+                </h3>
 
-            <br><br>
+                <p class="project-subtitle">
+                  CYBERSECURITY MADE CLEAR FOR EVERYONE
+                </p>
 
-            The goal is simple: help people understand what digital
-            threats are, how they work, how attackers exploit human
-            behavior, what warning signs to look for, and what they can
-            actually do to protect themselves.
+              </div>
 
-            <br><br>
+            </div>
 
-            No technical background, account, or subscription is required.
-            The platform is designed around a simple cycle:
 
-            <strong>Learn → Recognize → Protect → Practice → Explore → Ask.</strong>
+            <p class="project-description">
 
-          </p>
+              <strong>CYBERLUCID</strong> is a free, beginner-friendly
+              cybersecurity education platform built for everyday people,
+              not just cybersecurity professionals.
 
+              <br><br>
 
-          <h4 class="project-section-title">
-            Learn Cybersecurity
-          </h4>
+              Cybersecurity shouldn't be something people only think about
+              after they've been hacked, scammed, or had their information
+              stolen. CyberLucid makes cybersecurity easier to understand
+              by focusing on the threats people actually encounter and
+              explaining what is happening, how it works, how people get
+              tricked, what warning signs to look for, and what they can
+              do about it.
 
-          <p class="project-description">
+              <br><br>
 
-            CyberLucid begins with cybersecurity fundamentals and explains
-            why security matters in everyday life, how attackers exploit
-            trust, fear, urgency, curiosity, and authority, and how threats
-            can affect accounts, money, identity, privacy, and devices.
+              No technical background, account, or subscription is required.
+              The goal is simple: <strong>learn, explore, practice, and
+              become harder to trick.</strong>
 
-          </p>
+            </p>
 
 
-          <h4 class="project-section-title">
-            Common Attacks
-          </h4>
+            <div class="project-section-label">
+              WHAT USERS CAN EXPLORE
+            </div>
 
-          <p class="project-description">
+            <div class="project-features">
 
-            Users can explore common threats including phishing, malware,
-            ransomware, social engineering, password attacks, fake
-            websites, data breaches, identity theft, smishing, vishing,
-            deepfakes, delivery scams, QR-code scams, account takeover,
-            tech support scams, and SIM swapping.
+              <div class="feature-item">
 
-            <br><br>
+                <h4>
+                  Intro to Cybersecurity
+                </h4>
 
-            Each topic focuses on:
+                <p>
+                  Learn the fundamentals of cybersecurity, why it matters,
+                  why people are targeted, and how attackers exploit human
+                  behavior.
+                </p>
 
-            <strong>
-              What it is → How it works → How people get tricked →
-              Warning signs → How to stay safe.
-            </strong>
+              </div>
 
-          </p>
 
+              <div class="feature-item">
 
-          <h4 class="project-section-title">
-            Threat Explorer
-          </h4>
+                <h4>
+                  Common Attacks
+                </h4>
 
-          <p class="project-description">
+                <p>
+                  Understand phishing, malware, ransomware, social
+                  engineering, password attacks, fake websites, identity
+                  theft, deepfakes, scams, account takeover, SIM swapping,
+                  and more.
+                </p>
 
-            Threat Explorer allows users to discover additional
-            cybersecurity threats through an interactive environment,
-            filter threats by category and risk level, and open detailed
-            explanations to understand how different attacks work.
+              </div>
 
-          </p>
 
+              <div class="feature-item">
 
-          <h4 class="project-section-title">
-            Stay Safe
-          </h4>
+                <h4>
+                  Threat Explorer
+                </h4>
 
-          <p class="project-description">
+                <p>
+                  Explore additional cybersecurity threats through an
+                  interactive environment with categories, risk levels,
+                  visual exploration, and detailed explanations.
+                </p>
 
-            The platform provides practical guidance for protecting
-            accounts, devices, identity, and personal information.
+              </div>
 
-            Topics include strong passwords, MFA / 2FA, email security,
-            account recovery, device updates, antivirus protection,
-            malicious ads and trackers, backups, suspicious links,
-            Wi-Fi security, and incident response.
 
-          </p>
+              <div class="feature-item">
 
+                <h4>
+                  Stay Safe
+                </h4>
 
-          <h4 class="project-section-title">
-            Lucid Analyzer
-          </h4>
+                <p>
+                  Learn practical security habits involving passwords,
+                  MFA, email, account recovery, device updates, backups,
+                  Wi-Fi, privacy, suspicious links, and incident response.
+                </p>
 
-          <p class="project-description">
+              </div>
 
-            Lucid Analyzer helps users examine suspicious messages,
-            emails, texts, and links for common warning signs.
 
-            Instead of simply returning a mysterious "SCAM" or "SAFE"
-            label, it explains the reasoning behind the analysis,
-            highlighting indicators such as suspicious links, urgency,
-            fear-based language, impersonation, account verification
-            requests, suspicious domains, and requests for sensitive
-            information.
+              <div class="feature-item">
 
-          </p>
+                <h4>
+                  Lucid Analyzer
+                </h4>
 
+                <p>
+                  Examine suspicious messages, emails, texts, and links
+                  for warning signs such as urgency, impersonation,
+                  suspicious domains, and requests for sensitive information.
+                </p>
 
-          <h4 class="project-section-title">
-            Interactive Learning
-          </h4>
+              </div>
 
-          <p class="project-description">
 
-            CyberLucid uses flashcards and quizzes to reinforce
-            cybersecurity concepts and help users recognize threats in
-            realistic situations.
+              <div class="feature-item">
 
-            <br><br>
+                <h4>
+                  Interactive Learning
+                </h4>
 
-            <strong>
-              Learn it. Recognize it. Remember it.
-            </strong>
+                <p>
+                  Use flashcards and quizzes to reinforce cybersecurity
+                  concepts and develop the ability to recognize threats
+                  in realistic situations.
+                </p>
 
-          </p>
+              </div>
 
 
-          <h4 class="project-section-title">
-            LucidBot
-          </h4>
+              <div class="feature-item">
 
-          <p class="project-description">
+                <h4>
+                  LucidBot
+                </h4>
 
-            <strong>LucidBot</strong> acts as a cybersecurity guide that
-            helps users understand concepts, navigate the platform, and
-            find relevant resources.
+                <p>
+                  Ask cybersecurity questions in plain language and get
+                  guidance toward relevant CyberLucid resources and
+                  beginner-friendly explanations.
+                </p>
 
-            Users can ask questions such as:
+              </div>
 
-            "What is phishing?"
 
-            "How do I set up MFA?"
+              <div class="feature-item">
 
-            "I clicked a suspicious link. What should I do?"
+                <h4>
+                  Learn → Recognize → Protect
+                </h4>
 
-            "What's the difference between malware and ransomware?"
+                <p>
+                  The platform connects education, threat recognition,
+                  practical protection, practice, exploration, and
+                  question-driven learning into one experience.
+                </p>
 
-          </p>
+              </div>
 
+            </div>
 
-          <div class="tags">
 
-            <span class="tag">Cybersecurity Education</span>
-            <span class="tag">Security Awareness</span>
-            <span class="tag">Threat Explorer</span>
-            <span class="tag">Lucid Analyzer</span>
-            <span class="tag">LucidBot</span>
-            <span class="tag">AI Assistant</span>
-            <span class="tag">Phishing</span>
-            <span class="tag">Social Engineering</span>
-            <span class="tag">Privacy</span>
-            <span class="tag">Interactive Learning</span>
+            <div class="project-section-label">
+              LEARNING CYCLE
+            </div>
 
-          </div>
+            <div class="project-flow">
 
+              <div class="flow-item">
+                <h4>LEARN</h4>
+              </div>
 
-          <div class="project-actions">
+              <div class="flow-item">
+                <h4>RECOGNIZE</h4>
+              </div>
 
-            <a
-              class="project-btn"
-              href="https://id-preview--728959ae-1f3f-4a76-a8e7-3238894a2049.lovable.app/"
-              target="_blank"
-              rel="noopener"
-            >
-              OPEN CYBERLUCID →
-            </a>
+              <div class="flow-item">
+                <h4>PROTECT</h4>
+              </div>
 
-            <a
-              class="project-btn secondary"
-              href="https://github.com/Mohamed-MT/CYBERLUCID"
-              target="_blank"
-              rel="noopener"
-            >
-              VIEW SOURCE →
-            </a>
+              <div class="flow-item">
+                <h4>PRACTICE</h4>
+              </div>
+
+              <div class="flow-item">
+                <h4>EXPLORE</h4>
+              </div>
+
+              <div class="flow-item">
+                <h4>ASK</h4>
+              </div>
+
+            </div>
+
+
+            <div class="tags">
+
+              <span class="tag">Cybersecurity Education</span>
+              <span class="tag">Security Awareness</span>
+              <span class="tag">Threat Awareness</span>
+              <span class="tag">Phishing</span>
+              <span class="tag">Social Engineering</span>
+              <span class="tag">Threat Explorer</span>
+              <span class="tag">Lucid Analyzer</span>
+              <span class="tag">LucidBot</span>
+              <span class="tag">Interactive Learning</span>
+
+            </div>
+
+
+            <div class="project-actions">
+
+              <a
+                class="project-btn"
+                href="https://id-preview--728959ae-1f3f-4a76-a8e7-3238894a2049.lovable.app/"
+                target="_blank"
+                rel="noopener"
+              >
+                OPEN CYBERLUCID →
+              </a>
+
+              <a
+                class="project-btn secondary"
+                href="https://github.com/Mohamed-MT/CYBERLUCID"
+                target="_blank"
+                rel="noopener"
+              >
+                VIEW SOURCE →
+              </a>
+
+            </div>
 
           </div>
 
         </div>
 
 
-        <!-- ═══════════════════════════════════════
+        <!-- ═════════════════════════════════════════
              AI PLANE FLIGHT AGENT
-        ═══════════════════════════════════════ -->
+        ═════════════════════════════════════════ -->
 
-        <div class="project-card">
+        <div class="card project-card">
 
-          <div class="project-number">
-            PROJECT 02 / AGENTIC AI + AUTONOMOUS SYSTEMS
-          </div>
+          <div class="project-inner">
 
-          <h3>
-            <span>AI Plane Flight Agent</span>
-          </h3>
+            <div class="project-header">
 
-          <p class="project-subtitle">
-            NATURAL-LANGUAGE FIXED-WING CONTROL
-          </p>
+              <div>
 
-          <p class="project-description">
+                <div class="project-number">
+                  PROJECT 02 / AUTONOMOUS SYSTEMS + AI
+                </div>
 
-            The <strong>AI Plane Flight Agent</strong> is an experimental
-            multi-agent system that allows an operator to control a
-            simulated fixed-wing aircraft using plain English.
+                <h3>
+                  <span>AI Plane Flight Agent</span>
+                </h3>
 
-            <br><br>
+                <p class="project-subtitle">
+                  NATURAL-LANGUAGE FIXED-WING CONTROL
+                </p>
 
-            Instead of manually programming every waypoint, an operator
-            can describe a mission such as:
-
-            <strong>
-              "Survey camp a then camp b and return home."
-            </strong>
-
-            The system interprets the request, creates an executable
-            mission, validates it against configured safety limits, and
-            sends the resulting commands to an ArduPlane SITL aircraft.
-
-            <br><br>
-
-            Everything runs in simulation, making the project suitable
-            for experimentation, development, and research without
-            requiring a physical aircraft.
-
-          </p>
-
-
-          <h4 class="project-section-title">
-            Multi-Agent Architecture
-          </h4>
-
-          <div class="project-flow">
-
-            <div class="flow-item">
-
-              <div class="flow-number">
-                01 / UNDERSTAND
               </div>
-
-              <h4>
-                Flight Agent
-              </h4>
-
-              <p>
-                Interprets natural-language instructions and determines
-                what actions the operator is requesting.
-              </p>
 
             </div>
 
 
-            <div class="flow-item">
+            <p class="project-description">
 
-              <div class="flow-number">
-                02 / PLAN
+              The <strong>AI Plane Flight Agent</strong> is an experimental
+              multi-agent system that allows a simulated fixed-wing aircraft
+              to be controlled using plain English.
+
+              <br><br>
+
+              Instead of manually programming every waypoint, an operator
+              can describe a mission such as
+              <strong>"Survey camp a then camp b and return home"</strong>
+              or <strong>"Fly a racetrack heading north for 3 laps."</strong>
+              The system interprets the request, converts it into structured
+              flight actions, validates the mission for safety, executes the
+              resulting commands through MAVLink, monitors the aircraft,
+              and generates a readable flight summary.
+
+              <br><br>
+
+              Everything runs inside an <strong>ArduPlane SITL</strong>
+              environment, making the project suitable for experimentation,
+              development, and learning without requiring a physical aircraft.
+
+            </p>
+
+
+            <div class="project-section-label">
+              SYSTEM ARCHITECTURE
+            </div>
+
+            <div class="project-flow">
+
+              <div class="flow-item">
+                <h4>USER</h4>
               </div>
 
-              <h4>
-                Mission Planner
-              </h4>
+              <div class="flow-item">
+                <h4>FLIGHT AGENT</h4>
+              </div>
 
-              <p>
-                Breaks complex requests into smaller executable flight
-                actions and mission waypoints.
-              </p>
+              <div class="flow-item">
+                <h4>MISSION PLAN</h4>
+              </div>
+
+              <div class="flow-item">
+                <h4>SAFETY</h4>
+              </div>
+
+              <div class="flow-item">
+                <h4>EXECUTION</h4>
+              </div>
+
+              <div class="flow-item">
+                <h4>SUMMARY</h4>
+              </div>
 
             </div>
 
 
-            <div class="flow-item">
+            <div class="project-section-label">
+              CORE CAPABILITIES
+            </div>
 
-              <div class="flow-number">
-                03 / VALIDATE
+            <div class="project-features">
+
+              <div class="feature-item">
+
+                <h4>
+                  Natural-Language Flight Control
+                </h4>
+
+                <p>
+                  Translate plain-English instructions into structured
+                  fixed-wing flight actions and executable missions.
+                </p>
+
               </div>
 
-              <h4>
-                Safety Validator
-              </h4>
 
-              <p>
-                Checks altitude, airspeed, landing points, hazards, and
-                other configured mission constraints.
-              </p>
+              <div class="feature-item">
+
+                <h4>
+                  Multi-Agent Mission Planning
+                </h4>
+
+                <p>
+                  Separate flight interpretation, mission planning,
+                  safety validation, execution, monitoring, and reporting
+                  into specialized responsibilities.
+                </p>
+
+              </div>
+
+
+              <div class="feature-item">
+
+                <h4>
+                  Safety Validation
+                </h4>
+
+                <p>
+                  Validate altitude, airspeed, landing-point, and known
+                  hazard constraints before a mission is executed.
+                </p>
+
+              </div>
+
+
+              <div class="feature-item">
+
+                <h4>
+                  MAVLink Flight Execution
+                </h4>
+
+                <p>
+                  Upload waypoints and flight sequences to an ArduPlane
+                  simulator and execute them through the autopilot in AUTO mode.
+                </p>
+
+              </div>
+
+
+              <div class="feature-item">
+
+                <h4>
+                  Obstacle-Avoidance Detours
+                </h4>
+
+                <p>
+                  Perform short lateral or altitude offsets and automatically
+                  rejoin the active mission after the detour.
+                </p>
+
+              </div>
+
+
+              <div class="feature-item">
+
+                <h4>
+                  Fixed-Wing Flight Patterns
+                </h4>
+
+                <p>
+                  Generate racetracks, figure-eights, and lawnmower survey
+                  patterns from waypoint geometry rather than relying on
+                  simple circle commands.
+                </p>
+
+              </div>
+
+
+              <div class="feature-item">
+
+                <h4>
+                  Runway-Aligned Landing
+                </h4>
+
+                <p>
+                  Construct runway approaches using configured runway
+                  endpoints, centerline alignment, approach waypoints,
+                  landing sequences, and rollout monitoring.
+                </p>
+
+              </div>
+
+
+              <div class="feature-item">
+
+                <h4>
+                  Monitoring &amp; Flight Reports
+                </h4>
+
+                <p>
+                  Track aircraft state in the background and generate
+                  readable summaries when missions are completed.
+                </p>
+
+              </div>
 
             </div>
 
 
-            <div class="flow-item">
+            <div class="project-section-label">
+              TECHNOLOGIES
+            </div>
 
-              <div class="flow-number">
-                04 / EXECUTE
-              </div>
+            <div class="tags">
 
-              <h4>
-                Flight Executor
-              </h4>
-
-              <p>
-                Processes the command queue sequentially and communicates
-                with the simulated aircraft through MAVLink.
-              </p>
+              <span class="tag">Python</span>
+              <span class="tag">ArduPilot</span>
+              <span class="tag">ArduPlane</span>
+              <span class="tag">SITL</span>
+              <span class="tag">MAVLink</span>
+              <span class="tag">PyMAVLink</span>
+              <span class="tag">DroneKit</span>
+              <span class="tag">Agno</span>
+              <span class="tag">OpenRouter</span>
+              <span class="tag">Mission Planning</span>
+              <span class="tag">Autonomous Systems</span>
+              <span class="tag">Natural Language AI</span>
 
             </div>
 
 
-            <div class="flow-item">
+            <div class="project-actions">
 
-              <div class="flow-number">
-                05 / MONITOR
-              </div>
-
-              <h4>
-                Aircraft Monitor
-              </h4>
-
-              <p>
-                Tracks aircraft state and telemetry while missions are
-                running in the background.
-              </p>
+              <a
+                class="project-btn"
+                href="https://github.com/Mohamed-MT/Agentic-AI-Plane-Script-Project"
+                target="_blank"
+                rel="noopener"
+              >
+                VIEW SOURCE →
+              </a>
 
             </div>
-
-
-            <div class="flow-item">
-
-              <div class="flow-number">
-                06 / REPORT
-              </div>
-
-              <h4>
-                Session Summary
-              </h4>
-
-              <p>
-                Generates readable summaries of completed missions and
-                flight activity.
-              </p>
-
-            </div>
-
-          </div>
-
-
-          <h4 class="project-section-title">
-            Fixed-Wing Mission Planning
-          </h4>
-
-          <p class="project-description">
-
-            Because fixed-wing aircraft cannot hover like quadcopters,
-            natural-language commands must be translated into appropriate
-            flight geometry.
-
-            The system supports waypoint missions, return-to-home
-            behavior, runway-aligned landing approaches, racetracks,
-            figure-eight patterns, lawnmower surveys, loitering, and
-            short obstacle-avoidance detours.
-
-          </p>
-
-
-          <h4 class="project-section-title">
-            Safety Architecture
-          </h4>
-
-          <p class="project-description">
-
-            The simulation enforces configured flight limits before
-            execution.
-
-            The current safety configuration includes:
-
-          </p>
-
-          <ul class="project-list">
-
-            <li>Maximum altitude: 120 meters</li>
-            <li>Minimum altitude: 30 meters</li>
-            <li>Airspeed range: 9–22 m/s</li>
-            <li>Landing-point validation</li>
-            <li>Known hazard proximity checks</li>
-            <li>Sequential command execution</li>
-
-          </ul>
-
-
-          <h4 class="project-section-title">
-            Natural-Language Examples
-          </h4>
-
-          <ul class="project-list">
-
-            <li>Arm and take off to 60 meters.</li>
-            <li>Fly north 2 kilometers.</li>
-            <li>Survey camp a then camp b then return home.</li>
-            <li>Fly a racetrack heading north for 3 laps.</li>
-            <li>Fly a figure eight over the airfield.</li>
-            <li>Survey camp a in a lawnmower pattern 800 by 400.</li>
-            <li>Land on runway 35.</li>
-            <li>Stop and hold position.</li>
-            <li>Resume the mission.</li>
-
-          </ul>
-
-
-          <div class="tags">
-
-            <span class="tag">Python</span>
-            <span class="tag">Agentic AI</span>
-            <span class="tag">Agno</span>
-            <span class="tag">OpenRouter</span>
-            <span class="tag">DroneKit</span>
-            <span class="tag">PyMAVLink</span>
-            <span class="tag">MAVLink</span>
-            <span class="tag">ArduPilot</span>
-            <span class="tag">ArduPlane</span>
-            <span class="tag">SITL</span>
-            <span class="tag">Mission Planning</span>
-            <span class="tag">Autonomous Systems</span>
-
-          </div>
-
-
-          <div class="project-actions">
-
-            <a
-              class="project-btn"
-              href="https://github.com/Mohamed-MT/Agentic-AI-Plane-Script-Project.git"
-              target="_blank"
-              rel="noopener"
-            >
-              VIEW SOURCE →
-            </a>
 
           </div>
 
         </div>
 
 
-        <!-- ═══════════════════════════════════════
+        <!-- ═════════════════════════════════════════
              AUTONOMOUS DRONE SECURITY LAB
-        ═══════════════════════════════════════ -->
+        ═════════════════════════════════════════ -->
 
-        <div class="project-card">
+        <div class="card project-card">
 
-          <div class="project-number">
-            PROJECT 03 / AUTONOMOUS SYSTEM SECURITY
+          <div class="project-inner">
+
+            <div class="project-number">
+              PROJECT 03 / AUTONOMOUS SYSTEM SECURITY
+            </div>
+
+            <h3>
+              Autonomous Drone Security Lab
+            </h3>
+
+            <p class="project-subtitle">
+              SECURITY TESTING FOR SIMULATED AUTONOMOUS SYSTEMS
+            </p>
+
+            <p class="project-description">
+
+              Built a virtualized drone environment using
+              <strong>ArduPilot, MAVLink, Mission Planner, and Kali Linux</strong>
+              to explore security considerations surrounding autonomous
+              aircraft and their communication systems.
+
+              <br><br>
+
+              The lab provides an isolated environment for experimenting
+              with network security concepts, attack scenarios, telemetry,
+              command communication, and defensive controls without exposing
+              a physical aircraft to risk.
+
+            </p>
+
+            <div class="tags">
+
+              <span class="tag">Kali Linux</span>
+              <span class="tag">ArduPilot</span>
+              <span class="tag">MAVLink</span>
+              <span class="tag">Mission Planner</span>
+              <span class="tag">Network Security</span>
+              <span class="tag">Autonomous Systems</span>
+              <span class="tag">Security Testing</span>
+
+            </div>
+
           </div>
 
-          <h3>
-            <span>Autonomous Drone Security Lab</span>
-          </h3>
-
-          <p class="project-subtitle">
-            CYBERSECURITY TESTING FOR AUTONOMOUS FLIGHT SYSTEMS
-          </p>
-
-          <p class="project-description">
-
-            Built a virtualized drone environment using
-            <strong>ArduPilot, MAVLink, Mission Planner, and Kali Linux</strong>
-            to explore cybersecurity risks in autonomous systems.
-
-            The lab was designed to demonstrate how cyberattacks can
-            affect simulated autonomous aircraft and to evaluate the
-            security controls used to protect communication and flight
-            systems.
-
-            <br><br>
-
-            The environment provided an isolated setting for experimenting
-            with autonomous vehicle security without involving physical
-            aircraft.
-
-          </p>
+        </div>
 
 
-          <div class="tags">
+        <!-- ═════════════════════════════════════════
+             CMMC COMPLIANCE
+        ═════════════════════════════════════════ -->
 
-            <span class="tag">Kali Linux</span>
-            <span class="tag">ArduPilot</span>
-            <span class="tag">MAVLink</span>
-            <span class="tag">Mission Planner</span>
-            <span class="tag">Virtualization</span>
-            <span class="tag">Network Security</span>
-            <span class="tag">Autonomous Systems</span>
+        <div class="card project-card">
+
+          <div class="project-inner">
+
+            <div class="project-number">
+              PROJECT 04 / GOVERNANCE + COMPLIANCE
+            </div>
+
+            <h3>
+              CMMC Compliance Support
+            </h3>
+
+            <p class="project-subtitle">
+              NIST 800-171 + CMMC SECURITY COMPLIANCE
+            </p>
+
+            <p class="project-description">
+
+              Worked with cybersecurity compliance documentation,
+              access controls, security policies, and organizational
+              security practices aligned with <strong>NIST 800-171</strong>
+              and <strong>CMMC</strong> requirements.
+
+              <br><br>
+
+              This experience provided practical exposure to how technical
+              security controls connect with documentation, governance,
+              assessment readiness, and organizational cybersecurity
+              requirements.
+
+            </p>
+
+            <div class="tags">
+
+              <span class="tag">CMMC</span>
+              <span class="tag">NIST 800-171</span>
+              <span class="tag">Compliance</span>
+              <span class="tag">Access Control</span>
+              <span class="tag">Security Policies</span>
+              <span class="tag">Governance</span>
+
+            </div>
 
           </div>
 
         </div>
 
 
-        <!-- ═══════════════════════════════════════
-             VIRTUALIZED SECURITY TESTING LAB
-        ═══════════════════════════════════════ -->
+        <!-- ═════════════════════════════════════════
+             AI-ASSISTED DRONE COMMAND TESTING
+        ═════════════════════════════════════════ -->
 
-        <div class="project-card">
+        <div class="card project-card">
 
-          <div class="project-number">
-            PROJECT 04 / CYBERSECURITY LAB
-          </div>
+          <div class="project-inner">
 
-          <h3>
-            <span>Virtualized Security Testing Lab</span>
-          </h3>
+            <div class="project-number">
+              PROJECT 05 / AI + AUTONOMOUS SYSTEMS
+            </div>
 
-          <p class="project-subtitle">
-            HANDS-ON PENETRATION TESTING ENVIRONMENT
-          </p>
+            <h3>
+              AI-Assisted Drone Command Testing
+            </h3>
 
-          <p class="project-description">
+            <p class="project-subtitle">
+              NATURAL LANGUAGE → STRUCTURED AUTONOMOUS COMMANDS
+            </p>
 
-            Built and maintained a personal cybersecurity laboratory using
-            <strong>VirtualBox, Kali Linux, and Metasploit</strong> to
-            practice penetration-testing concepts, vulnerability analysis,
-            network security, and hands-on security testing.
+            <p class="project-description">
 
-            <br><br>
+              Experimented with <strong>Python, LLM integrations,
+              DroneKit, OpenRouter, and agent-based workflows</strong>
+              to explore how natural-language instructions can be
+              interpreted and transformed into structured commands
+              for autonomous drone systems.
 
-            The environment provides an isolated space to experiment with
-            offensive security techniques, understand vulnerabilities,
-            troubleshoot security configurations, and develop practical
-            cybersecurity skills.
+              <br><br>
 
-          </p>
+              The work focused on the interface between human intent,
+              AI reasoning, mission logic, and machine-executable
+              commands, providing a foundation for more advanced
+              agentic autonomous-system projects.
 
+            </p>
 
-          <div class="tags">
+            <div class="tags">
 
-            <span class="tag">VirtualBox</span>
-            <span class="tag">Kali Linux</span>
-            <span class="tag">Metasploit</span>
-            <span class="tag">Penetration Testing</span>
-            <span class="tag">Vulnerability Analysis</span>
-            <span class="tag">Network Security</span>
+              <span class="tag">Python</span>
+              <span class="tag">DroneKit</span>
+              <span class="tag">OpenRouter</span>
+              <span class="tag">Agno Agents</span>
+              <span class="tag">LLMs</span>
+              <span class="tag">MAVLink</span>
+              <span class="tag">Natural Language</span>
+
+            </div>
 
           </div>
 
         </div>
 
+
+        <!-- ═════════════════════════════════════════
+             VIRTUALIZED SECURITY LAB
+        ═════════════════════════════════════════ -->
+
+        <div class="card project-card">
+
+          <div class="project-inner">
+
+            <div class="project-number">
+              PROJECT 06 / SECURITY LABORATORY
+            </div>
+
+            <h3>
+              Virtualized Security Testing Lab
+            </h3>
+
+            <p class="project-subtitle">
+              ISOLATED HANDS-ON CYBERSECURITY ENVIRONMENT
+            </p>
+
+            <p class="project-description">
+
+              Built and maintained a personal cybersecurity lab using
+              <strong>VirtualBox, Kali Linux, and Metasploit</strong>
+              to practice penetration-testing concepts, vulnerability
+              analysis, network security, and hands-on security testing
+              in isolated virtual environments.
+
+              <br><br>
+
+              The lab provides a controlled environment for learning,
+              troubleshooting, experimenting with security tools, and
+              developing practical technical skills without impacting
+              production systems.
+
+            </p>
+
+            <div class="tags">
+
+              <span class="tag">VirtualBox</span>
+              <span class="tag">Kali Linux</span>
+              <span class="tag">Metasploit</span>
+              <span class="tag">Penetration Testing</span>
+              <span class="tag">Vulnerability Analysis</span>
+              <span class="tag">Linux</span>
+              <span class="tag">Virtualization</span>
+
+            </div>
+
+          </div>
+
+        </div>
 
       </div>
 
@@ -2079,21 +2132,16 @@ footer a:hover{
 
       <div class="timeline">
 
-
         <div class="timeline-item">
 
-          <div class="timeline-date">
-            AUG 2025 – PRESENT
-          </div>
-
           <h3>
-            Cybersecurity Compliance Intern — Meerkat Cyber
+            Cybersecurity Intern — NDIA / Lionfish Cyber / Meerkat Cyber
           </h3>
 
           <p>
-            Support clients pursuing CMMC compliance through policy
-            development, documentation reviews, vendor coordination,
-            compliance readiness activities, and stakeholder meetings.
+            Hands-on exposure to compliance workflows, security
+            tooling, access controls, and collaboration across
+            cybersecurity initiatives.
           </p>
 
         </div>
@@ -2101,18 +2149,28 @@ footer a:hover{
 
         <div class="timeline-item">
 
-          <div class="timeline-date">
-            JAN 2026 – PRESENT
-          </div>
+          <h3>
+            NASA-Led Internship — George Washington University
+          </h3>
+
+          <p>
+            Worked in a technical internship environment involving
+            collaborative problem solving and exposure to advanced
+            systems concepts.
+          </p>
+
+        </div>
+
+
+        <div class="timeline-item">
 
           <h3>
             Agentic AI Intern — Kashmir World Foundation
           </h3>
 
           <p>
-            Developing agentic AI systems that convert natural-language
-            instructions into executable drone missions using Python,
-            DroneKit, and large language models.
+            Explored AI-assisted workflows, automation concepts,
+            and experimentation with intelligent systems.
           </p>
 
         </div>
@@ -2120,82 +2178,18 @@ footer a:hover{
 
         <div class="timeline-item">
 
-          <div class="timeline-date">
-            JAN 2026 – PRESENT
-          </div>
-
           <h3>
-            Undergraduate Researcher – AI &amp; Agentic Systems —
-            George Mason University
+            Undergraduate Experience — George Mason University
           </h3>
 
           <p>
-            Conducting research on agentic AI, autonomous decision-making,
-            cybersecurity applications, and emerging AI security
-            considerations.
+            Participated in cybersecurity labs, technical research,
+            and presentations involving emerging AI tools,
+            cybersecurity technologies, and hands-on experimentation
+            with modern security concepts.
           </p>
 
         </div>
-
-
-        <div class="timeline-item">
-
-          <div class="timeline-date">
-            SEP 2025 – MAY 2026
-          </div>
-
-          <h3>
-            CCP Compliance Consultant Intern —
-            National Defense Industrial Association (NDIA)
-          </h3>
-
-          <p>
-            Supported CMMC Level 2 compliance efforts by identifying
-            scope, reviewing policies, procedures, controls and security
-            documentation aligned with NIST 800-171 requirements.
-          </p>
-
-        </div>
-
-
-        <div class="timeline-item">
-
-          <div class="timeline-date">
-            AUG 2025 – OCT 2025
-          </div>
-
-          <h3>
-            Cybersecurity Compliance Intern — Lionfish Cyber Security
-          </h3>
-
-          <p>
-            Completed intensive training in the CMMC ecosystem,
-            assessment methodologies, NIST 800-171, and GRC platforms
-            while earning the CCP certification.
-          </p>
-
-        </div>
-
-
-        <div class="timeline-item">
-
-          <div class="timeline-date">
-            JUN 2025 – AUG 2025
-          </div>
-
-          <h3>
-            NASA ULI Cybersecurity Research Intern —
-            George Washington University
-          </h3>
-
-          <p>
-            Built and tested a virtual drone environment using ArduPilot,
-            MAVLink, Mission Planner, and Kali Linux to demonstrate
-            cyberattacks and evaluate security controls.
-          </p>
-
-        </div>
-
 
       </div>
 
@@ -2292,7 +2286,6 @@ footer a:hover{
         <a
           href="https://www.linkedin.com/in/mohamed-taha-099938353"
           target="_blank"
-          rel="noopener"
         >
           LinkedIn
         </a>
@@ -2302,7 +2295,6 @@ footer a:hover{
         <a
           href="https://github.com/Mohamed-MT"
           target="_blank"
-          rel="noopener"
         >
           GitHub
         </a>
@@ -2365,7 +2357,6 @@ function typeLine(line, done){
       done,
       350
     );
-
   }
 }
 
@@ -2377,16 +2368,12 @@ function typeNextLine(){
     typeLine(
       lines[lineIdx],
       () => {
-
         lineIdx++;
-
         typeNextLine();
-
       }
     );
 
   }
-
 }
 
 
@@ -2428,12 +2415,16 @@ function runLockSequence(){
   lockScreen.style.opacity = '1';
 
 
+  /* Stage 1 */
+
   setTimeout(() => {
 
     progBar.classList.add('full');
 
   },100);
 
+
+  /* Stage 2 */
 
   setTimeout(() => {
 
@@ -2442,6 +2433,8 @@ function runLockSequence(){
 
   },600);
 
+
+  /* Stage 3 */
 
   setTimeout(() => {
 
@@ -2452,6 +2445,8 @@ function runLockSequence(){
 
   },1400);
 
+
+  /* Stage 4 */
 
   setTimeout(() => {
 
@@ -2475,12 +2470,16 @@ function runLockSequence(){
   },2100);
 
 
+  /* Stage 5 */
+
   setTimeout(() => {
 
     welcomeMsg.classList.add('visible');
 
   },2700);
 
+
+  /* Stage 6 */
 
   setTimeout(() => {
 
@@ -2503,7 +2502,6 @@ function runLockSequence(){
     },1000);
 
   },3900);
-
 }
 
 
@@ -2554,7 +2552,6 @@ function startPortfolio(){
     },800);
 
   },4600);
-
 }
 
 
@@ -2649,7 +2646,6 @@ function initScrollReveal(){
     exitObserver.observe(section);
 
   });
-
 }
 
 
