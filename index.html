@@ -3,29 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mohamed Mohamed — Cybersecurity, AI, and Agentic Systems">
-    <title>Mohamed Mohamed | Cybersecurity & AI</title>
+
+    <title>Mohamed — Cybersecurity & AI</title>
+
+    <meta
+        name="description"
+        content="Mohamed's portfolio — cybersecurity, AI, agentic systems, autonomous systems, and research."
+    >
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         :root {
             --bg: #07111f;
             --bg-secondary: #0b1728;
-            --card: rgba(13, 27, 45, 0.82);
-            --card-hover: rgba(18, 36, 59, 0.95);
-            --border: rgba(120, 160, 200, 0.16);
-            --text: #eef5fb;
-            --muted: #9aafc2;
-            --accent: #55d6be;
-            --accent-secondary: #63a4ff;
-            --accent-soft: rgba(85, 214, 190, 0.12);
-            --blue-soft: rgba(99, 164, 255, 0.12);
-            --max-width: 1120px;
+            --card: #0d1b2e;
+            --card-hover: #10233b;
+            --border: rgba(148, 163, 184, 0.16);
+            --text: #f1f5f9;
+            --muted: #9aaabd;
+            --accent: #60a5fa;
+            --accent-light: #93c5fd;
+            --accent-dark: #2563eb;
+            --success: #34d399;
+            --max-width: 1080px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         html {
@@ -33,14 +38,23 @@
         }
 
         body {
-            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-family:
+                Inter,
+                ui-sans-serif,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
             background:
-                radial-gradient(circle at 15% 10%, rgba(85, 214, 190, 0.07), transparent 30%),
-                radial-gradient(circle at 85% 20%, rgba(99, 164, 255, 0.07), transparent 30%),
+                radial-gradient(
+                    circle at top right,
+                    rgba(37, 99, 235, 0.12),
+                    transparent 30%
+                ),
                 var(--bg);
             color: var(--text);
             line-height: 1.7;
-            overflow-x: hidden;
         }
 
         a {
@@ -49,36 +63,35 @@
         }
 
         .container {
-            width: min(var(--max-width), calc(100% - 40px));
+            width: min(100% - 40px, var(--max-width));
             margin: 0 auto;
         }
 
-        /* NAVIGATION */
+        /* =========================
+           NAVIGATION
+        ========================= */
 
         nav {
-            position: fixed;
+            position: sticky;
             top: 0;
-            left: 0;
-            width: 100%;
             z-index: 1000;
-            background: rgba(7, 17, 31, 0.78);
-            backdrop-filter: blur(18px);
-            border-bottom: 1px solid rgba(120, 160, 200, 0.1);
+            backdrop-filter: blur(16px);
+            background: rgba(7, 17, 31, 0.82);
+            border-bottom: 1px solid var(--border);
         }
 
         .nav-inner {
-            width: min(var(--max-width), calc(100% - 40px));
-            margin: auto;
-            height: 72px;
+            min-height: 70px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            gap: 30px;
         }
 
         .logo {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 800;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.03em;
         }
 
         .logo span {
@@ -87,288 +100,257 @@
 
         .nav-links {
             display: flex;
-            gap: 28px;
+            align-items: center;
+            gap: 26px;
             list-style: none;
         }
 
         .nav-links a {
             color: var(--muted);
-            font-size: 0.9rem;
-            transition: 0.2s ease;
+            font-size: 0.92rem;
+            transition: color 0.2s ease;
         }
 
         .nav-links a:hover {
             color: var(--text);
         }
 
-        /* HERO */
+        /* =========================
+           HERO
+        ========================= */
 
         .hero {
-            min-height: 100vh;
+            min-height: 88vh;
             display: flex;
             align-items: center;
-            padding: 130px 0 90px;
+            padding: 100px 0 90px;
         }
 
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.35fr 0.65fr;
-            gap: 70px;
-            align-items: center;
+        .hero-content {
+            max-width: 850px;
         }
 
         .eyebrow {
             display: inline-flex;
             align-items: center;
             gap: 9px;
-            padding: 7px 13px;
-            border: 1px solid rgba(85, 214, 190, 0.2);
-            background: var(--accent-soft);
-            border-radius: 999px;
-            color: var(--accent);
-            font-size: 0.78rem;
+            color: var(--accent-light);
+            font-size: 0.9rem;
             font-weight: 700;
-            margin-bottom: 22px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
         }
 
-        .eyebrow-dot {
-            width: 7px;
-            height: 7px;
+        .eyebrow::before {
+            content: "";
+            width: 8px;
+            height: 8px;
             border-radius: 50%;
-            background: var(--accent);
-            box-shadow: 0 0 14px rgba(85, 214, 190, 0.7);
+            background: var(--success);
+            box-shadow: 0 0 14px rgba(52, 211, 153, 0.65);
         }
 
         .hero h1 {
-            font-size: clamp(3.2rem, 7vw, 6.4rem);
-            line-height: 0.98;
-            letter-spacing: -0.065em;
-            max-width: 850px;
-            margin-bottom: 28px;
+            font-size: clamp(3rem, 7vw, 5.7rem);
+            line-height: 1.02;
+            letter-spacing: -0.055em;
+            margin-bottom: 26px;
         }
 
-        .hero h1 .accent {
+        .hero h1 span {
             color: var(--accent);
         }
 
         .hero-description {
+            max-width: 720px;
             color: var(--muted);
-            font-size: 1.08rem;
-            max-width: 680px;
+            font-size: clamp(1.05rem, 2vw, 1.25rem);
+            line-height: 1.8;
             margin-bottom: 34px;
         }
 
-        .hero-buttons {
+        .hero-actions {
             display: flex;
-            gap: 14px;
             flex-wrap: wrap;
+            gap: 14px;
         }
 
         .button {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 12px 19px;
-            border-radius: 9px;
+            min-height: 46px;
+            padding: 0 20px;
+            border-radius: 10px;
             border: 1px solid var(--border);
-            font-size: 0.9rem;
             font-weight: 700;
-            transition: 0.25s ease;
+            font-size: 0.92rem;
+            transition:
+                transform 0.2s ease,
+                border-color 0.2s ease,
+                background 0.2s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            border-color: rgba(96, 165, 250, 0.45);
         }
 
         .button-primary {
-            background: var(--accent);
-            color: #06131a;
-            border-color: var(--accent);
+            background: var(--accent-dark);
+            border-color: var(--accent-dark);
+            color: white;
         }
 
         .button-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(85, 214, 190, 0.16);
+            background: #1d4ed8;
         }
 
         .button-secondary {
-            background: rgba(255,255,255,0.025);
+            background: rgba(255, 255, 255, 0.025);
             color: var(--text);
         }
 
-        .button-secondary:hover {
-            background: rgba(255,255,255,0.06);
-            border-color: rgba(120, 160, 200, 0.28);
-        }
-
-        .hero-card {
-            border: 1px solid var(--border);
-            background: linear-gradient(145deg, rgba(15, 32, 52, 0.95), rgba(8, 20, 34, 0.8));
-            border-radius: 22px;
-            padding: 28px;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.2);
-        }
-
-        .hero-card-top {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 25px;
-        }
-
-        .terminal-dots {
-            display: flex;
-            gap: 6px;
-        }
-
-        .terminal-dots span {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #42566b;
-        }
-
-        .hero-card-label {
-            font-family: monospace;
-            color: var(--muted);
-            font-size: 0.72rem;
-        }
-
-        .code-line {
-            font-family: "SFMono-Regular", Consolas, monospace;
-            font-size: 0.82rem;
-            margin: 10px 0;
-            color: #b9cad8;
-        }
-
-        .code-key {
-            color: var(--accent);
-        }
-
-        .code-value {
-            color: #8ebcff;
-        }
-
-        /* SECTIONS */
+        /* =========================
+           SECTIONS
+        ========================= */
 
         section {
-            padding: 110px 0;
+            padding: 95px 0;
+            border-top: 1px solid var(--border);
         }
 
-        .section-header {
-            max-width: 720px;
-            margin-bottom: 55px;
+        .section-heading {
+            margin-bottom: 45px;
         }
 
         .section-label {
             color: var(--accent);
-            font-family: monospace;
-            font-size: 0.76rem;
-            letter-spacing: 0.12em;
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.14em;
             text-transform: uppercase;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
-        .section-title {
-            font-size: clamp(2rem, 4vw, 3.25rem);
-            line-height: 1.1;
-            letter-spacing: -0.045em;
-            margin-bottom: 18px;
+        .section-heading h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.15;
+            letter-spacing: -0.04em;
+            margin-bottom: 14px;
         }
 
-        .section-description {
+        .section-heading p {
+            max-width: 720px;
             color: var(--muted);
             font-size: 1rem;
         }
 
-        /* ABOUT */
+        /* =========================
+           ABOUT
+        ========================= */
 
         .about-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 24px;
+            grid-template-columns: 1.3fr 0.7fr;
+            gap: 55px;
+            align-items: start;
         }
 
-        .about-card {
-            padding: 30px;
-            border: 1px solid var(--border);
-            background: var(--card);
-            border-radius: 16px;
-        }
-
-        .about-card h3 {
-            margin-bottom: 13px;
-            font-size: 1.05rem;
-        }
-
-        .about-card p {
+        .about-text p {
             color: var(--muted);
-            font-size: 0.94rem;
+            font-size: 1.05rem;
+            margin-bottom: 18px;
         }
 
-        /* EXPERIENCE */
-
-        .timeline {
-            position: relative;
-            max-width: 900px;
-        }
-
-        .timeline::before {
-            content: "";
-            position: absolute;
-            left: 9px;
-            top: 5px;
-            bottom: 5px;
-            width: 1px;
-            background: rgba(120, 160, 200, 0.18);
-        }
-
-        .experience-item {
-            position: relative;
-            padding-left: 42px;
-            margin-bottom: 45px;
-        }
-
-        .experience-item:last-child {
+        .about-text p:last-child {
             margin-bottom: 0;
         }
 
-        .timeline-dot {
-            position: absolute;
-            left: 4px;
-            top: 7px;
-            width: 11px;
-            height: 11px;
-            border-radius: 50%;
-            background: var(--accent);
-            border: 3px solid var(--bg);
-            box-shadow: 0 0 0 1px rgba(85,214,190,0.3);
+        .focus-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
 
-        .experience-date {
-            color: var(--accent);
-            font-family: monospace;
-            font-size: 0.78rem;
-            margin-bottom: 5px;
+        .focus-item {
+            padding: 16px 18px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.02);
         }
 
-        .experience-role {
-            font-size: 1.15rem;
-            font-weight: 750;
+        .focus-item strong {
+            display: block;
             margin-bottom: 3px;
         }
 
-        .experience-company {
-            color: var(--accent-secondary);
-            font-size: 0.93rem;
-            margin-bottom: 10px;
-        }
-
-        .experience-description {
+        .focus-item span {
             color: var(--muted);
-            font-size: 0.93rem;
-            max-width: 820px;
+            font-size: 0.9rem;
         }
 
-        /* PROJECTS */
+        /* =========================
+           EXPERIENCE
+        ========================= */
 
-        .projects {
+        .experience-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .experience-item {
+            display: grid;
+            grid-template-columns: 190px 1fr;
+            gap: 30px;
+            padding: 28px 30px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            transition:
+                transform 0.2s ease,
+                border-color 0.2s ease,
+                background 0.2s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateY(-2px);
+            background: var(--card-hover);
+            border-color: rgba(96, 165, 250, 0.28);
+        }
+
+        .experience-date {
+            color: var(--accent-light);
+            font-size: 0.88rem;
+            font-weight: 700;
+            line-height: 1.5;
+        }
+
+        .experience-content h3 {
+            font-size: 1.15rem;
+            line-height: 1.35;
+            margin-bottom: 4px;
+        }
+
+        .experience-company {
+            color: var(--muted);
+            font-size: 0.94rem;
+            margin-bottom: 12px;
+        }
+
+        .experience-content p {
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.75;
+        }
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
+        .projects-list {
             display: flex;
             flex-direction: column;
             gap: 28px;
@@ -376,97 +358,137 @@
 
         .project-card {
             width: 100%;
-            padding: 36px;
+            padding: 34px;
+            background: var(--card);
             border: 1px solid var(--border);
-            background: linear-gradient(145deg, rgba(14, 29, 48, 0.92), rgba(8, 20, 34, 0.88));
-            border-radius: 20px;
-            transition: 0.3s ease;
+            border-radius: 18px;
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease,
+                border-color 0.2s ease;
         }
 
         .project-card:hover {
             transform: translateY(-3px);
-            border-color: rgba(85, 214, 190, 0.25);
             background: var(--card-hover);
+            border-color: rgba(96, 165, 250, 0.3);
         }
 
-        .project-number {
-            color: var(--accent);
-            font-family: monospace;
-            font-size: 0.75rem;
-            margin-bottom: 14px;
+        .project-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 25px;
+            margin-bottom: 18px;
         }
 
-        .project-title {
-            font-size: clamp(1.5rem, 3vw, 2.1rem);
-            letter-spacing: -0.035em;
+        .project-title-area h3 {
+            font-size: 1.5rem;
+            line-height: 1.25;
             margin-bottom: 7px;
         }
 
         .project-subtitle {
-            color: var(--accent-secondary);
-            font-size: 0.92rem;
-            margin-bottom: 20px;
+            color: var(--accent-light);
+            font-size: 0.93rem;
+            font-weight: 600;
+        }
+
+        .project-link {
+            flex-shrink: 0;
+            color: var(--accent-light);
+            font-size: 0.88rem;
+            font-weight: 700;
+            border: 1px solid var(--border);
+            padding: 8px 13px;
+            border-radius: 8px;
+            transition: border-color 0.2s ease;
+        }
+
+        .project-link:hover {
+            border-color: var(--accent);
         }
 
         .project-description {
             color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 24px;
             max-width: 900px;
-            font-size: 0.95rem;
-            margin-bottom: 22px;
         }
 
         .project-details {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
-            margin: 24px 0;
-        }
-
-        .project-detail {
-            padding: 18px;
-            border: 1px solid rgba(120,160,200,0.1);
-            background: rgba(0,0,0,0.12);
-            border-radius: 12px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
         }
 
         .project-detail h4 {
-            font-size: 0.82rem;
-            margin-bottom: 7px;
+            font-size: 0.84rem;
+            color: var(--text);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
         }
 
         .project-detail p {
             color: var(--muted);
-            font-size: 0.82rem;
+            font-size: 0.91rem;
+            line-height: 1.7;
         }
 
-        .tech-list {
+        .project-list {
+            list-style: none;
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-bottom: 24px;
         }
 
-        .tech {
+        .project-list li {
+            color: #cbd5e1;
+            font-size: 0.84rem;
             padding: 6px 10px;
             border-radius: 7px;
-            background: rgba(85,214,190,0.07);
-            border: 1px solid rgba(85,214,190,0.13);
-            color: #b9d9d1;
-            font-family: monospace;
-            font-size: 0.72rem;
+            background: rgba(96, 165, 250, 0.08);
+            border: 1px solid rgba(96, 165, 250, 0.12);
         }
 
-        .project-link {
-            color: var(--accent);
-            font-size: 0.85rem;
+        /* =========================
+           CYBERLUCID
+        ========================= */
+
+        .cyberlucid-card {
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(37, 99, 235, 0.11),
+                    rgba(13, 27, 46, 0.95) 45%
+                );
+        }
+
+        .cyberlucid-cycle {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .cycle-item {
+            color: var(--accent-light);
             font-weight: 700;
+            font-size: 0.88rem;
         }
 
-        .project-link:hover {
-            text-decoration: underline;
+        .cycle-arrow {
+            color: #64748b;
         }
 
-        /* SKILLS */
+        /* =========================
+           SKILLS
+        ========================= */
 
         .skills-grid {
             display: grid;
@@ -474,104 +496,108 @@
             gap: 18px;
         }
 
-        .skill-card {
-            padding: 25px;
-            border: 1px solid var(--border);
-            border-radius: 15px;
+        .skill-group {
+            padding: 24px;
             background: var(--card);
-        }
-
-        .skill-card h3 {
-            font-size: 0.98rem;
-            margin-bottom: 14px;
-        }
-
-        .skill-card p {
-            color: var(--muted);
-            font-size: 0.85rem;
-        }
-
-        /* EDUCATION */
-
-        .education-card {
-            max-width: 850px;
-            padding: 32px;
             border: 1px solid var(--border);
-            background: var(--card);
-            border-radius: 17px;
+            border-radius: 14px;
         }
 
-        .education-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
+        .skill-group h3 {
+            font-size: 1rem;
+            margin-bottom: 15px;
         }
 
-        .education-school {
-            color: var(--accent-secondary);
-            margin-bottom: 5px;
-        }
-
-        .education-date {
+        .skill-group p {
             color: var(--muted);
-            font-family: monospace;
-            font-size: 0.76rem;
-            margin-bottom: 17px;
+            font-size: 0.91rem;
+            line-height: 1.8;
         }
 
-        .education-card p {
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact-box {
+            padding: 50px;
+            border-radius: 18px;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(37, 99, 235, 0.12),
+                    rgba(13, 27, 46, 0.7)
+                );
+            border: 1px solid var(--border);
+        }
+
+        .contact-box h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.15;
+            letter-spacing: -0.04em;
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            max-width: 680px;
             color: var(--muted);
-            font-size: 0.9rem;
-        }
-
-        /* CONTACT */
-
-        .contact {
-            text-align: center;
-            padding-bottom: 130px;
-        }
-
-        .contact .section-header {
-            margin-left: auto;
-            margin-right: auto;
+            margin-bottom: 25px;
         }
 
         .contact-links {
             display: flex;
-            justify-content: center;
             flex-wrap: wrap;
             gap: 12px;
         }
 
-        /* FOOTER */
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
-            border-top: 1px solid rgba(120,160,200,0.1);
+            border-top: 1px solid var(--border);
             padding: 28px 0;
-            color: #70869b;
-            font-size: 0.78rem;
         }
 
         .footer-inner {
             display: flex;
             justify-content: space-between;
             gap: 20px;
+            color: var(--muted);
+            font-size: 0.85rem;
         }
 
-        /* RESPONSIVE */
+        /* =========================
+           RESPONSIVE
+        ========================= */
 
-        @media (max-width: 850px) {
-            .hero-grid {
-                grid-template-columns: 1fr;
-                gap: 45px;
+        @media (max-width: 800px) {
+            .nav-links {
+                display: none;
             }
 
             .hero {
                 min-height: auto;
-                padding-top: 135px;
+                padding: 90px 0 80px;
             }
 
             .about-grid {
                 grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .experience-item {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                padding: 24px;
+            }
+
+            .experience-date {
+                margin-bottom: 2px;
+            }
+
+            .project-header {
+                flex-direction: column;
+                gap: 15px;
             }
 
             .project-details {
@@ -579,37 +605,29 @@
             }
 
             .skills-grid {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1fr;
+            }
+
+            .contact-box {
+                padding: 32px 25px;
             }
         }
 
-        @media (max-width: 650px) {
+        @media (max-width: 520px) {
             .container {
                 width: min(100% - 28px, var(--max-width));
             }
 
-            .nav-inner {
-                width: min(100% - 28px, var(--max-width));
-            }
-
-            .nav-links {
-                display: none;
-            }
-
             section {
-                padding: 80px 0;
+                padding: 70px 0;
             }
 
             .hero h1 {
-                font-size: 3.4rem;
+                font-size: 3rem;
             }
 
             .project-card {
-                padding: 25px;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
+                padding: 24px 20px;
             }
 
             .footer-inner {
@@ -621,17 +639,21 @@
 
 <body>
 
-    <!-- NAVIGATION -->
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
     <nav>
-        <div class="nav-inner">
-            <a href="#top" class="logo">Mohamed<span>.</span></a>
+        <div class="container nav-inner">
+            <a href="#top" class="logo">
+                Mohamed<span>.</span>
+            </a>
 
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#skills">Skills</a></li>
-                <li><a href="#education">Education</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -639,697 +661,1001 @@
 
     <main id="top">
 
-        <!-- HERO -->
-        <section class="hero">
-            <div class="container hero-grid">
+        <!-- =========================
+             HERO
+        ========================== -->
 
-                <div>
+        <header class="hero">
+            <div class="container">
+                <div class="hero-content">
+
                     <div class="eyebrow">
-                        <span class="eyebrow-dot"></span>
-                        Cybersecurity · AI · Agentic Systems
+                        Cybersecurity • AI • Autonomous Systems
                     </div>
 
                     <h1>
-                        Building systems at the intersection of
-                        <span class="accent">security</span> and AI.
+                        Building at the intersection of
+                        <span>cybersecurity and AI.</span>
                     </h1>
 
                     <p class="hero-description">
-                        I'm Mohamed, a cybersecurity and AI-focused student and researcher
-                        interested in agentic systems, autonomous decision-making,
-                        cybersecurity, and the security challenges emerging from AI.
+                        I'm a cybersecurity and AI-focused student and researcher
+                        working across cybersecurity compliance, agentic AI,
+                        autonomous systems, and AI security. I build systems that
+                        connect practical security with emerging technologies.
                     </p>
 
-                    <div class="hero-buttons">
+                    <div class="hero-actions">
                         <a href="#projects" class="button button-primary">
                             View Projects
                         </a>
 
-                        <a href="#contact" class="button button-secondary">
-                            Get in Touch
+                        <a href="#experience" class="button button-secondary">
+                            View Experience
                         </a>
                     </div>
+
                 </div>
-
-                <div class="hero-card">
-                    <div class="hero-card-top">
-                        <div class="terminal-dots">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-
-                        <div class="hero-card-label">
-                            /about/me
-                        </div>
-                    </div>
-
-                    <div class="code-line">
-                        <span class="code-key">focus</span>:
-                        <span class="code-value">"Cybersecurity"</span>
-                    </div>
-
-                    <div class="code-line">
-                        <span class="code-key">research</span>:
-                        <span class="code-value">"Agentic AI"</span>
-                    </div>
-
-                    <div class="code-line">
-                        <span class="code-key">systems</span>:
-                        <span class="code-value">"Autonomous"</span>
-                    </div>
-
-                    <div class="code-line">
-                        <span class="code-key">approach</span>:
-                        <span class="code-value">"Build. Research. Secure."</span>
-                    </div>
-                </div>
-
             </div>
-        </section>
+        </header>
 
-        <!-- ABOUT -->
+
+        <!-- =========================
+             ABOUT
+        ========================== -->
+
         <section id="about">
             <div class="container">
 
-                <div class="section-header">
-                    <div class="section-label">01 / About</div>
+                <div class="section-heading">
+                    <div class="section-label">About</div>
 
-                    <h2 class="section-title">
-                        Security-minded. AI-focused.
+                    <h2>
+                        Cybersecurity, AI, and autonomous systems.
                     </h2>
 
-                    <p class="section-description">
-                        My work sits between cybersecurity, artificial intelligence,
-                        autonomous systems, and the practical security problems created
-                        by increasingly intelligent software.
+                    <p>
+                        My work focuses on understanding how emerging AI systems
+                        interact with cybersecurity, autonomous decision-making,
+                        and real-world systems.
                     </p>
                 </div>
 
                 <div class="about-grid">
 
-                    <div class="about-card">
-                        <h3>Cybersecurity</h3>
+                    <div class="about-text">
                         <p>
-                            Experience across cybersecurity compliance, CMMC,
-                            NIST 800-171, security documentation, governance,
-                            risk, and cybersecurity research.
+                            I am interested in building practical systems that
+                            combine cybersecurity, artificial intelligence,
+                            automation, and autonomous technologies.
+                        </p>
+
+                        <p>
+                            My experience spans cybersecurity compliance and
+                            governance, CMMC and NIST 800-171, agentic AI,
+                            autonomous drone systems, AI security research,
+                            and cybersecurity education.
+                        </p>
+
+                        <p>
+                            I especially enjoy working on projects where AI has
+                            to reason about a task, make decisions, interact
+                            with another system, and operate within defined
+                            safety constraints.
                         </p>
                     </div>
 
-                    <div class="about-card">
-                        <h3>Agentic AI</h3>
-                        <p>
-                            Building and researching systems where AI agents interpret
-                            natural-language goals, make decisions, coordinate tasks,
-                            and interact with real or simulated environments.
-                        </p>
-                    </div>
+                    <div class="focus-list">
 
-                    <div class="about-card">
-                        <h3>Autonomous Systems</h3>
-                        <p>
-                            Interested in the security and reliability of autonomous
-                            systems, including simulated aircraft, drone environments,
-                            mission planning, and AI-driven control.
-                        </p>
-                    </div>
+                        <div class="focus-item">
+                            <strong>Cybersecurity</strong>
+                            <span>
+                                Compliance, GRC, CMMC, NIST 800-171,
+                                security awareness, and AI security.
+                            </span>
+                        </div>
 
-                    <div class="about-card">
-                        <h3>Research</h3>
-                        <p>
-                            Exploring agentic AI, autonomous decision-making,
-                            cybersecurity applications, and emerging AI security
-                            considerations.
-                        </p>
+                        <div class="focus-item">
+                            <strong>Agentic AI</strong>
+                            <span>
+                                Multi-agent systems, autonomous decision-making,
+                                natural-language interfaces, and AI orchestration.
+                            </span>
+                        </div>
+
+                        <div class="focus-item">
+                            <strong>Autonomous Systems</strong>
+                            <span>
+                                Drone simulation, MAVLink, ArduPilot,
+                                mission planning, and safety validation.
+                            </span>
+                        </div>
+
+                        <div class="focus-item">
+                            <strong>Research</strong>
+                            <span>
+                                AI security, autonomous systems,
+                                and emerging cybersecurity considerations.
+                            </span>
+                        </div>
+
                     </div>
 
                 </div>
             </div>
         </section>
 
-        <!-- EXPERIENCE -->
+
+        <!-- =========================
+             EXPERIENCE
+        ========================== -->
+
         <section id="experience">
             <div class="container">
 
-                <div class="section-header">
-                    <div class="section-label">02 / Experience</div>
+                <div class="section-heading">
+                    <div class="section-label">Experience</div>
 
-                    <h2 class="section-title">
+                    <h2>
                         Experience
                     </h2>
 
-                    <p class="section-description">
-                        My experience spans cybersecurity compliance, AI engineering,
-                        autonomous systems, and academic research.
+                    <p>
+                        Experience across cybersecurity compliance,
+                        agentic AI, autonomous systems, and research.
                     </p>
                 </div>
 
-                <div class="timeline">
+                <div class="experience-list">
 
-                    <div class="experience-item">
-                        <div class="timeline-dot"></div>
+                    <!-- 1 -->
+
+                    <article class="experience-item">
 
                         <div class="experience-date">
                             Aug 2025 – Present
                         </div>
 
-                        <div class="experience-role">
-                            Cybersecurity Compliance Intern
+                        <div class="experience-content">
+
+                            <h3>
+                                Cybersecurity Compliance Intern
+                            </h3>
+
+                            <div class="experience-company">
+                                Meerkat Cyber
+                            </div>
+
+                            <p>
+                                Support clients pursuing CMMC compliance through
+                                policy development, documentation reviews, vendor
+                                coordination, compliance readiness activities,
+                                and stakeholder meetings.
+                            </p>
+
                         </div>
 
-                        <div class="experience-company">
-                            Meerkat Cyber
-                        </div>
+                    </article>
 
-                        <p class="experience-description">
-                            Support clients pursuing CMMC compliance through policy
-                            development, documentation reviews, vendor coordination,
-                            compliance readiness activities, and stakeholder meetings.
-                        </p>
-                    </div>
 
-                    <div class="experience-item">
-                        <div class="timeline-dot"></div>
+                    <!-- 2 -->
+
+                    <article class="experience-item">
 
                         <div class="experience-date">
                             Jan 2026 – Present
                         </div>
 
-                        <div class="experience-role">
-                            Agentic AI Intern
+                        <div class="experience-content">
+
+                            <h3>
+                                Agentic AI Intern
+                            </h3>
+
+                            <div class="experience-company">
+                                Kashmir World Foundation
+                            </div>
+
+                            <p>
+                                Developing agentic AI systems that convert
+                                natural-language instructions into executable
+                                drone missions using Python, DroneKit, and
+                                large language models.
+                            </p>
+
                         </div>
 
-                        <div class="experience-company">
-                            Kashmir World Foundation
-                        </div>
+                    </article>
 
-                        <p class="experience-description">
-                            Developing agentic AI systems that convert natural-language
-                            instructions into executable drone missions using Python,
-                            DroneKit, and large language models.
-                        </p>
-                    </div>
 
-                    <div class="experience-item">
-                        <div class="timeline-dot"></div>
+                    <!-- 3 -->
+
+                    <article class="experience-item">
 
                         <div class="experience-date">
                             Jan 2026 – Present
                         </div>
 
-                        <div class="experience-role">
-                            Undergraduate Researcher – AI & Agentic Systems
+                        <div class="experience-content">
+
+                            <h3>
+                                Undergraduate Researcher – AI &amp; Agentic Systems
+                            </h3>
+
+                            <div class="experience-company">
+                                George Mason University
+                            </div>
+
+                            <p>
+                                Conducting research on agentic AI, autonomous
+                                decision-making, cybersecurity applications,
+                                and emerging AI security considerations.
+                            </p>
+
                         </div>
 
-                        <div class="experience-company">
-                            George Mason University
-                        </div>
+                    </article>
 
-                        <p class="experience-description">
-                            Conducting research on agentic AI, autonomous decision-making,
-                            cybersecurity applications, and emerging AI security
-                            considerations.
-                        </p>
-                    </div>
 
-                    <div class="experience-item">
-                        <div class="timeline-dot"></div>
+                    <!-- 4 -->
+
+                    <article class="experience-item">
 
                         <div class="experience-date">
                             Sep 2025 – May 2026
                         </div>
 
-                        <div class="experience-role">
-                            CCP Compliance Consultant Intern
+                        <div class="experience-content">
+
+                            <h3>
+                                CCP Compliance Consultant Intern
+                            </h3>
+
+                            <div class="experience-company">
+                                National Defense Industrial Association (NDIA)
+                            </div>
+
+                            <p>
+                                Supported CMMC Level 2 compliance efforts by
+                                identifying scope, reviewing policies, procedures,
+                                controls, and security documentation aligned with
+                                NIST 800-171 requirements.
+                            </p>
+
                         </div>
 
-                        <div class="experience-company">
-                            National Defense Industrial Association (NDIA)
-                        </div>
+                    </article>
 
-                        <p class="experience-description">
-                            Supported CMMC Level 2 compliance efforts by identifying
-                            scope and reviewing policies, procedures, controls, and
-                            security documentation aligned with NIST 800-171 requirements.
-                        </p>
-                    </div>
 
-                    <div class="experience-item">
-                        <div class="timeline-dot"></div>
+                    <!-- 5 -->
+
+                    <article class="experience-item">
 
                         <div class="experience-date">
                             Aug 2025 – Oct 2025
                         </div>
 
-                        <div class="experience-role">
-                            Cybersecurity Compliance Intern
+                        <div class="experience-content">
+
+                            <h3>
+                                Cybersecurity Compliance Intern
+                            </h3>
+
+                            <div class="experience-company">
+                                Lionfish Cyber Security
+                            </div>
+
+                            <p>
+                                Completed intensive training in the CMMC ecosystem,
+                                assessment methodologies, NIST 800-171, and GRC
+                                platforms while earning the CCP certification.
+                            </p>
+
                         </div>
 
-                        <div class="experience-company">
-                            Lionfish Cyber Security
-                        </div>
+                    </article>
 
-                        <p class="experience-description">
-                            Completed intensive training in the CMMC ecosystem,
-                            assessment methodologies, NIST 800-171, and GRC platforms
-                            while earning the CCP certification.
-                        </p>
-                    </div>
 
-                    <div class="experience-item">
-                        <div class="timeline-dot"></div>
+                    <!-- 6 -->
+
+                    <article class="experience-item">
 
                         <div class="experience-date">
                             Jun 2025 – Aug 2025
                         </div>
 
-                        <div class="experience-role">
-                            NASA ULI Cybersecurity Research Intern
+                        <div class="experience-content">
+
+                            <h3>
+                                NASA ULI Cybersecurity Research Intern
+                            </h3>
+
+                            <div class="experience-company">
+                                George Washington University
+                            </div>
+
+                            <p>
+                                Built and tested a virtual drone environment using
+                                ArduPilot, MAVLink, Mission Planner, and Kali Linux
+                                to demonstrate cyberattacks and evaluate security
+                                controls.
+                            </p>
+
                         </div>
 
-                        <div class="experience-company">
-                            George Washington University
-                        </div>
-
-                        <p class="experience-description">
-                            Built and tested a virtual drone environment using ArduPilot,
-                            MAVLink, Mission Planner, and Kali Linux to demonstrate
-                            cyberattacks and evaluate security controls.
-                        </p>
-                    </div>
+                    </article>
 
                 </div>
             </div>
         </section>
 
-        <!-- PROJECTS -->
+
+        <!-- =========================
+             PROJECTS
+        ========================== -->
+
         <section id="projects">
             <div class="container">
 
-                <div class="section-header">
-                    <div class="section-label">03 / Projects</div>
+                <div class="section-heading">
+                    <div class="section-label">Projects</div>
 
-                    <h2 class="section-title">
+                    <h2>
                         Projects
                     </h2>
 
-                    <p class="section-description">
-                        Projects focused on cybersecurity education, artificial
-                        intelligence, autonomous systems, and practical experimentation.
+                    <p>
+                        Practical systems and applications exploring cybersecurity,
+                        AI, autonomous systems, and security education.
                     </p>
                 </div>
 
-                <div class="projects">
 
-                    <!-- CYBERLUCID -->
-                    <article class="project-card">
+                <div class="projects-list">
 
-                        <div class="project-number">
-                            PROJECT 01
-                        </div>
 
-                        <h3 class="project-title">
-                            CYBERLUCID
-                        </h3>
+                    <!-- =========================
+                         CYBERLUCID
+                    ========================== -->
 
-                        <div class="project-subtitle">
-                            Cybersecurity made clear for everyone.
+                    <article class="project-card cyberlucid-card">
+
+                        <div class="project-header">
+
+                            <div class="project-title-area">
+
+                                <h3>
+                                    CYBERLUCID
+                                </h3>
+
+                                <div class="project-subtitle">
+                                    Cybersecurity made clear for everyone.
+                                </div>
+
+                            </div>
+
+                            <a
+                                href="https://github.com/Mohamed-MT"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="project-link"
+                            >
+                                GitHub ↗
+                            </a>
+
                         </div>
 
                         <p class="project-description">
                             CyberLucid is a free, beginner-friendly cybersecurity
-                            education platform designed for everyday people — not just
-                            cybersecurity professionals. No technical background,
-                            account, or subscription is required. The goal is simple:
-                            help people learn, recognize threats, protect themselves,
-                            practice their knowledge, explore new threats, and ask
-                            questions.
+                            education platform built for everyday people — not
+                            just cybersecurity professionals. No technical
+                            background, account, or subscription is required.
+                            The platform focuses on helping people understand
+                            digital threats, recognize warning signs, and take
+                            practical steps to protect themselves.
                         </p>
 
-                        <div class="project-details">
-
-                            <div class="project-detail">
-                                <h4>Learn</h4>
-                                <p>
-                                    Introduces cybersecurity fundamentals and explains
-                                    why everyday users are targeted and how attackers
-                                    exploit trust, fear, urgency, curiosity, and authority.
-                                </p>
-                            </div>
-
-                            <div class="project-detail">
-                                <h4>Recognize</h4>
-                                <p>
-                                    Covers phishing, malware, ransomware, social
-                                    engineering, fake websites, deepfakes, QR scams,
-                                    account takeover, SIM swapping, and other common threats.
-                                </p>
-                            </div>
-
-                            <div class="project-detail">
-                                <h4>Protect</h4>
-                                <p>
-                                    Provides practical guidance for passwords, MFA,
-                                    account recovery, device security, backups,
-                                    suspicious links, Wi-Fi, and personal information.
-                                </p>
-                            </div>
-
-                        </div>
 
                         <div class="project-details">
 
                             <div class="project-detail">
-                                <h4>Lucid Analyzer</h4>
+
+                                <h4>
+                                    Learn
+                                </h4>
+
                                 <p>
-                                    Helps users examine suspicious messages, emails,
-                                    and links while explaining the warning signs instead
-                                    of simply returning a "SCAM" or "SAFE" label.
+                                    Introduces cybersecurity fundamentals and
+                                    explains why people are targeted, how
+                                    attackers exploit human behavior, and how
+                                    threats affect accounts, money, identity,
+                                    privacy, and devices.
                                 </p>
+
                             </div>
 
-                            <div class="project-detail">
-                                <h4>Threat Explorer</h4>
-                                <p>
-                                    An interactive environment for discovering threats
-                                    beyond the common attacks users already know.
-                                </p>
-                            </div>
 
                             <div class="project-detail">
-                                <h4>Practice & Ask</h4>
+
+                                <h4>
+                                    Common Attacks
+                                </h4>
+
                                 <p>
-                                    Flashcards, quizzes, and LucidBot help users reinforce
-                                    concepts and ask cybersecurity questions in plain language.
+                                    Covers phishing, malware, ransomware,
+                                    social engineering, password attacks,
+                                    fake websites, data breaches, identity
+                                    theft, smishing, vishing, deepfakes,
+                                    delivery scams, QR code scams, account
+                                    takeover, tech support scams, and SIM swapping.
                                 </p>
+
+                            </div>
+
+
+                            <div class="project-detail">
+
+                                <h4>
+                                    Threat Explorer
+                                </h4>
+
+                                <p>
+                                    An interactive environment for discovering
+                                    additional cybersecurity threats through
+                                    visual exploration, filtering, risk levels,
+                                    and detailed explanations.
+                                </p>
+
+                            </div>
+
+
+                            <div class="project-detail">
+
+                                <h4>
+                                    Stay Safe
+                                </h4>
+
+                                <p>
+                                    Provides practical guidance for strong
+                                    passwords, MFA/2FA, email security,
+                                    account recovery, device updates,
+                                    antivirus protection, backups, suspicious
+                                    links, Wi-Fi security, and protecting
+                                    personal information.
+                                </p>
+
+                            </div>
+
+
+                            <div class="project-detail">
+
+                                <h4>
+                                    Lucid Analyzer
+                                </h4>
+
+                                <p>
+                                    Helps users examine suspicious messages,
+                                    emails, texts, and links for indicators such
+                                    as urgency, fear-based language, impersonation,
+                                    suspicious domains, verification requests,
+                                    and requests for sensitive information.
+                                </p>
+
+                            </div>
+
+
+                            <div class="project-detail">
+
+                                <h4>
+                                    Interactive Learning
+                                </h4>
+
+                                <p>
+                                    Flashcards and quizzes reinforce concepts,
+                                    threats, terminology, and safer decision-making
+                                    so users can turn cybersecurity knowledge into
+                                    recognition and instinct.
+                                </p>
+
+                            </div>
+
+
+                            <div class="project-detail">
+
+                                <h4>
+                                    LucidBot
+                                </h4>
+
+                                <p>
+                                    A cybersecurity guide that explains concepts
+                                    in plain language and helps users find the
+                                    most relevant CyberLucid resources.
+                                </p>
+
+                            </div>
+
+
+                            <div class="project-detail">
+
+                                <h4>
+                                    Core Learning Cycle
+                                </h4>
+
+                                <div class="cyberlucid-cycle">
+                                    <span class="cycle-item">Learn</span>
+                                    <span class="cycle-arrow">→</span>
+
+                                    <span class="cycle-item">Recognize</span>
+                                    <span class="cycle-arrow">→</span>
+
+                                    <span class="cycle-item">Protect</span>
+                                    <span class="cycle-arrow">→</span>
+
+                                    <span class="cycle-item">Practice</span>
+                                    <span class="cycle-arrow">→</span>
+
+                                    <span class="cycle-item">Explore</span>
+                                    <span class="cycle-arrow">→</span>
+
+                                    <span class="cycle-item">Ask</span>
+                                </div>
+
                             </div>
 
                         </div>
 
-                        <div class="tech-list">
-                            <span class="tech">Cybersecurity Education</span>
-                            <span class="tech">Threat Analysis</span>
-                            <span class="tech">Interactive Learning</span>
-                            <span class="tech">Lucid Analyzer</span>
-                            <span class="tech">LucidBot</span>
-                            <span class="tech">Threat Explorer</span>
+
+                        <div class="project-detail" style="margin-top: 25px;">
+
+                            <h4>
+                                Focus
+                            </h4>
+
+                            <ul class="project-list">
+                                <li>Cybersecurity Education</li>
+                                <li>Security Awareness</li>
+                                <li>Threat Recognition</li>
+                                <li>Scam Analysis</li>
+                                <li>Interactive Learning</li>
+                                <li>AI Assistance</li>
+                            </ul>
+
                         </div>
 
                     </article>
 
 
-                    <!-- AI DRONE FLIGHT AGENT -->
+                    <!-- =========================
+                         AI DRONE FLIGHT AGENT
+                    ========================== -->
+
                     <article class="project-card">
 
-                        <div class="project-number">
-                            PROJECT 02
+                        <div class="project-header">
+
+                            <div class="project-title-area">
+
+                                <h3>
+                                    AI Drone Flight Agent
+                                </h3>
+
+                                <div class="project-subtitle">
+                                    Natural-language drone control
+                                </div>
+
+                            </div>
+
+                            <a
+                                href="https://github.com/Mohamed-MT/Agentic-AI-Plane-Script-Project"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="project-link"
+                            >
+                                GitHub ↗
+                            </a>
+
                         </div>
 
-                        <h3 class="project-title">
-                            AI Drone Flight Agent
-                        </h3>
-
-                        <div class="project-subtitle">
-                            Natural-language autonomous flight control
-                        </div>
 
                         <p class="project-description">
-                            A multi-agent AI system that allows a simulated aircraft to
-                            be controlled using plain English. Instead of manually
-                            programming every waypoint, an operator can describe a
-                            desired flight and the system interprets the request,
-                            plans the mission, validates it for safety, converts it
-                            into executable MAVLink commands, and carries it out inside
-                            an ArduPlane SITL environment.
+                            A Python-based multi-agent AI system that allows
+                            users to control a simulated drone using plain
+                            English. Instead of manually programming every
+                            movement, users can describe what they want the
+                            drone to do and the system interprets the request,
+                            plans the mission, performs safety checks, executes
+                            flight commands, monitors the drone, and generates
+                            a readable flight summary. Everything runs inside
+                            a simulated environment, so no physical drone is
+                            required.
                         </p>
 
-                        <div class="project-details">
-
-                            <div class="project-detail">
-                                <h4>Natural Language Control</h4>
-                                <p>
-                                    Converts instructions such as "Survey camp a then
-                                    camp b and return home" into structured flight actions.
-                                </p>
-                            </div>
-
-                            <div class="project-detail">
-                                <h4>Mission Planning</h4>
-                                <p>
-                                    Breaks complex requests into smaller executable steps
-                                    such as takeoff, navigation, loitering, approach, and landing.
-                                </p>
-                            </div>
-
-                            <div class="project-detail">
-                                <h4>Safety Validation</h4>
-                                <p>
-                                    Validates missions against configured altitude,
-                                    airspeed, landing-point, and known-hazard constraints
-                                    before execution.
-                                </p>
-                            </div>
-
-                        </div>
 
                         <div class="project-details">
 
                             <div class="project-detail">
-                                <h4>Fixed-Wing Flight</h4>
+
+                                <h4>
+                                    Natural-Language Control
+                                </h4>
+
                                 <p>
-                                    Designed around a simulated fixed-wing aircraft rather
-                                    than a hovering quadcopter, using waypoints, orbit
-                                    patterns, and runway-aligned landing sequences.
+                                    Users can provide instructions such as
+                                    taking off to a specified altitude, flying
+                                    north, flying over a location and returning
+                                    home, circling the current position,
+                                    stopping, or resuming a mission.
                                 </p>
+
                             </div>
 
-                            <div class="project-detail">
-                                <h4>Flight Patterns</h4>
-                                <p>
-                                    Supports racetrack patterns, figure-eight patterns,
-                                    and lawnmower survey patterns generated from waypoint geometry.
-                                </p>
-                            </div>
 
                             <div class="project-detail">
-                                <h4>Learning Machine</h4>
+
+                                <h4>
+                                    Multi-Agent Workflow
+                                </h4>
+
                                 <p>
-                                    Can learn operator preferences such as preferred
-                                    altitude, airspeed, locations, and recurring mission patterns.
+                                    The system separates responsibilities across
+                                    multiple AI components so complex autonomous
+                                    tasks can be broken into smaller and safer
+                                    actions.
                                 </p>
+
+                            </div>
+
+
+                            <div class="project-detail">
+
+                                <h4>
+                                    Flight Agent
+                                </h4>
+
+                                <p>
+                                    The main agent understands natural-language
+                                    instructions and determines what actions
+                                    need to be performed.
+                                </p>
+
+                            </div>
+
+
+                            <div class="project-detail">
+
+                                <h4>
+                                    Mission Planner
+                                </h4>
+
+                                <p>
+                                    Larger requests are broken into executable
+                                    steps. For example, a request to fly to a
+                                    location, circle it, and return home can
+                                    become takeoff, navigation, circling,
+                                    return, and landing actions.
+                                </p>
+
+                            </div>
+
+
+                            <div class="project-detail">
+
+                                <h4>
+                                    Safety Validator
+                                </h4>
+
+                                <p>
+                                    Missions are checked before execution.
+                                    Current safety constraints include maximum
+                                    altitude, minimum altitude, and speed
+                                    limits. Unsafe missions are rejected
+                                    automatically.
+                                </p>
+
+                            </div>
+
+
+                            <div class="project-detail">
+
+                                <h4>
+                                    Session Summary Agent
+                                </h4>
+
+                                <p>
+                                    After a mission is completed, the system
+                                    generates a readable summary describing
+                                    what the drone did.
+                                </p>
+
+                            </div>
+
+
+                            <div class="project-detail">
+
+                                <h4>
+                                    Learning Machine
+                                </h4>
+
+                                <p>
+                                    The system can learn from previous
+                                    interactions, including preferred altitude,
+                                    preferred speed, frequently used locations,
+                                    and common mission patterns.
+                                </p>
+
+                            </div>
+
+
+                            <div class="project-detail">
+
+                                <h4>
+                                    Mission Files &amp; MCP
+                                </h4>
+
+                                <p>
+                                    MCP integration allows reusable mission
+                                    files to be stored and executed. Users can
+                                    create predefined mission routines and ask
+                                    the agent to load and execute them.
+                                </p>
+
+                            </div>
+
+
+                            <div class="project-detail">
+
+                                <h4>
+                                    Simulation
+                                </h4>
+
+                                <p>
+                                    The project runs in a simulated environment
+                                    using ArduPilot SITL, allowing autonomous
+                                    flight behavior to be tested without a
+                                    physical drone.
+                                </p>
+
+                            </div>
+
+
+                            <div class="project-detail">
+
+                                <h4>
+                                    Workflow
+                                </h4>
+
+                                <p>
+                                    User instruction → Flight Agent →
+                                    Mission Planning → Safety Validation →
+                                    Command Queue → Drone Execution →
+                                    Flight Summary.
+                                </p>
+
                             </div>
 
                         </div>
 
-                        <div class="project-details">
 
-                            <div class="project-detail">
-                                <h4>Obstacle Avoidance</h4>
-                                <p>
-                                    Supports short flight detours that allow the aircraft
-                                    to offset around an obstacle and automatically rejoin
-                                    the active mission.
-                                </p>
-                            </div>
+                        <div class="project-detail" style="margin-top: 25px;">
 
-                            <div class="project-detail">
-                                <h4>Runway Landing</h4>
-                                <p>
-                                    Builds runway-aligned approaches using configured
-                                    runway endpoints rather than simply sending the
-                                    aircraft to a single landing point.
-                                </p>
-                            </div>
+                            <h4>
+                                Technologies
+                            </h4>
 
-                            <div class="project-detail">
-                                <h4>Simulation First</h4>
-                                <p>
-                                    Runs inside ArduPilot SITL, allowing experimentation
-                                    without requiring a physical aircraft.
-                                </p>
-                            </div>
+                            <ul class="project-list">
+                                <li>Python</li>
+                                <li>DroneKit</li>
+                                <li>ArduPilot SITL</li>
+                                <li>Agno</li>
+                                <li>OpenRouter</li>
+                                <li>PyMAVLink</li>
+                                <li>Large Language Models</li>
+                                <li>MCP</li>
+                            </ul>
 
                         </div>
 
-                        <div class="tech-list">
-                            <span class="tech">Python</span>
-                            <span class="tech">DroneKit</span>
-                            <span class="tech">ArduPilot SITL</span>
-                            <span class="tech">ArduPlane</span>
-                            <span class="tech">Agno</span>
-                            <span class="tech">OpenRouter</span>
-                            <span class="tech">PyMAVLink</span>
-                            <span class="tech">MAVLink</span>
-                            <span class="tech">Multi-Agent AI</span>
+
+                        <div class="project-detail" style="margin-top: 22px;">
+
+                            <h4>
+                                Example Instructions
+                            </h4>
+
+                            <ul class="project-list">
+                                <li>Take off to 20 metres</li>
+                                <li>Fly north 100 metres</li>
+                                <li>Fly over the hospital at 50 metres and return home</li>
+                                <li>Circle the current position</li>
+                                <li>Stop and hold position</li>
+                                <li>Resume the mission</li>
+                            </ul>
+
                         </div>
 
-                        <a
-                            href="https://github.com/Mohamed-MT/Agentic-AI-Plane-Script-Project"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="project-link"
-                        >
-                            View project on GitHub →
-                        </a>
+
+                        <div class="project-detail" style="margin-top: 22px;">
+
+                            <h4>
+                                Safety
+                            </h4>
+
+                            <p>
+                                The project is designed for simulation and
+                                research purposes. Current configured limits
+                                include a maximum altitude of 120 m, a minimum
+                                altitude of 2 m, and a maximum speed of 15 m/s.
+                                Battery values are simulated and should not be
+                                used for real-world decision making. Any
+                                adaptation for a real aircraft should undergo
+                                thorough safety review.
+                            </p>
+
+                        </div>
 
                     </article>
+
 
                 </div>
             </div>
         </section>
 
-        <!-- SKILLS -->
+
+        <!-- =========================
+             SKILLS
+        ========================== -->
+
         <section id="skills">
             <div class="container">
 
-                <div class="section-header">
-                    <div class="section-label">04 / Skills</div>
+                <div class="section-heading">
+                    <div class="section-label">Skills</div>
 
-                    <h2 class="section-title">
+                    <h2>
                         Technical Focus
                     </h2>
 
-                    <p class="section-description">
-                        A combination of cybersecurity, AI, programming, autonomous
-                        systems, and security research.
+                    <p>
+                        Technologies and areas I've worked with across
+                        cybersecurity, AI, autonomous systems, and research.
                     </p>
                 </div>
+
 
                 <div class="skills-grid">
 
-                    <div class="skill-card">
-                        <h3>Cybersecurity</h3>
+                    <div class="skill-group">
+
+                        <h3>
+                            Cybersecurity
+                        </h3>
+
                         <p>
-                            CMMC · NIST 800-171 · GRC · Security Controls ·
-                            Compliance · Risk · Security Research
+                            CMMC • NIST 800-171 • GRC • Security Controls •
+                            Compliance Readiness • Security Awareness •
+                            Cybersecurity Research • AI Security
                         </p>
+
                     </div>
 
-                    <div class="skill-card">
-                        <h3>Artificial Intelligence</h3>
+
+                    <div class="skill-group">
+
+                        <h3>
+                            AI &amp; Agentic Systems
+                        </h3>
+
                         <p>
-                            Agentic AI · Large Language Models · Multi-Agent Systems ·
-                            AI Security · Autonomous Decision-Making
+                            Agentic AI • Multi-Agent Systems • Large Language
+                            Models • Natural-Language Interfaces • Autonomous
+                            Decision-Making • AI Orchestration
                         </p>
+
                     </div>
 
-                    <div class="skill-card">
-                        <h3>Programming</h3>
+
+                    <div class="skill-group">
+
+                        <h3>
+                            Autonomous Systems
+                        </h3>
+
                         <p>
-                            Python · AI APIs · Automation · Mission Planning ·
-                            Data Processing
+                            Python • DroneKit • ArduPilot • SITL • MAVLink •
+                            PyMAVLink • Mission Planning • Flight Automation
                         </p>
+
                     </div>
 
-                    <div class="skill-card">
-                        <h3>Autonomous Systems</h3>
+
+                    <div class="skill-group">
+
+                        <h3>
+                            Security &amp; Research
+                        </h3>
+
                         <p>
-                            DroneKit · MAVLink · ArduPilot · SITL · Mission Planner ·
-                            Autonomous Flight
+                            Kali Linux • Threat Analysis • Security Controls •
+                            Cybersecurity Applications • Autonomous Systems
+                            Security • AI Security Considerations
                         </p>
+
                     </div>
 
-                    <div class="skill-card">
-                        <h3>Security Platforms</h3>
+
+                    <div class="skill-group">
+
+                        <h3>
+                            AI Tools &amp; Platforms
+                        </h3>
+
                         <p>
-                            Kali Linux · GRC Platforms · CMMC Assessment Methodology ·
-                            Security Documentation
+                            Agno • OpenRouter • Large Language Models • MCP •
+                            Agent-Based Workflows
                         </p>
+
                     </div>
 
-                    <div class="skill-card">
-                        <h3>Research</h3>
+
+                    <div class="skill-group">
+
+                        <h3>
+                            Compliance
+                        </h3>
+
                         <p>
-                            Agentic Systems · AI Security · Autonomous Systems ·
-                            Cybersecurity Applications
+                            CMMC Level 2 • NIST SP 800-171 • Policy Review •
+                            Procedures • Documentation • Scope Identification •
+                            Compliance Readiness
                         </p>
+
                     </div>
 
                 </div>
             </div>
         </section>
 
-        <!-- EDUCATION -->
-        <section id="education">
+
+        <!-- =========================
+             CONTACT
+        ========================== -->
+
+        <section id="contact">
             <div class="container">
 
-                <div class="section-header">
-                    <div class="section-label">05 / Education</div>
+                <div class="contact-box">
 
-                    <h2 class="section-title">
-                        Education
-                    </h2>
-                </div>
-
-                <div class="education-card">
-
-                    <h3>
-                        George Mason University
-                    </h3>
-
-                    <div class="education-school">
-                        Undergraduate Student
-                    </div>
-
-                    <div class="education-date">
-                        Cybersecurity · AI & Agentic Systems
-                    </div>
-
-                    <p>
-                        Academic and research work focused on cybersecurity,
-                        artificial intelligence, agentic systems, autonomous
-                        decision-making, and emerging AI security considerations.
-                    </p>
-
-                </div>
-
-            </div>
-        </section>
-
-        <!-- CONTACT -->
-        <section id="contact" class="contact">
-            <div class="container">
-
-                <div class="section-header">
-                    <div class="section-label">06 / Contact</div>
-
-                    <h2 class="section-title">
+                    <h2>
                         Let's connect.
                     </h2>
 
-                    <p class="section-description">
-                        Interested in cybersecurity, agentic AI, autonomous systems,
-                        or research? Feel free to reach out.
+                    <p>
+                        I'm interested in cybersecurity, AI, agentic systems,
+                        autonomous technologies, research, and opportunities
+                        where these areas intersect.
                     </p>
-                </div>
 
-                <div class="contact-links">
+                    <div class="contact-links">
 
-                    <a
-                        href="https://github.com/Mohamed-MT"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="button button-secondary"
-                    >
-                        GitHub
-                    </a>
+                        <a
+                            href="https://github.com/Mohamed-MT"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="button button-primary"
+                        >
+                            GitHub
+                        </a>
 
-                    <a
-                        href="https://www.linkedin.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="button button-secondary"
-                    >
-                        LinkedIn
-                    </a>
+                        <a
+                            href="https://www.linkedin.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="button button-secondary"
+                        >
+                            LinkedIn
+                        </a>
 
-                    <a
-                        href="mailto:your.email@example.com"
-                        class="button button-primary"
-                    >
-                        Email Me
-                    </a>
+                    </div>
 
                 </div>
 
@@ -1338,16 +1664,22 @@
 
     </main>
 
-    <!-- FOOTER -->
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
     <footer>
         <div class="container footer-inner">
+
             <div>
-                © 2026 Mohamed Mohamed
+                © 2026 Mohamed
             </div>
 
             <div>
-                Cybersecurity · AI · Agentic Systems
+                Cybersecurity • AI • Autonomous Systems
             </div>
+
         </div>
     </footer>
 
