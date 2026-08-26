@@ -444,6 +444,7 @@ section.out-view{
   content:""; position:absolute; inset:0;
   background: linear-gradient(135deg, rgba(255,255,255,0.03), transparent);
   opacity:0; transition:.4s;
+  pointer-events:none;
 }
 .card:hover{
   transform:translateY(-8px) scale(1.01);
@@ -737,29 +738,48 @@ footer a:hover{ color:var(--accent2); }
           <span class="tag">MAVLink</span>
         </div>
         <div class="project-links">
-          <span class="project-link">GitHub Repository</span>
+          <a class="project-link" href="https://github.com/Mohamed-MT/Agentic-AI-Plane-Script-Project" target="_blank" rel="noopener noreferrer">GitHub Repository ↗</a>
         </div>
       </div>
 
-      <div class="card">
-        <h3>Autonomous Drone Security Lab</h3>
-        <p>Built a virtualized drone environment using ArduPilot, MAVLink, Mission Planner, and Kali Linux to test network attacks and security controls in autonomous systems.</p>
+            <div class="card">
+        <h3>AI Drone Flight Agent</h3>
+        <p>Developed a multi-agent AI flight system that converts natural-language instructions into executable drone missions inside an ArduPilot SITL simulator. The system handles mission planning, safety validation, command execution, state monitoring, flight summaries, and reusable mission files through MCP.</p>
         <div class="tags">
-          <span class="tag">Kali Linux</span><span class="tag">ArduPilot</span>
-          <span class="tag">MAVLink</span><span class="tag">Mission Planner</span>
+          <span class="tag">Python</span><span class="tag">DroneKit</span>
+          <span class="tag">ArduPilot SITL</span><span class="tag">Agno</span>
+          <span class="tag">OpenRouter</span><span class="tag">PyMAVLink</span><span class="tag">MCP</span>
+        </div>
+        <div class="project-links">
+          <a class="project-link" href="https://github.com/Mohamed-MT/Agentic-AI-Drone-Script-Project" target="_blank" rel="noopener noreferrer">GitHub Repository ↗</a>
         </div>
       </div>
 
-      <div class="card">
-        <h3>Virtualized Security Testing Lab</h3>
-        <p>Built and maintained a personal cybersecurity lab using VirtualBox, Kali Linux, and Metasploit to practice penetration testing concepts, vulnerability analysis, and hands-on security testing in isolated environments.</p>
+            <div class="card">
+        <h3>Virtualized Penetration Testing Lab</h3>
+        <p>Built and maintained an isolated VirtualBox lab with Windows, Kali Linux, Ubuntu, and Metasploitable 2 to practice penetration testing, network analysis, vulnerability research, and web security. Used security tools to scan systems, analyze traffic, test vulnerabilities, and research CVEs in a controlled environment.</p>
         <div class="tags">
           <span class="tag">VirtualBox</span><span class="tag">Kali Linux</span>
-          <span class="tag">Metasploit</span><span class="tag">Penetration Testing</span>
+          <span class="tag">Windows</span><span class="tag">Ubuntu</span>
+          <span class="tag">Metasploitable 2</span><span class="tag">Wireshark</span>
+          <span class="tag">Nmap</span><span class="tag">Metasploit</span>
+          <span class="tag">Nessus</span><span class="tag">Burp Suite</span>
+          <span class="tag">CVE Research</span>
         </div>
       </div>
 
-      
+      <div class="card">
+        <h3>Drone Cybersecurity Vulnerability Research</h3>
+        <p>Researched vulnerabilities in drone software and communication protocols by designing a virtualized test environment simulating autonomous drone operations. Conducted ethical penetration testing — including GCS-drone telemetry interception, MITM-based drone redirection, and DoS attacks on the communication link — then developed and implemented countermeasures such as MAVLink message signing and VPN tunneling with public/private key encryption. Findings, attack methods, and remediation steps were documented in a comprehensive research report.</p>
+        <div class="tags">
+          <span class="tag">ArduPilot</span><span class="tag">MAVLink</span>
+          <span class="tag">MAVProxy</span><span class="tag">Mission Planner</span>
+          <span class="tag">Kali Linux</span><span class="tag">Windows</span>
+          <span class="tag">Penetration Testing</span><span class="tag">MITM Attacks</span>
+          <span class="tag">DoS Attacks</span><span class="tag">Encryption</span>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -769,20 +789,34 @@ footer a:hover{ color:var(--accent2); }
     <h2 class="section-title">Experience</h2>
     <div class="timeline">
       <div class="timeline-item">
-        <h3>Cybersecurity Intern — NDIA / Lionfish Cyber / Meerkat Cyber</h3>
-        <p>Hands-on exposure to compliance workflows, security tooling, access controls, and collaboration across cybersecurity initiatives.</p>
-      </div>
-      <div class="timeline-item">
-        <h3>NASA-Led Internship — George Washington University</h3>
-        <p>Worked in a technical internship environment involving collaborative problem solving and exposure to advanced systems concepts.</p>
+        <h3>Cybersecurity Compliance Intern — Meerkat Cyber</h3>
+        <p>Aug 2025 – Present</p>
+        <p>Support clients pursuing CMMC compliance through policy development, documentation reviews, vendor coordination, compliance readiness activities, and stakeholder meetings.</p>
       </div>
       <div class="timeline-item">
         <h3>Agentic AI Intern — Kashmir World Foundation</h3>
-        <p>Explored AI-assisted workflows, automation concepts, and experimentation with intelligent systems.</p>
+        <p>Jan 2026 – Aug 2026</p>
+        <p>Developed agentic AI systems that convert natural-language instructions into executable drone missions using Python, DroneKit, and large language models.</p>
       </div>
       <div class="timeline-item">
-        <h3>Undergraduate Experience — George Mason University</h3>
-        <p>Participated in cybersecurity labs, technical research, and presentations involving emerging AI tools, cybersecurity technologies, and hands-on experimentation with modern security concepts.</p>
+        <h3>Undergraduate Researcher – AI &amp; Agentic Systems — George Mason University</h3>
+        <p>Jan 2026 – Jun 2026</p>
+        <p>Conducted research on agentic AI, autonomous decision-making, cybersecurity applications, and emerging AI security considerations.</p>
+      </div>
+      <div class="timeline-item">
+        <h3>CCP Compliance Consultant Intern — National Defense Industrial Association (NDIA)</h3>
+        <p>Sep 2025 – May 2026</p>
+        <p>Supported CMMC Level 2 compliance efforts by identifying scope, reviewing policies, procedures, controls and security documentation aligned with NIST 800-171 requirements.</p>
+      </div>
+      <div class="timeline-item">
+        <h3>Cybersecurity Compliance Intern — Lionfish Cyber Security</h3>
+        <p>Aug 2025 – Oct 2025</p>
+        <p>Completed intensive training in the CMMC ecosystem, assessment methodologies, NIST 800-171, and GRC platforms while earning the CCP certification.</p>
+      </div>
+      <div class="timeline-item">
+        <h3>NASA ULI Cybersecurity Research Intern — George Washington University</h3>
+        <p>Jun 2025 – Aug 2025</p>
+        <p>Built and tested a virtual drone environment using ArduPilot, MAVLink, Mission Planner, and Kali Linux to demonstrate cyberattacks and evaluate security controls.</p>
       </div>
     </div>
   </section>
