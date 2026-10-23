@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,7 +50,7 @@ body::after{
   z-index:-2;
 }
 
-/* ═══════════════ INTRO SCREEN ═══════════════ */
+/* INTRO SCREEN */
 #intro{
   position:fixed;
   inset:0;
@@ -62,7 +63,6 @@ body::after{
   overflow:hidden;
   transition: opacity 1.2s ease, transform 1.2s ease;
 }
-
 .floating-panels{ position:absolute; inset:0; overflow:hidden; pointer-events:none; }
 .panel{
   position:absolute;
@@ -90,8 +90,6 @@ body::after{
   50%{ transform:translateY(-12px); }
   100%{ transform:translateY(0px); }
 }
-
-/* INTRO BOX */
 .intro-box{
   text-align:center;
   max-width:620px;
@@ -114,8 +112,6 @@ body::after{
   font-weight:400;
   font-family:'Share Tech Mono',monospace;
 }
-
-/* TERMINAL */
 .terminal{
   width:100%; max-width:520px; margin:0 auto 28px;
   text-align:left;
@@ -138,8 +134,6 @@ body::after{
   vertical-align:middle;
 }
 @keyframes blink{ 0%,100%{opacity:1;} 50%{opacity:0;} }
-
-/* LAUNCH BUTTON */
 .launch-btn{
   padding:14px 30px;
   background:rgba(77,163,255,0.08);
@@ -158,7 +152,7 @@ body::after{
   box-shadow:0 15px 35px rgba(77,163,255,0.15);
 }
 
-/* ═══════════════ LOCK SCREEN ═══════════════ */
+/* LOCK SCREEN */
 #lock-screen{
   position:fixed;
   inset:0;
@@ -171,22 +165,17 @@ body::after{
   gap:30px;
   transition: opacity 1.2s ease;
 }
-
-/* SVG LOCK */
 .lock-wrap{
   display:flex;
   flex-direction:column;
   align-items:center;
   gap:24px;
 }
-
 #lock-svg{
   width:100px;
   height:110px;
   filter: drop-shadow(0 0 20px rgba(77,163,255,0.4));
 }
-
-/* Shackle animation: rotates the top arc open */
 #shackle{
   transform-origin: 50px 38px;
   transition: transform 0.7s cubic-bezier(0.34,1.56,0.64,1);
@@ -194,8 +183,6 @@ body::after{
 #shackle.open{
   transform: rotate(-55deg) translateY(-10px);
 }
-
-/* Body glows green when unlocked */
 #lock-body{
   transition: fill 0.5s ease, stroke 0.5s ease;
 }
@@ -207,8 +194,6 @@ body::after{
   transition: opacity 0.4s ease 0.3s;
 }
 #lock-icon-line.hidden{ opacity:0; }
-
-/* Scanning line across body */
 .scan-line{
   position:absolute;
   width:100%;
@@ -224,8 +209,6 @@ body::after{
   90%{ opacity:1; }
   100%{ top:100%; opacity:0; }
 }
-
-/* Status text under lock */
 .lock-status{
   font-family:'Share Tech Mono',monospace;
   font-size:12px;
@@ -234,8 +217,6 @@ body::after{
   text-align:center;
 }
 .lock-status.green{ color:var(--green); }
-
-/* WELCOME message */
 .welcome-msg{
   font-family:'Rajdhani',sans-serif;
   font-size:52px;
@@ -252,8 +233,6 @@ body::after{
   transform:scale(1);
 }
 .welcome-msg span{ color:var(--green); }
-
-/* Hex grid overlay for the lock screen */
 #lock-screen::before{
   content:"";
   position:absolute;
@@ -263,8 +242,6 @@ body::after{
     linear-gradient(90deg, rgba(77,163,255,0.03) 1px, transparent 1px);
   background-size:40px 40px;
 }
-
-/* Progress bar */
 .progress-wrap{
   width:280px;
   height:2px;
@@ -281,7 +258,7 @@ body::after{
 }
 .progress-bar.full{ width:100%; }
 
-/* ═══════════════ PORTFOLIO HIDDEN UNTIL UNLOCKED ═══════════════ */
+/* PORTFOLIO */
 #portfolio-content{
   opacity:0;
   visibility:hidden;
@@ -292,7 +269,7 @@ body::after{
   visibility:visible;
 }
 
-/* ═══════════════ NAV ═══════════════ */
+/* NAVIGATION */
 nav{
   position:sticky; top:0;
   backdrop-filter:blur(12px);
@@ -329,9 +306,8 @@ nav{
   100%{ opacity:.4; box-shadow:0 0 0 0 rgba(52,211,153,0); }
 }
 
-/* ═══════════════ LAYOUT ═══════════════ */
+/* LAYOUT */
 .container{ width:min(1150px,90%); margin:auto; }
-
 section{
   padding:110px 0;
   opacity:0;
@@ -353,7 +329,6 @@ section.out-view{
   transform:translateY(-70px) scale(0.97);
   filter:blur(6px);
 }
-
 .section-label{
   color:var(--accent); font-size:11px;
   letter-spacing:3px; margin-bottom:12px;
@@ -364,7 +339,7 @@ section.out-view{
   font-weight:700; letter-spacing:1px;
 }
 
-/* ═══════════════ HERO — CENTERED ═══════════════ */
+/* HERO */
 .hero{
   min-height:100vh;
   display:flex;
@@ -390,7 +365,6 @@ section.out-view{
   max-width:620px; margin:0 auto 35px;
   line-height:1.8;
 }
-
 .ai-line{
   width:180px; height:2px;
   margin:25px auto;
@@ -429,7 +403,7 @@ section.out-view{
   border-color:rgba(77,163,255,0.5)!important;
 }
 
-/* ═══════════════ CARDS ═══════════════ */
+/* PROJECT CARDS */
 .cards{ display:grid; gap:18px; }
 .card{
   background:rgba(19,28,40,0.72);
@@ -539,7 +513,7 @@ footer a:hover{ color:var(--accent2); }
 
 <body>
 
-<!-- ═══════════ INTRO TERMINAL ═══════════ -->
+<!-- INTRO TERMINAL -->
 <div id="intro">
   <div class="floating-panels">
     <div class="panel"></div>
@@ -558,50 +532,28 @@ footer a:hover{ color:var(--accent2); }
   </div>
 </div>
 
-<!-- ═══════════ LOCK SCREEN ═══════════ -->
+<!-- LOCK SCREEN -->
 <div id="lock-screen">
   <div class="lock-wrap">
-    <!-- SVG Lock -->
     <svg id="lock-svg" viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg">
-      <!-- Shackle (the arc) -->
       <g id="shackle">
-        <path
-          d="M30 50 L30 30 Q30 10 50 10 Q70 10 70 30 L70 50"
-          fill="none"
-          stroke="rgba(77,163,255,0.9)"
-          stroke-width="6"
-          stroke-linecap="round"
-        />
+        <path d="M30 50 L30 30 Q30 10 50 10 Q70 10 70 30 L70 50"
+          fill="none" stroke="rgba(77,163,255,0.9)" stroke-width="6" stroke-linecap="round"/>
       </g>
-      <!-- Body -->
-      <rect id="lock-body"
-        x="15" y="48" width="70" height="55" rx="10"
-        fill="rgba(77,163,255,0.08)"
-        stroke="rgba(77,163,255,0.6)"
-        stroke-width="1.5"
-      />
-      <!-- Keyhole circle -->
+      <rect id="lock-body" x="15" y="48" width="70" height="55" rx="10"
+        fill="rgba(77,163,255,0.08)" stroke="rgba(77,163,255,0.6)" stroke-width="1.5"/>
       <circle id="lock-icon-line" cx="50" cy="72" r="8"
         fill="none" stroke="rgba(77,163,255,0.6)" stroke-width="2"/>
-      <!-- Keyhole stem -->
       <rect id="lock-icon-line2" x="47" y="78" width="6" height="12" rx="3"
         fill="none" stroke="rgba(77,163,255,0.6)" stroke-width="2"
         style="transition:opacity 0.4s ease 0.3s;"/>
-      <!-- Checkmark (hidden until unlocked) -->
-      <path id="check-mark"
-        d="M36 76 L46 86 L66 63"
-        fill="none"
-        stroke="var(--green)"
-        stroke-width="4"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        opacity="0"
-        style="transition:opacity 0.5s ease 0.5s; stroke-dasharray:50; stroke-dashoffset:50;"
-      />
+      <path id="check-mark" d="M36 76 L46 86 L66 63"
+        fill="none" stroke="var(--green)" stroke-width="4"
+        stroke-linecap="round" stroke-linejoin="round" opacity="0"
+        style="transition:opacity 0.5s ease 0.5s; stroke-dasharray:50; stroke-dashoffset:50;"/>
     </svg>
 
     <div class="lock-status" id="lock-status-text">VERIFYING CREDENTIALS...</div>
-
     <div class="progress-wrap">
       <div class="progress-bar" id="prog-bar"></div>
     </div>
@@ -612,10 +564,9 @@ footer a:hover{ color:var(--accent2); }
   </div>
 </div>
 
-<!-- ═══════════ PORTFOLIO (hidden until unlocked) ═══════════ -->
+<!-- PORTFOLIO -->
 <div id="portfolio-content">
 
-<!-- ═══════════ NAV ═══════════ -->
 <nav>
   <div class="nav-inner">
     <div class="logo">MOHAMED TAHA</div>
@@ -626,10 +577,9 @@ footer a:hover{ color:var(--accent2); }
   </div>
 </nav>
 
-<!-- ═══════════ MAIN ═══════════ -->
 <div class="container">
 
-  <!-- HERO — CENTERED -->
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-inner">
       <div class="section-label">[ SECURITY INTERFACE INITIALIZED ]</div>
@@ -716,6 +666,7 @@ footer a:hover{ color:var(--accent2); }
     <div class="section-label">[ PROJECT MODULE ]</div>
     <h2 class="section-title">Projects</h2>
     <div class="grid">
+
       <div class="card">
         <h3>CyberLucid</h3>
         <p>Built a free, beginner-friendly cybersecurity education platform that helps everyday users understand common attacks, recognize warning signs, practice safer decisions, and take practical steps to protect themselves.</p>
@@ -742,7 +693,7 @@ footer a:hover{ color:var(--accent2); }
         </div>
       </div>
 
-            <div class="card">
+      <div class="card">
         <h3>AI Drone Flight Agent</h3>
         <p>Developed a multi-agent AI flight system that converts natural-language instructions into executable drone missions inside an ArduPilot SITL simulator. The system handles mission planning, safety validation, command execution, state monitoring, flight summaries, and reusable mission files through MCP.</p>
         <div class="tags">
@@ -755,7 +706,7 @@ footer a:hover{ color:var(--accent2); }
         </div>
       </div>
 
-            <div class="card">
+      <div class="card">
         <h3>Virtualized Penetration Testing Lab</h3>
         <p>Built and maintained an isolated VirtualBox lab with Windows, Kali Linux, Ubuntu, and Metasploitable 2 to practice penetration testing, network analysis, vulnerability research, and web security. Used security tools to scan systems, analyze traffic, test vulnerabilities, and research CVEs in a controlled environment.</p>
         <div class="tags">
@@ -792,6 +743,29 @@ footer a:hover{ color:var(--accent2); }
           <a class="project-link" href="https://mohamed-mt.github.io/Keyspace/" target="_blank" rel="noopener noreferrer">Live Site ↗</a>
         </div>
       </div>
+
+      <!-- NEW PROJECT: SHADOWTRACE -->
+      <div class="card">
+        <h3>ShadowTrace</h3>
+        <p>Developed a read-only Windows security inspection tool that checks for potential signs of spyware, keyloggers, suspicious processes, persistence mechanisms, and other malware indicators. Uses 38 documented detection rules across multiple scan modes, weighs findings by severity and confidence, and generates detailed HTML and JSON reports while keeping all data local. Designed to operate without network access or system modifications, with clear reporting of limitations and potential false positives.</p>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">Windows Security</span>
+          <span class="tag">Spyware Detection</span>
+          <span class="tag">Keylogger Indicators</span>
+          <span class="tag">Malware Analysis</span>
+          <span class="tag">Threat Detection</span>
+          <span class="tag">psutil</span>
+          <span class="tag">Typer</span>
+          <span class="tag">Rich</span>
+          <span class="tag">HTML &amp; JSON Reports</span>
+          <span class="tag">Read-Only Security Auditing</span>
+        </div>
+        <div class="project-links">
+          <a class="project-link" href="https://github.com/Mohamed-MT/ShadowTrace/tree/main" target="_blank" rel="noopener noreferrer">GitHub Repository ↗</a>
+        </div>
+      </div>
+      <!-- END SHADOWTRACE -->
 
     </div>
   </section>
@@ -866,7 +840,7 @@ footer a:hover{ color:var(--accent2); }
 </div><!-- end #portfolio-content -->
 
 <script>
-/* ─── TERMINAL TYPEWRITER ─── */
+/* TERMINAL TYPEWRITER */
 const lines = [
   '> Establishing secure connection...',
   '> Verifying credentials...',
@@ -904,7 +878,7 @@ function typeNextLine(){
   }
 }
 
-/* ─── LOCK ANIMATION SEQUENCE ─── */
+/* LOCK ANIMATION SEQUENCE */
 function runLockSequence(){
   const lockScreen = document.getElementById('lock-screen');
   const progBar    = document.getElementById('prog-bar');
@@ -919,23 +893,19 @@ function runLockSequence(){
   lockScreen.style.display = 'flex';
   lockScreen.style.opacity = '1';
 
-  // Stage 1: progress bar fills
   setTimeout(()=>{
     progBar.classList.add('full');
   }, 100);
 
-  // Stage 2: status change
   setTimeout(()=>{
     statusTxt.textContent = 'DECRYPTING ACCESS KEY...';
   }, 600);
 
-  // Stage 3: unlock the shackle
   setTimeout(()=>{
     statusTxt.textContent = 'UNLOCKING...';
     shackle.classList.add('open');
   }, 1400);
 
-  // Stage 4: body turns green, keyhole fades to checkmark
   setTimeout(()=>{
     lockBody.classList.add('unlocked');
     keyhole1.style.opacity = '0';
@@ -947,12 +917,10 @@ function runLockSequence(){
     statusTxt.textContent = 'ACCESS GRANTED';
   }, 2100);
 
-  // Stage 5: welcome message
   setTimeout(()=>{
     welcomeMsg.classList.add('visible');
   }, 2700);
 
-  // Stage 6: dismiss and reveal portfolio
   setTimeout(()=>{
     lockScreen.style.transition = 'opacity 1s ease';
     lockScreen.style.opacity = '0';
@@ -964,19 +932,15 @@ function runLockSequence(){
   }, 3900);
 }
 
-/* ─── INTRO BUTTON ─── */
+/* INTRO BUTTON */
 function startPortfolio(){
   terminal = document.getElementById('terminal');
   cursor = terminal.querySelector('.cursor');
 
-  // Disable button during typing
   document.querySelector('.launch-btn').disabled = true;
   document.querySelector('.launch-btn').style.opacity = '0.5';
 
   typeNextLine();
-
-  // After terminal completes, fade out intro and show lock screen
-  const totalTime = lines.reduce((acc, l) => acc + l.length * 28 + 350 + 300, 0);
 
   setTimeout(()=>{
     const intro = document.getElementById('intro');
@@ -990,11 +954,10 @@ function startPortfolio(){
   }, 4600);
 }
 
-/* ─── SCROLL REVEAL ─── */
+/* SCROLL REVEAL */
 function initScrollReveal(){
   const sections = document.querySelectorAll('section');
 
-  // Two observers: one for entering, one for leaving upward
   const enterObserver = new IntersectionObserver((entries)=>{
     entries.forEach(entry => {
       if(entry.isIntersecting){
@@ -1007,15 +970,12 @@ function initScrollReveal(){
   const exitObserver = new IntersectionObserver((entries)=>{
     entries.forEach(entry => {
       if(!entry.isIntersecting){
-        // Only apply out-view if the section has already been seen
         if(entry.target.classList.contains('in-view')){
           const rect = entry.target.getBoundingClientRect();
-          // If scrolled past (section above viewport), fade up-out
           if(rect.bottom < 0){
             entry.target.classList.add('out-view');
             entry.target.classList.remove('in-view');
           } else {
-            // Section below viewport — reset to default slide-up-in state
             entry.target.classList.remove('in-view');
             entry.target.classList.remove('out-view');
           }
@@ -1030,7 +990,7 @@ function initScrollReveal(){
   });
 }
 
-/* ─── CURSOR GLOW ─── */
+/* CURSOR GLOW */
 const glow = document.createElement('div');
 glow.style.cssText = `
   position:fixed; width:550px; height:550px;
